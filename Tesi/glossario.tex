@@ -3,6 +3,8 @@
 % Acronimi
 %**************************************************************
 \renewcommand{\acronymname}{Acronimi e abbreviazioni}
+%\newacronym[description={\glslink{ITF}{Identity Trust Fabric}}]{ITF}{Identity Trust Fabric}
+\newacronym{ITF}{ITF}{Identity Trust Fabric}
 
 %**************************************************************
 % Glossario
@@ -55,5 +57,18 @@
 {
 	name= Sprint Backlog,
 	description={Insieme degli elementi selezionati dal Product Backlog per lo \textit{sprint}}
+}
+\newglossaryentry{IAM}
+{
+	name=Identity and Access Management,
+	description={L'Identity and Access Management è un sistema che si occupa della gestione delle informazioni riguardanti l'identità degli utenti e controlla l'accesso alle risorse informatiche. Nello specifico:
+	\begin{itemize}
+		\item \textbf{Identity Management} - censisce le utenze;
+		\item \textbf{Access Management} - gestisce l'autenticazione e l'autorizzazione delle utenze. 
+	\end{itemize}}
+}
+\newglossaryentry{identityWallet}{
+	name=Identity Wallet,
+	description={Portafogli digitali che contengono all'loro interno tutte le informazioni necessarie ad un utente per poter permettere l'autenticazione preciso servizio}
 }
 

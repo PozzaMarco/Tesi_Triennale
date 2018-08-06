@@ -52,13 +52,58 @@ Lo \emph{\gls{SprintBacklog}}\glsfirstoccur, invece, è una previsione redatta i
 Lo \gls{SprintBacklog} aiuta, quindi, a rendere trasparente il lavoro necessario per raggiungere gli obiettivi dello \textit{sprint}.
 Athesys adotta \textit{sprint} di durata quindicinale, preceduti da riunioni per defnire gli obiettivi e i tempi dello \textit{sprint} tra i membri del team di sviluppo. Ad ogni \textit{sprint} ne segue la sua ispezione e in caso l'adattamento con miglioramenti e correzioni.
 
-
-
-
-
 %**************************************************************
-\section{L'idea}
+\section{Il progetto proposto}
+Il progetto nasce nel contesto di migliorare e far evolvere il sistema di \emph{\gls{IAM}}\glsfirstoccur già in utilizzo da parte dell'azienda.\\
+Nelle sezioni seguenti si andrà quindi a discutere dettagliatamente il problema che si è voluto affrontare, le soluzioni che si sono trovate, l'ambito di sviluppo del prodotto, le funzionalità richieste e la pianificazione del progetto aziendale.
 
-Introduzione all'idea dello stage.
+\subsection{Il contesto}
+I servizi di identità decentralizzati permettono alle persone di registrarsi, a specifici servizi, come utenti in modo autonomo utilizzando gli \emph{\gls{identityWallet}}\glsfirstoccur. 
+Da questi gli utenti possono scegliere quali attributi, del loro profilo, immagazzinare e condividere con il \textit{service provider} verso la quale si vogliono autenticare.
+Nella forma più semplice l'identità è formata da due chiavi crittografiche, una pubblica ed una privata.
+La chiave privata è mantenuta protetta all'interno dell'\gls{identityWallet} mentre, quella pubblica, è crittografata tramite \textit{hash} e mantenuta immutabile all'interno dell'\gls{ITF}. 
+La chiave privata viene utilizzata per crittografare le informazioni e gli attributi degli utenti mentre, quella pubblica, viene utilizzata per decriptare le informazioni appena criptate. Questo meccanismo nasce allo scopo di assicurare che le informazioni, criptate, che arrivano al \textit{service provider}, appartengano all'utente che effettivamente ha richiesto l'accesso al servizio. Questo sicurezza viene garantita proprio dal meccanismo delle chiavi in quanto solo l'utente stesso può conoscere la propria chiave privata e quindi criptare le proprie informazioni.\\
+Le operazioni che avvengono, sia da parte dell'utente che del \textit{service provider}, per poter permettere l'accesso ad un servizio sono le seguenti:
+\begin{enumerate}
+	\item l'utente via la richiesta d'accesso al \textit{service provider} inviando le proprie informazioni criptate con la sua chiave privata;
+	\item il \textit{service provider} riceve le informazioni dell'utente ed un suo identificativo;
+	\item il \textit{service provider} interroga l'\gls{ITF} per recuperare la chiave pubblica associata a quell'utente;
+	\item il \textit{service provider} decripta le informazioni dell'utente utilizzando la chiave pubblica recuperata;
+\end{enumerate}
+A questo punto il \textit{service provider} è sicuro che le informazioni che ha ricevuto sono di proprietà dell'utente e può permettere o meno l'accesso al servizio richiesto.\\
+Questi passaggi sono la base di due modelli di autenticazione:
+\begin{itemize}
+	\item Modello Centralizzato;
+	\item Modello Decentralizzato;
+	\item Modello basato sugli Identity Custodians.
+\end{itemize}
+
+\subsubsection{Modello Centralizzato}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{immagini/ITF_Centralizzato}
+	\caption{Modello Centralizzato}
+\end{figure}
+In un modello centralizzato, le organizzazioni stabiliscono una relazione di fiducia \textit{punti a punto} con ogni utente che interagisce con il sistema.
+Le organizzazioni devono, quindi, mantenere la fiducia verso i loro utenti andando a gestire le varie identità digitali. Questo fa sì che, le organizzazioni, investano sulla protezione delle identità e delle informazioni sensibili. Questo si ripercuote, inevitabilmente, su un aumento dei costi operativi.\\
+Dal lato utente, questi, non hanno alcun controllo sulla gestione delle proprie identità ed attributi.\\
+Ogni organizzazione deve verificare l'identità di ogni utente prima di permettere la registrazione e l'accesso ai suoi servizi. Questo può ripetersi molte volte per, singolo utente, a seconda di quale organizzazione, l'utente, va a richiedere un servizio e a seconda del tipo di servizio che è richiesto. 
+Questo modello ha fatto sì che nascesse una proliferazione di identità digitali.
+\subsubsection{Modello Decentralizzato}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.50]{immagini/ITF_Decentralizzato}
+	\caption{Schema Decentralizzato}
+\end{figure}
+In un modello decentralizzato abbiamo un'entità terza che attesta e certifica la validità di un'identità auto-generata.
+Questo tipo di modello non elimina il processo di identity proofing ma lo trasforma in un processo generalizzato che può essere utilizzato tra organizzazioni diverse.
+Una volta che un'identità decentralizzata è stata legalmente provata, può essere utilizzata da service providers multipli per garantire l'accesso ai loro servizi.
+Per far funzionare questo modello abbiamo bisogno di una "struttura" che immagazzini immutabilmente le informazioni ed i certificati crittografati.  Per fare questo, la \textit{Blockchain} è la tecnologia adatta.
+I sistemi decentralizzati alleviano, le organizzazioni, dell'incarico di mantenere informazioni sensibili riguardo l'identità con la conseguenza di abbassare i costi di mantenimento e di gestione dei rischi.
+Dal lato utente invece abbiamo un controllo maggiore sulla privacy in quanto, i sistemi decentralizzati, permettono una miglior gestione delle identità personali e dei dati.
+Tuttavia la gestione completa delle informazioni personali, da parte dei singoli utenti, può risultare difficoltosa. È per questo che si è pensato di passare da un modello totalmente decentralizzato ad un modello ibrido dove le informazioni personali son custodite dagli \textit{Identity Custiodians}.
+
+\subsubsection{Modello basato sugli Identity Custodians}
+
 
 %**************************************************************
