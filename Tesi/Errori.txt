@@ -1,0 +1,4 @@
+ERRORI RILEVATI:
+- Le immagini dei Identity Custodian e del Progetto non sono dove dovrebbero essere
+- La bibliografia Gartner non compare
+- La parola Identity as a Service Non compare nel glossario
