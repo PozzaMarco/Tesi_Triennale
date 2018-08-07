@@ -88,12 +88,12 @@ In un modello centralizzato, le organizzazioni stabiliscono una relazione di fid
 Le organizzazioni devono, quindi, mantenere la fiducia verso i loro utenti andando a gestire le varie identità digitali. Questo fa sì che, le organizzazioni, investano sulla protezione delle identità e delle informazioni sensibili. Questo si ripercuote, inevitabilmente, su un aumento dei costi operativi.\\
 Dal lato utente, questi, non hanno alcun controllo sulla gestione delle proprie identità ed attributi.\\
 Ogni organizzazione deve verificare l'identità di ogni utente prima di permettere la registrazione e l'accesso ai suoi servizi. Questo può ripetersi molte volte per, singolo utente, a seconda di quale organizzazione, l'utente, va a richiedere un servizio e a seconda del tipo di servizio che è richiesto. 
-Questo modello ha fatto sì che nascesse una proliferazione di identità digitali.
+Questo modello ha fatto sì che nascesse una proliferazione di identità digitali diverse associate agli stessi utenti\cite{ITF_gartner}.
 \subsubsection{Modello Decentralizzato}
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.50]{immagini/ITF_Decentralizzato}
-	\caption{Schema Decentralizzato}
+	\caption{Modello Decentralizzato}
 \end{figure}
 In un modello decentralizzato abbiamo un'entità terza che attesta e certifica la validità di un'identità auto-generata.
 Questo tipo di modello non elimina il processo di identity proofing ma lo trasforma in un processo generalizzato che può essere utilizzato tra organizzazioni diverse.
@@ -101,9 +101,17 @@ Una volta che un'identità decentralizzata è stata legalmente provata, può ess
 Per far funzionare questo modello abbiamo bisogno di una "struttura" che immagazzini immutabilmente le informazioni ed i certificati crittografati.  Per fare questo, la \textit{Blockchain} è la tecnologia adatta.
 I sistemi decentralizzati alleviano, le organizzazioni, dell'incarico di mantenere informazioni sensibili riguardo l'identità con la conseguenza di abbassare i costi di mantenimento e di gestione dei rischi.
 Dal lato utente invece abbiamo un controllo maggiore sulla privacy in quanto, i sistemi decentralizzati, permettono una miglior gestione delle identità personali e dei dati.
-Tuttavia la gestione completa delle informazioni personali, da parte dei singoli utenti, può risultare difficoltosa. È per questo che si è pensato di passare da un modello totalmente decentralizzato ad un modello ibrido dove le informazioni personali son custodite dagli \textit{Identity Custiodians}.
-
+Tuttavia la gestione completa delle informazioni personali, da parte dei singoli utenti, può risultare difficoltosa. È per questo che si è pensato di passare da un modello totalmente decentralizzato ad un modello ibrido dove le informazioni personali son custodite dagli \textit{Identity Custiodians}\cite{ITF_gartner}.
 \subsubsection{Modello basato sugli Identity Custodians}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.50]{immagini/ITF_IdentityCustodians}
+	\caption{Modello basato sugli Identity Custodians}
+\end{figure}
+Gli \textit{Identity Custodians} nascono con l'obiettivo di semplificare la gestione e accrescere la disponibilità e protezione delle identità decentralizzate mantenendo, al loro interno, tutti gli attributi di identità necessari.
+Sorgono spontanee alcune preoccupazioni in quanto, un \textit{Identity Custodian}, rimane suscettibile ad attacchi esterni in quanto mantiene informazioni sensibili e di valore nonostante siano criptate. Questo è il motivo alla base della creazione di consorzi che adempiono al compito di \textit{Identity Custodians} sfruttando la \textit{BlockChian} come tecnologia di decentralizzazione delle informazioni.\\
+Utilizzato gli \textit{Identity Custodians} all'interno di un modello a consorzi si aumenta la privacy e la sicurezza delle informazioni. I dati utente ed i riferimenti ai loro hash nell'\gls{ITF} sono criptati e immagazzinati all'interno dell'ambiente decentralizzato. Questo permette all'\gls{identityWallet} di condividere solamente il riferimento alla locazione nell' \textit{Identity Custodian} facendo sì che i \textit{service provider} possano recuperare le informazioni e verificare l'identità utente prima dell'accesso\cite{ITF_gartner}.
+
 
 
 %**************************************************************
