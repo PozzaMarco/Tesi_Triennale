@@ -110,7 +110,32 @@ Tuttavia la gestione completa delle informazioni personali, da parte dei singoli
 \end{figure}
 Gli \textit{Identity Custodians} nascono con l'obiettivo di semplificare la gestione e accrescere la disponibilità e protezione delle identità decentralizzate mantenendo, al loro interno, tutti gli attributi di identità necessari.
 Sorgono spontanee alcune preoccupazioni in quanto, un \textit{Identity Custodian}, rimane suscettibile ad attacchi esterni in quanto mantiene informazioni sensibili e di valore nonostante siano criptate. Questo è il motivo alla base della creazione di consorzi che adempiono al compito di \textit{Identity Custodians} sfruttando la \textit{BlockChian} come tecnologia di decentralizzazione delle informazioni.\\
-Utilizzato gli \textit{Identity Custodians} all'interno di un modello a consorzi si aumenta la privacy e la sicurezza delle informazioni. I dati utente ed i riferimenti ai loro hash nell'\gls{ITF} sono criptati e immagazzinati all'interno dell'ambiente decentralizzato. Questo permette all'\gls{identityWallet} di condividere solamente il riferimento alla locazione nell' \textit{Identity Custodian} facendo sì che i \textit{service provider} possano recuperare le informazioni e verificare l'identità utente prima dell'accesso\cite{ITF_gartner}.
+Utilizzato gli \textit{Identity Custodians} all'interno di un modello a consorzi si aumenta la privacy e la sicurezza delle informazioni. I dati utente ed i riferimenti ai loro hash nell'\gls{ITF} sono criptati e immagazzinati all'interno dell'ambiente decentralizzato. Questo permette all'\gls{identityWallet} di condividere solamente il riferimento alla locazione nell' \textit{Identity Custodian} facendo sì che i \textit{service provider} possano recuperare le informazioni e verificare l'identità utente prima dell'accesso\cite{ITF_gartner}.\\
+
+\subsection{Il progetto da realizzare}
+Nell'ottica di estendere le funzionalità di \emph{\gls{monokee}}\glsfirstoccur, è stato previsto lo sviluppo di un layer di sicurezza, denominato \gls{ITF} (ITF), per integrare una tecnologia \textit{Blockchain} nei processi di accesso ai servizi e condivisione degli attributi di profilo.\\
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.50]{immagini/ITF_Modello_Funzionale}
+	\caption{Esempio di modello decentralizzato che sfrutta ITF}
+\end{figure}
+L'immagine raffigura un tipico scenario di accesso ai servizi di un \textit{service provider} da parte di un utente che possiede un proprio \gls{identityWallet}.
+Il modulo realizzato rappresenta il layer di sicurezza che si interpone tra l'utente e i servizi offerti dal \textit{service provider}.
+Le funzionalità principali realizzate, come si può vedere dalla figura, son essenzialmente cinque:
+\begin{enumerate}
+	\item \textbf{Registrazione}: come prima cosa l'utente genera la coppia di chiavi (privata e pubblica) nell'\gls{identityWallet}. La chiave pubblica viene crittografata tramite una funzione \textit{hash one-way} (ovvero calcolare l'hash è, computazionalmente semplice, ma, partendo dall'hash, ricalcolare il valore originale è computazionalmente impossibile) e immagazzinata all'interno dell'\gls{ITF}. Al record, contenente l'identità, possono essere aggiunti ulteriori dati personali per rafforzare ancora di più il processo di \emph{\gls{identityProofing}}\glsfirstoccur e \emph{\gls{identityBinding}}\glsfirstoccur delle informazioni con l'identità digitale;
+	 
+	\item \textbf{Certificazione}: come parte del processo di \gls{identityProofing} una parte terza fidata ha il compito di validare l'identità dell'utente. Questa validazione può avvenire o durante il processo di \gls{identityBinding} delle informazioni con l'identità digitale o durante la fase di registrazione/accesso di un utente ad un particolare servizio. Dopo aver validato con successo le informazioni di identità, questa parte terza certifica l'identità o gli attributi dell'utente, "firmandole" con la propria chiave privata. A questo punto il record certificato viene inserito nel \gls{ITF}.
+	Il processo di registrazione/autenticazione può esser semplificato se esistono già dei record, interni all'\gls{ITF}, che contengono informazioni e attributi utili. 
+	Su richiesta dell'utente, le organizzazioni possono ricertificare dei record per aumentare il livello di sicurezza delle informazioni contenute senza che l'utente debba registrarsi nuovamente generando un nuovo record con le stesse informazioni. Questo viene detto \textit{Web of Trust};
+	 
+	\item \textbf{Presentazione}: la chiave pubblica ed il riferimento alla locazione del \textit{hash} nel \gls{ITF} vengono forniti al \textit{service provide} affinché vengano verificati prima di permettere l'accesso al servizio;
+	
+	\item \textbf{Verifica}: una volta che il \textit{service provider} possiede la chiave pubblica e la locazione dell'\textit{hash} nell'\gls{ITF} passa alla fase di verifica.
+	In questa fase, utilizzando queste informazioni, verifica l'identità o gli attributi utente andando a generare l'\textit{hash} dei dati e, successivamente, confrontandolo con il loro corrispettivo interno all'\gls{ITF};
+	 
+	\item \textbf{Accesso}: dopo aver verificato con successo l'identità di un utente viene concesso, a quest'ultimo, di accedere ai servizi o alle applicazioni richieste.
+\end{enumerate}
 
 
 
