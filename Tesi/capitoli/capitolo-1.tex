@@ -103,22 +103,23 @@ I sistemi decentralizzati alleviano, le organizzazioni, dell'incarico di mantene
 Dal lato utente invece abbiamo un controllo maggiore sulla privacy in quanto, i sistemi decentralizzati, permettono una miglior gestione delle identità personali e dei dati.
 Tuttavia la gestione completa delle informazioni personali, da parte dei singoli utenti, può risultare difficoltosa. È per questo che si è pensato di passare da un modello totalmente decentralizzato ad un modello ibrido dove le informazioni personali son custodite dagli \textit{Identity Custiodians}\cite{ITF_gartner}.
 \subsubsection{Modello basato sugli Identity Custodians}
-\begin{figure}[!h]
+Gli \textit{Identity Custodians} nascono con l'obiettivo di semplificare la gestione e accrescere la disponibilità e protezione delle identità decentralizzate mantenendo, al loro interno, tutti gli attributi di identità necessari.
+Sorgono spontanee alcune preoccupazioni in quanto, un \textit{Identity Custodian}, rimane suscettibile ad attacchi esterni in quanto mantiene informazioni sensibili e di valore nonostante siano criptate. Questo è il motivo alla base della creazione di consorzi che adempiono al compito di \textit{Identity Custodians} sfruttando la \textit{BlockChian} come tecnologia di decentralizzazione delle informazioni.\\
+Utilizzato gli \textit{Identity Custodians} all'interno di un modello a consorzi si aumenta la privacy e la sicurezza delle informazioni. I dati utente ed i riferimenti ai loro hash nell'\gls{ITF} sono criptati e immagazzinati all'interno dell'ambiente decentralizzato. Questo permette all'\gls{identityWallet} di condividere solamente il riferimento alla locazione nell' \textit{Identity Custodian} facendo sì che i \textit{service provider} possano recuperare le informazioni e verificare l'identità utente prima dell'accesso\cite{ITF_gartner}.
+\begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.50]{immagini/ITF_IdentityCustodians}
 	\caption{Modello basato sugli Identity Custodians}
 \end{figure}
-Gli \textit{Identity Custodians} nascono con l'obiettivo di semplificare la gestione e accrescere la disponibilità e protezione delle identità decentralizzate mantenendo, al loro interno, tutti gli attributi di identità necessari.
-Sorgono spontanee alcune preoccupazioni in quanto, un \textit{Identity Custodian}, rimane suscettibile ad attacchi esterni in quanto mantiene informazioni sensibili e di valore nonostante siano criptate. Questo è il motivo alla base della creazione di consorzi che adempiono al compito di \textit{Identity Custodians} sfruttando la \textit{BlockChian} come tecnologia di decentralizzazione delle informazioni.\\
-Utilizzato gli \textit{Identity Custodians} all'interno di un modello a consorzi si aumenta la privacy e la sicurezza delle informazioni. I dati utente ed i riferimenti ai loro hash nell'\gls{ITF} sono criptati e immagazzinati all'interno dell'ambiente decentralizzato. Questo permette all'\gls{identityWallet} di condividere solamente il riferimento alla locazione nell' \textit{Identity Custodian} facendo sì che i \textit{service provider} possano recuperare le informazioni e verificare l'identità utente prima dell'accesso\cite{ITF_gartner}.\\
 
 \subsection{Il progetto da realizzare}
-Nell'ottica di estendere le funzionalità di \emph{\gls{monokee}}\glsfirstoccur, è stato previsto lo sviluppo di un layer di sicurezza, denominato \gls{ITF} (ITF), per integrare una tecnologia \textit{Blockchain} nei processi di accesso ai servizi e condivisione degli attributi di profilo.\\
+Nell'ottica di estendere le funzionalità di \emph{\gls{monokee}}\glsfirstoccur, è stato previsto lo sviluppo di un layer di sicurezza, denominato \gls{ITF} (ITF), per integrare una tecnologia \textit{Blockchain} nei processi di accesso ai servizi e condivisione degli attributi di profilo.
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.50]{immagini/ITF_Modello_Funzionale}
 	\caption{Esempio di modello decentralizzato che sfrutta ITF}
 \end{figure}
+\\
 L'immagine raffigura un tipico scenario di accesso ai servizi di un \textit{service provider} da parte di un utente che possiede un proprio \gls{identityWallet}.
 Il modulo realizzato rappresenta il layer di sicurezza che si interpone tra l'utente e i servizi offerti dal \textit{service provider}.
 Le funzionalità principali realizzate, come si può vedere dalla figura, son essenzialmente cinque:
