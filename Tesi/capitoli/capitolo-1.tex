@@ -137,7 +137,99 @@ Le funzionalità principali realizzate, come si può vedere dalla figura, son es
 	 
 	\item \textbf{Accesso}: dopo aver verificato con successo l'identità di un utente viene concesso, a quest'ultimo, di accedere ai servizi o alle applicazioni richieste.
 \end{enumerate}
+\subsection{Obiettivi di stage}
+Nella seguente tabella sono riportati gli obiettivi fissati per lo stage con rispettivo identificativo, importanza e breve descrizione.\\\\
+L'identificativo (abbreviato in ID) userà la notazione:\\
+\centerline{[\textit{Importanza}][\textit{numero identificativo}]}.\\
+L'importanza sarà rappresentata da una delle seguenti lettere maiuscole:\\
+\centerline{\textbf{O},\textbf{D},\textbf{F}}\\
+che identificano, rispettivamente, un obiettivo obbligatorio, desiderabile o facoltativo.\\
+Il numero idetificativo è un numero incrementale che segnala in modo univoco l’obiettivo.\\
+L'importanza di un obiettivo viene assegnata come segue:
+\begin{itemize}
+	\item \textbf{Obbligatorio} - rappresenta un requisito che dovrà esser soddisfatto al fine di garantire le funzionalità base del sistema;
+	\item \textbf{Desiderabile} - rappresenta un requisito il cui non soddisfacimento non pregiudica le funzionalità base ma, la sua realizzazione, da un valore aggiunto importante al fine di realizzare un sistema più completo;
+	\item \textbf{Facoltativo} - rappresenta un requisito che, se soddisfatto, renderebbe il sistema ancora più completo a discapito di un uso di risorse.
+\end{itemize}
+\begin{longtable}{|r l|p{3cm}|p{10cm}|}
+	\hline
+	\multicolumn{2}{|c|}{\textbf{ID}} & \textbf{IMPORTANZA} & \textbf{DESCRIZIONE}\tabularnewline
+	\hline
+	& O1 & Obbligatorio & Studio del dominio applicativo \\\hline
+	& O2 & Obbligatorio & Studio delle possibili tecnologie \textit{Blockchain} da adottare \\\hline
+	& O3 & Obbligatorio & Analisi comparativa delle tecnologie \textit{Blockchain} individuate \\\hline
+	& O4 & Obbligatorio & Definizione dei vari casi d'uso per le funzionalità richieste (sopracitate) \\\hline
+	& O4.1 & Obbligatorio & Definizione dei casi d'uso per la funzionalità di registrazione \\\hline
+	& O4.2 & Obbligatorio & Definizione dei casi d'uso per a funzionalità di certificazione \\\hline
+	& O4.3 & Obbligatorio & Definizione dei casi d'uso per la funzionalità di verifica \\\hline
+	& O5 & Obbligatorio & Stesura del documento di analisi dei requisiti\\\hline
+	& O6 & Obbligatorio & Stesura del documento contenete le specifiche architetturali del sistema \\\hline
+	& O7 & Obbligatorio & Realizzazione del modulo \gls{ITF}\\\hline
+	& O7.1 & Obbligatorio & Realizzazione della struttura e della gerarchia di classi necessaria alla realizzazione del modulo \\\hline
+	& O7.2 & Obbligatorio & Implementazione dei metodi necessari per il corretto funzionamento del modulo\\\hline
+	& D1 & Desiderabile & Produzione della documentazione relativa alle analisi svolte \\\hline
+	& D2 & Desiderabile & Definizione dei casi d'uso per la funzionalità di presentazione dei dati \\\hline
+	& D3 & Desiderabile & Definizione dei casi d'uso per la funzionalità di accesso al servizio \\\hline
+	& D4 & Desiderabile & Stesura del documento di progettazione\\\hline
+	& D5 & Desiderabile & Realizzazione dei test necessari alla verifica del corretto funzionamento del sistema\\\hline
+	& D5.1 & Desiderabile & Implementazione dei test di unità per i singoli metodi\\\hline
+	& D5.2 & Desiderabile & Implemetnazione dei test di integrazione per testare le classi \\\hline
+	& D5.3 & Desiderabile & Implementazione dei test di integrazione per testare l'interazione tra tutte le classi che compongono il sistema \\\hline
+	& F1 & Facoltativo & Stesura del documento relativo ai test di unità ed integrazione \\\hline	
+	& F2 & Facoltativo & Stesura del documento relativo alla validazione del modulo (anomalie e bug) \\\hline
+	\caption{Tabella degli obiettivi di stage}
+\end{longtable}
+\subsection{Pianificazione del lavoro}
+In accordo con l'azienda tutto il periodo di stage che va dal 4 Giugno 2018 al 30 Luglio 2018 è stato suddiviso in fasi.\\
+Vengono qui riportate in dettaglio le attività previste per ogni periodo, specificando il numero di ore preventivate e il periodo in cui ne è stato pianificato lo svolgimento.\\\\
+\subsubsection{Fase 1: dal 4 Giugno 2018 all'8 Giugno 2018 per un totale di 40 ore}
+In questa prima fase si era prevista l'individuazione della tecnologia \textit{Blockchain} da adottare per l'implementazione del modulo \gls{ITF}. La scelta della tecnologia prevedeva l'analisi ed il confronto delle varie tecnologie candidate in rapporto al dominio applicativo ovvero la gestione delle identità e degli accessi ai servizi.\\
+In questa prima fase era prevista la stesura del documento di studio di Fattibilità.\\\\
 
+\subsubsection{Fase 2: dall' 11 Giugno 2018 al 15 Giugno 2018 per un totale di 40 ore}
+In questa fase, lo scopo principale era studiare approfonditamente il sistema che si voleva realizzare e definire tutti i casi d'uso necessari per modellare, concettualmente, l'interno sistema.\\
+Il mio stage, essendo fatto in collaborazione con un altro studente, prevedeva l'individuazione dei casi d'uso relativi alle funzionalità di:
+\begin{itemize}
+	\item Registrazione;
+	\item Certificazione;
+	\item Verifica.
+\end{itemize}
+Di cui si è discusso precedentemente.\\
+Questa fase prevedeva la stesura del documento di Analisi dei Requisiti.\\\\
 
+\subsubsection{Fase 3: dal 18 Giugno 2018 al 22 Giugno 2018 per un totale di 40 ore}
+In questa terza fase era prevista la stesura dell'architettura generale, comprensiva di \emph{\gls{designPatterns}}\glsfirstoccur, che avrebbe implementato le funzionalità rilevate dai casi d'uso della fase precedente.\\
+Si era previsto anche la stesura del documenti di Progettazione Architetturale.\\\\
 
+\subsubsection{Fase 4: dal 25 Giugno 2018 al 4 Luglio 2018 per un totale di 60 ore}
+Quarta fase del periodo di stage che prevedeva la definizione dei metodi, necessari per l'implementazione del sistema, in pseudo-codice. Anche in questa fase era prevista la stesura di un documento, desiderabile, di Progettazione di Dettaglio.\\\\
+
+\subsubsection{Fase 5: dal 5 Luglio 2018 al 25 Luglio 2018 per un totale di 120 ore}
+Fase centrale di tutto lo stage in cui era prevista la codifica del modulo \gls{ITF} comprensiva di classi e metodi.\\
+Sempre durante questa fase era prevista anche la codifica dei test di unità e di integrazione per i singoli metodi e per le classi.\\
+A corredo di tutto questo era prevista la stesura del documento relativo al testing delle funzionalità.\\\\
+
+\subsubsection{Fase 6: dal 26 Luglio 2018 al 30 Luglio 2018 per un totale di 20 ore}
+In quest'ultima fase era prevista la validazione dell'intero sistema realizzato e predisposto il software per il collaudo finale fatto in collaborazione con l'altro studente stagista che ha realizzato le componenti mancanti per l'implementazione del modulo \gls{ITF} finale.\\\\
+
+Al termine di questo periodo di stage il prodotto si trova in una fase di \emph{\gls{poc}}\glsfirstoccur funzionante e predisposta per:
+\begin{itemize}
+	\item poter implementare nuove future funzionalità;
+	\item migliorare le funzionalità che già possiede senza dover apportare grossi cambiamenti all'infrastruttura;
+	\item poter essere integrato come parte del prodotto cardine dell'azienda: \gls{monokee}.
+\end{itemize}
+
+\subsubsection{Riepilogo delle attività previste}
+\begin{longtable}{|r l|p{1cm}|p{3cm}|}
+	\hline
+	\multicolumn{2}{|c|}{\textbf{ATTIVITÀ}} & \textbf{ORE} & \textbf{PERIODO}\tabularnewline
+	\hline
+	& Fase 1 & 40 & 08/06 - 22/06 \\\hline	
+	& Fase 2 & 40 & 11/06 - 15/06\\\hline
+	& Fase 3 & 40 & 18/06 - 22/06\\\hline
+	& Fase 4 & 60 & 25/06 - 04/07 \\\hline
+	& Fase 5 & 120 & 05/07 - 25/07 \\\hline
+	& Fase 6 & 20 & 26/07 - 30/07 \\\hline	
+	\caption{Riepilogo delle attività di stage}
+\end{longtable}
 %**************************************************************
