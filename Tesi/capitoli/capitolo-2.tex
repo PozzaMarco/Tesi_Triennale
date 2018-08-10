@@ -6,8 +6,30 @@
 \chapter{Tecnologie e strumenti}
 \label{cap:tecnologie_e_strumenti}
 %**************************************************************
-
-\intro{Brevissima introduzione al capitolo}\\
-
+In questo capitolo verranno illustrate le tecnologie e gli strumenti che sono stati utilizzati per realizzare il progetto di stage.\\
+Il capitolo si apre con una descrizione di che cos'è una \textit{Blockchain} e del perchè è stata scelta come tecnologia chiave per la realizzazione del progetto e, di seguito, verranno descritti tutti gli strumenti utilizzati.\\\\
+Questa sezione è frutto di studi di vari documenti e \textit{whitepaper} forniti dall'azienda\cite{spidchain_whitepaper}\cite{SSID}\cite{jolocom_whitepaper}\cite{ITF_gartner}\cite{hashgraph_whitepaper}
 %**************************************************************
-\section{Processo sviluppo prodotto}
+\section{Cos'è una Blockchain}
+Una \textit{Blockchain} è un \emph{\gls{dlt}}\glsfirstoccur che si basa fortemente sul \textit{consenso} e su un sistema di \textit{smart contracts}.
+È quindi una piattaforma costruita su una rete di nodi (detti blocchi) distribuiti dove gli elementi chiave che la contraddistinguono sono:
+\begin{itemize}
+	\item \textbf{Smart Contracts} - programmi che vengono eseguiti solamente quando si verificano determinate condizioni;
+	\item \textbf{Consenso} - sistema che assicura che la maggioranza (50\% + 1) dei nodi della rete identifichi e sia in accordo, con tutti gli altri nodi della rete, che un determinato stato del sistema sia quello esatto.
+\end{itemize}
+Questi blocchi sono formati da quattro sezioni:
+\begin{itemize}
+	\item \textbf{Block size} che rappresenta la grandezza in bytes del blocco;
+	\item \textbf{Block Header} è un campo particolare che è a sua volta formato da:
+	\begin{itemize}
+		\item \textbf{Version} numero di versione del software utilizzato;
+		\item \textbf{Previous Block Hash} contiene l'hash dell'header del blocco precedente.;
+		\item \textbf{Markle root} hash della radice del \textit{Markle tree} (spiegato di seguito);
+		\item \textbf{Timestamp} tempo di creazione del blocco;
+		\item \textbf{Difficulty target} numero che indica il livello di difficolta per l'aggiunta del blocco alla \textit{Blockchain};
+		\item \textbf{numero casuale o pseudo-casuale dato come risultato dell'elaborazione della\emph{\gls{pow}}\glsfirstoccur}.
+	\end{itemize}
+	\item \textbf{Transaction counter} contiene il numero di transazioni che compongono il blocco;
+	\item \textbf{Transaction} lista di tutte le transazioni che verranno processate nel blocco.
+\end{itemize}
+\subsection{Caratteristiche chiave}
