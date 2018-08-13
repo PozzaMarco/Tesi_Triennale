@@ -116,8 +116,9 @@ Utilizzato gli \textit{Identity Custodians} all'interno di un modello a consorzi
 Nell'ottica di estendere le funzionalità di \emph{\gls{monokee}}\glsfirstoccur, è stato previsto lo sviluppo di un layer di sicurezza, denominato \gls{ITF}, per integrare una tecnologia \textit{Blockchain} nei processi di accesso ai servizi e condivisione degli attributi di profilo.
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.50]{immagini/ITF_Modello_Funzionale}
+	\includegraphics[scale=0.5]{immagini/ITF_Modello_Funzionale}
 	\caption{Esempio di modello decentralizzato che sfrutta ITF}
+	\label{fig:moduloITF}
 \end{figure}
 \\
 L'immagine raffigura un tipico scenario di accesso ai servizi di un \textit{service provider} da parte di un utente che possiede un proprio \gls{identityWallet}.
@@ -233,4 +234,26 @@ Al termine di questo periodo di stage il prodotto si trova in una fase di \emph{
 	\caption{Riepilogo delle attività di stage}
 \end{longtable}
 
+\section{Analisi preventiva dei rischi}
+
+Durante la fase di analisi iniziale sono stati individuati alcuni possibili rischi a cui si potrà andare incontro.
+Si è quindi proceduto a elaborare delle possibili soluzioni per far fronte a tali rischi.\\
+
+\begin{risk}{Tecnologia Blockchain}
+	\riskdescription{Avendo a che fare con una tecnologia mai utilizzata prima ed in costante sviluppo, vi è la possibilità di subire rallentamenti per approfondire nuove tematiche e risolvere problemi legati allo sviluppo}
+	\risksolution{L'unica soluzione possibilie è stata lo studio individuale e l'approfondimento della tematicha che, per fortuna, non ha richiesto tanto tempo e non ha rallentato troppo lo sviluppo}
+	\label{risk:new-technology}
+\end{risk}
+
+\begin{risk}{Nuovo linguaggio: Solidity}
+	\riskdescription{Avendo a che fare con una tecnologia diversa dal solito, anche il linguaggio di programmazione che ne permette l'utilizzo è diverso. Il rischio è che le conoscenze acquisite in termini di \textit{Design Patterns} o scelte architetturali potrebbero non essere più valide nel nuovo contesto}
+	\risksolution{Il rischio si è verificato in quanto programmando un'applicazione basta esclusivamente su \textit{Blockchain} molte delle conscenze della programmazione "tradizionale" non son servite a risolvere determinate problematiche incontrate durante lo sviluppo del modulo \gls{ITF}. Si è dovuto, quindi, adattare le conoscenze pregresse alla nuova tecnologia in modo da risolvere le problematiche riscontrate.}
+	\label{risk:different-way-of-thinking}
+\end{risk}
+
+\begin{risk}{Nuovi strumenti per la gestione della tecnologia}
+	\riskdescription{Anche gli strumenti a supporto della tecnologia \textit{Blockchain} possono dare problemi in quanto, molti dei quali, sono ancora in versioni \textit{beta} o rilasciati in versioni stabili da poco. In più, essendo una tecnologia relativamente nuova, si può incorrere nel rischio di trovare anomalie e bug non ancora risolti}
+	\risksolution{La soluzione è lo studio approfondito della tematica e del dominio applicativo insieme ad un approfondimento di cosa, questi strumenti, permettono di fare e di come raggiungono il loro scopo. Il rischio si è verificato in parte in quanto gli strumenti, sopratutto quelli "nuovi" e ancora poco conosciuti, non davano i risultati sperati. Una più approfondita analisi e studio hanno permesso la risoluzione dei problemi incontrati.}
+	\label{risk:new-tools}
+\end{risk}
 %**************************************************************
