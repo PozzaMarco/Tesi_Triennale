@@ -6,27 +6,73 @@
 \chapter{Analisi dei requisiti}
 \label{cap:analisi_dei_requisiti}
 %**************************************************************
-
-\intro{Breve introduzione al capitolo}\\
-
-%**************************************************************
-\section{Introduzione al progetto}
+In questo capitolo verranno esposti i casi d'uso e i requisiti del modulo \gls{ITF} che erano oggetto del lavoro di stage.\\
+Si procede con la descrizione dello stato del sistema, gli attori che vi partecipano, le pre-condizioni, le post-condizioni e gli scenari.\\
+I casi d'uso principali sono associati ad un diagramma \gls{uml} 2.0 che riporta lo stesso codice identificativo e titolo del caso d'uso al quale si riferisce.
 
 %**************************************************************
-\section{Analisi preventiva dei rischi}
+\section{Dominio}
+\subsection{Caratteristiche degli attori}
+L'interazione con il modulo \gls{ITF} coinvolge essenzialmente tre tipologie diverse di attori:
+\begin{itemize}
+	\item L'identity wallet;
+	\item Un ente certificatore;
+	\item Un service provider.
+\end{itemize}
 
-Durante la fase di analisi iniziale sono stati individuati alcuni possibili rischi a cui si potrà andare incontro.
-Si è quindi proceduto a elaborare delle possibili soluzioni per far fronte a tali rischi.\\
-
-\begin{risk}{Performance del simulatore hardware}
-    \riskdescription{le performance del simulatore hardware e la comunicazione con questo potrebbero risultare lenti o non abbastanza buoni da causare il fallimento dei test}
-    \risksolution{coinvolgimento del responsabile a capo del progetto relativo il simulatore hardware}
-    \label{risk:hardware-simulator} 
-\end{risk}
-
+\subsubsection{Identity Wallet}
+Questa componente del sistema ha il compito di generare, mantenere e presentare l'identità digitale dell'utente. A sua volta, l'\textit{Identity Wallet} interagisce con il sistema \gls{ITF} nel momento in cui un utente esegue una richiesta di accesso verso un \textit{service provider} il quale richiede l'autenticazione e la conferma delle credenziali insieme alla verifica di attributi specifici necessari per erogare i suoi servizi.\\
+Il sistema \gls{monokee}, una volta che l'utente richiede l'accesso ad un \textit{service provider}, reindirizza la richiesta di accesso all'\gls{ITF}.
+\subsubsection{Ente Certificatore (Trusted Third Party)}
+La seconda tipologia di attori che interagiscono con il sistema da realizzare sono i \textit{Trusted Third Party}.\\
+Questi, chiamati enti certificatori, hanno il compito di certificare le informazioni che sono presenti all'interno dell'\gls{ITF} in modo che, ogni qual volta che vengono richieste informazioni per poter accedere ad un \textit{service provider}, le informazioni che il sistema fornisce per l'autenticazione e/o l'erogazione di servizi, siano verificate da un ente esterno che garantisce la loro veridicità.
+\subsubsection{Service Provider}
+La terza e ultima tipologia di attori che partecipano al sistema sono i \textit{service provider}.
+Questi interagiscono con l'\gls{ITF} durante la fase di verifica delle informazioni. Questi devono autenticare gli utenti tramite le loro credenziali e autorizzare l'erogazione di servizi dopo la verifica degli attributi
 %**************************************************************
-\section{Requisiti e obiettivi}
+\subsection{Overview del sistema}
+Una rappresentazione delle funzionalità che deve implementare il modulo \gls{ITF} può essere ripresa in figura \ref{fig:moduloITF}.\\\\
+Il prodotto finale prevede l'interazione delle tre tipologie di attori allo scopo di garantire:
+\begin{itemize}
+	\item L'accesso sicuro al \textit{service provider} desiderato;
+	\item L'erogazione dei servizi offerti dal \textit{service provider} in modo controllato.
+\end{itemize}
+Questo viene garantito dall'\gls{ITF} e dalla tecnologia \textit{Blockchain} che ne è alla base.\\
+Di seguito viene descritto il flusso di chiamate che intercorrono affinchè un utente possa accedere ad uno o più servizi di sua scelta.\\\\
+Quando un utente richiede dei servizi, da parte di un \textit{service provider}, il sistema viene interrogato e inizia lo scambio di informazioni che coinvolge l'\textit{identity wallet}, gli enti certifictori ed il \textit{service provider}.\\
+Ogni qual volta un utente richiede l'accesso a dei servizi di un determinato \textit{service provider}, \gls{monokee} reindirizza la richiesta d'accesso all'\textit{identity wallet} che, a sua volta, invia la richiesta di accesso all'\gls{ITF} passandogli un identificativo dell'utente che ha fatto la richiesta di accesso insieme alle informazioni che il \textit{service provider} necessita per poter permettere l'erogazione dei suoi servizi.\\
+Nell'\gls{ITF} viene eseguita una ricerca nella rete \textit{Blockchain} sottostante in modo da verificare se le informazioni richieste dal \textit{service provider} siano efffettivamente associate all'utente. Se il riscontro è positivo, il \textit{service provider} permette l'accesso all'utente altrimenti gli viene negato.\\\\
+La seconda tipologia di attori che partecipano al sistema, gli enti certificatori, entrano in gioco durante la fase di registrazione di un nuovo utente o quando un amministratore di dominio associa degli attributi alle identità digitali dei suoi utenti.
+Gli enti certificatori hanno il compito di verificare e certificare che, le asserzioni o gli attributi, di una particolare identità, siano conformi alle informazioni associate a quell'utente.\\
+Questo ruolo è di fondamentale importanza all'interno del sistema che si sta sviluppando in quanto, essendo l'\gls{ITF} basata su una \textit{Blockchain}, tutte le informazioni che popolano la rete sono immutabili e, quindi, prima di essere definitivamente inserite in un blocco, devono essere verificate e approvate, dagli enti certificatori, tramite gli algoritmi di consenso.\\\\
+La terza tipologia di attori, i \textit{service providers}, interagiscono con il sistema durante la verifica delle informazioni dell'identità dell'utente.\\
+Questi, dopo che l'\textit{identity wallet} gli ha passato i record contenenti la chiave pubblica e il riferimento alla locazione del record cifrato nell'\gls{ITF}, iniziano il  controllo delle informazioni.\\
+Il controllo viene fatto andando prima a calcolare l'\textit{hash crittografico} della chiave pubblica pervenuta dall'\textit{identity wallet} e poi andando a confrontare il risultato ottenuto con quello presente nell'\gls{ITF} recuperato grazie al riferimento alla sua locazione nella rete Blockchain.
+In questa fase, il \textit{service provider} verifica i record contenente l'identità e qualsiasi altra credenziale per autenticare l'utente e verifica anche gli attributi necessari per autorizzare l'utente ad utilizzare i suoi servizi.
+\section{Casi d'uso}
+\subsection{Classificazione dei casi d'uso}
+Ogni caso d'uso è classificato secondo la seguente convienzione:\\\\
+\centerline{UC[codicePadre]\_[codiceFiglio]}\\\\
+In cui i due codici rappresentano:
+\begin{itemize}
+	\item \textbf{codicePadre} - identifica univocamente il caso d'uso;
+	\item \textbf{codiceFiglio} - identifica univocamente i sotto casi d'uso apparteneti ad un determinato "codicePadre".
+\end{itemize}
 
+\subsection{Descrizione dei casi d'uso}
+Ogni caso d'uso viene descritto dalla seguente struttura:
+\begin{itemize}
+	\item \textbf{Descrizione} - Breve descrizione del caso d'uso che si sta modellando;
+	\item \textbf{Attori Principali} - Indica l'attore principale del caso d'uso. In tutto il contesto dell'applicazione, gli attori saranno classificati come:
+	\begin{itemize}
+		\item Identity Wallet;
+		\item Trusted Third Party (ente certificatore);
+		\item Service Provider.
+	\end{itemize}
+	\item \textbf{Attori Secondari} - Indica l'attore che aiuta l'attore principale a realizzare quanto descritto dal caso d'uso;
+	\item \textbf{Pre-Condizioni} - Specifica la condizione del sistema prima del verificarsi degli eventi descritti dal caso d'uso;
+	\item \textbf{Post-Condizioni} - Specifica le condizioni del sistema dopo il verificarsi degli eventi descritti dal caso d'uso;
+	\item \textbf{Scenario Principale} - Rappresenta il flusso principale degli eventi ovvero il caso in cui tutto funzioni come deve;
+	\item \textbf{Estensioni} - Rappresenta il flusso secondario degli eventi nel caso in cui si verifichino degli errori nel flusso principale.
+\end{itemize}
 
-%**************************************************************
-\section{Pianificazione}
