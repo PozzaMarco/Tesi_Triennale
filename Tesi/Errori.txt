@@ -1,2 +1,15 @@
 ERRORI RILEVATI:
-Errori nel glossario
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.50]{immagini/usecase/UC1.2.1_InserimentoDatiPersonali}
+	\caption{Caso d'uso UC1: Registrazione}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Descrizione} -
+	\item \textbf{Attori Principali} -
+	\item \textbf{Attori Secondari} -
+	\item \textbf{Pre-Condizioni} -
+	\item \textbf{Post-Condizioni} -
+	\item \textbf{Scenario Principale} -
+	\item \textbf{Estensioni} -
+\end{itemize}
