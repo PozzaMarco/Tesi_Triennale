@@ -490,3 +490,119 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\end{enumerate}
 	\item \textbf{Estensioni} -
 \end{itemize}
+\section{Requisiti}
+In questa sezione verranno elencati e descritti tutti i requisiti rilevati durante la fase di analisi dei requisiti. Questi saranno inseriti all'interno di una tabella contenente:
+\begin{itemize}
+	\item ID del requisito;
+	\item Breve descrizione del requisito;
+	\item Fonti dov'è possibile trovare o ricondursi al requisito stesso.
+\end{itemize}
+Prima di questo, verrà spiegata la nomenclatura adottata al fine di catalogare, ordinare e tracciare tutti i requisiti.
+\subsection{Classificazione dei requisiti}
+Ogni requisito viene calssificato secondo la seguente convenzione:\\
+\centerline{R[Tipologia][Importanza]][Padre].[Livello]}\\
+\begin{itemize}
+	\item \textbf{Tipologia} - Indica la tipologia del requisito indicata con una lettera tra:
+	\begin{itemize}
+		\item \textbf{F}: \textit{Funzionale} ovvero le funzionalità che il sistema offre;
+		\item \textbf{P}: \textit{Prestazionale} ovvero i vincoli sulle prestazioni che il sistema deve soddisfare;
+		\item \textbf{Q}: \textit{Qualità} ovvero specifica i vincoli di qualità che il sistema deve soddisfare;
+		\item \textbf{V}: \textit{Vincolo} ovvero rappresenta tutti i vincoli non funzionali che dipendono da fattori esterni, legali e di dominio.
+	\end{itemize}
+	\item \textbf{Importanza} - Indica l'importanza del requisito o la sua utilità strategica. Viene rappresentata da una lettera maiuscola tra:
+	\begin{itemize}
+		\item \textbf{O}: Rappresenta un requisito \textit{Obbligatorio} che deve essere soddisfatto per garantire le funzionalità base del sistema;
+		\item \textbf{D}: Rappresenta un requisito \textit{Desiderabile} il cui non soddisfacimento non pregiudica le funzionalità del sistema ma, la sua realizzazione, da un valore aggiunto rendendo il tutto più completo;
+		\item \textbf{F}: Rappresenta un requisito \textit{Facoltativo} che, se soddisfatto, renderebbe il sistema ancora più vompleto a discapito di risorse e aumento dei potenziali costi.
+	\end{itemize}
+	\item \textbf{Padre} - Numero che rappresenta univocamente un requisito;
+	\item \textbf{Livello} - Per ogni "padre" il livello indica il numero del sotto requisito del caso preso in esame.
+\end{itemize}
+\subsection{Requisiti Funzionali}
+\begin{longtable}{|r l|p{10cm}|p{2cm}|}
+	\hline
+	\multicolumn{2}{|c|}{\textbf{ID Requisito}} & \textbf{Descrizione} & \textbf{Fonti}\tabularnewline
+	\hline
+	&\textbf{RFO1.0}&Il sistema richiede che l'identità digitale venga generata&UC1 \\\hline
+	&\textbf{RFO2.0}&Il sistema richiede la generazione delle chiavi pubbliche&UC1, UC1.1 \\\hline
+	&\textbf{RFO3.0}&Il sistema richiede la generazione delle chiavi private&UC1, UC1.1 \\\hline
+	&\textbf{RFO4.0}&Il sistema richiede l'inserimento delle informazioni personali dell'utente&UC1, UC1.2, UC1.2.1, UC1.2.2 \\\hline
+	&\textbf{RFO4.1}&Il sistema richiede l'inserimento dei dati personali utente&UC1, UC1.2, UC1.2.1 \\\hline
+	&\textbf{RFO4.1.1}&Il sistema richiede l'inserimento di un idetificativo&UC1.2, UC1.2.1 \\\hline
+	&\textbf{RFO4.1.2}&Il sistema richiede l'inserimento della data di nascita&UC1.2, UC1.2.1 \\\hline
+	&\textbf{RFO4.1.3}&Il sistema richiede l'inserimento del sesso ("M" per maschio o "F" per femmina)&UC1.2, UC1.2.1\\\hline
+	&\textbf{RFO4.1.4}&Il sistema richiede l'inserimento del nome da associare all'identità digitale&UC1.2.1, UC1.2.1.1\\\hline
+	&\textbf{RFO4.1.5}&Il sistema richiede l'inserimento del cognome da associare all'identità digitale&UC1.2.1, UC1.2.1.2\\\hline
+	&\textbf{RFO4.2}&Il sistema richiede l'inserimento degli attributi associati all'utente&UC1, UC1.2, UC1.2.2 \\\hline
+	&\textbf{RFO4.2.1}&Il sistema richiede l'inserimento di un identificativo per l'attributo&UC1.2.2, UC1.2.2.1 \\\hline
+	&\textbf{RFO4.2.1.1}& L'identificativo associato all'attributo deve essere univoco&UC1.2.2, UC1.2.2.1 \\\hline
+	&\textbf{RFO4.2.2}&Ad ogni attributo va associato un titolo che lo descrive&UC1.2.2, UC1.2.2.2 \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	&\textbf{RQD1}& & \\\hline
+	\caption{Tabella requisiti funzionali}
+\end{longtable}
+\subsection{Requisiti di Qualità}
+Tramite i requisiti di qualità si vogliono indicare quelle caratteristiche che un \gls{ITF} dovrebbe riuscire a raggiungere in modo da garantire un certo livello di \textit{Trust} del sistema.\\
+Per una migliore spiegazione si rimanda al documento "Blockchain: The Dawn of Decentralized Identity"\cite{ITF_gartner} dalla quale son stati presi tutti i requisiti di qualità che verranno elencati.
+\begin{longtable}{|r l|p{10cm}|p{2cm}|}
+	\hline
+	\multicolumn{2}{|c|}{\textbf{ID Requisito}} & \textbf{Descrizione} & \textbf{Fonti}\tabularnewline
+	\hline
+	&\textbf{RQD1}&Il sistema deve garantire un certo livello di\textit{Trust} (Fiducia)& Capitolo 2, Doc.Gartner\cite{ITF_gartner}\\\hline
+	&\textbf{RQD2}&Il sistema deve garantire un certo livello di \textit{Assurance} (Garanzia)& Capitolo 2, Doc.Gartner\cite{ITF_gartner}\\\hline
+	&\textbf{RQD3}&Il sistema deve garantire un certo livello di \textit{Provenance} (Provenienza delle informazioni)& Capitolo 2, Doc.Gartner\cite{ITF_gartner}\\\hline
+	&\textbf{RQD4}&Il sistema deve garantire un certo livello di \textit{Security} (Sicurezza)& Capitolo 2, Doc.Gartner\cite{ITF_gartner}\\\hline
+	&\textbf{RQD5}&Il sistema deve garantire un certo livello di \textit{Scalability} (Scalabilità)& Capitolo 2, Doc.Gartner\cite{ITF_gartner}\\\hline
+	&\textbf{RQD6}&Il sistema deve garantire un certo livello di \textit{Efficency} (Efficenza)& Capitolo 2, Doc.Gartner\cite{ITF_gartner}\\\hline
+	\caption{Tabella requisiti di qualità}
+\end{longtable}
+\subsection{Requisiti di Vincolo}
+\begin{longtable}{|r l|p{10cm}|p{2cm}|}
+	\hline
+	\multicolumn{2}{|c|}{\textbf{ID Requisito}} & \textbf{Descrizione} & \textbf{Fonti}\tabularnewline
+	\hline
+	&\textbf{RVO1}& La piattaforma Blockchain utilizzata sarà Ethereum & Capitolo 2\\\hline
+	&\textbf{RVO1.1}& Per lo sviluppo della rete Blockchain verrà utilizzato il \gls{framework} \textit{Truffle suite} & Capitolo 2\\\hline
+	&\textbf{RVO2}& Per lo sviluppo degli \textit{smart contracts} il linguaggio utilizzato sarà Solidity (versione 0.4.24 o superiore) & Capitolo 2\\\hline
+	&\textbf{RVO3}& Il sistema deve funzionare con il sistema operativo Windows 10 & Capitolo 2\\\hline
+	&\textbf{RVO4}& Per lo sviluppo della rete Blockchain verrà utilizzato il tool \textit{Ganache} & Capitolo 2\\\hline
+	\caption{Tabella reqisiti di vincolo}
+\end{longtable}
+\subsection{Riepilogo dei requisiti}
