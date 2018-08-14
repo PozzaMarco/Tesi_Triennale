@@ -359,5 +359,134 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\end{enumerate}
 \end{itemize}
 \subsection{Caso d'uso UC3.3: Visualizza errore verifica dell'identità}
+\begin{itemize}
+	\item \textbf{Descrizione} - Il Service Provider, prima di poter erogare i suoi servizi, deve verificare che l'identità utente sia certificata e quindi presente nell'\gls{ITF}.\\
+	Se questo non avviene, allora il Service Provider, non deve erogare nessun servizio all'utente che li richiede.\\
+	Specificato meglio in caso d'uso UC3.1.3;
+	\item \textbf{Attori Principali} - Service Provider;
+	\item \textbf{Attori Secondari} -
+	\item \textbf{Pre-Condizioni} - Il Service Provider è in attesa della verifica delle informazioni utente per erogare i suoi servizi;
+	\item \textbf{Post-Condizioni} - Il Service Provider non è riuscito a verificare l'identità utente;
+	\item \textbf{Scenario Principale} -
+	\begin{enumerate}
+		\item Viene visualizzato un errore di verifica dell'identità (UC 3.3).
+	\end{enumerate}
+	\item \textbf{Estensioni} -
+\end{itemize}
 \subsection{Caso d'uso UC3.1.3: Visualizza errore mismatch degli hash}
+\begin{itemize}
+	\item \textbf{Descrizione} - Il Service Provider, prima di poter erogare i suoi servizi, deve verificare che l'identità dell'utente sia corretta. Questo viene fatto tramite confronto degli \textit{hash}.\\
+	Gli \textit{hash} da confrontare sono: quello presente nell'\gls{ITF} (certificato) e quello calcolato a partire dalla chiave pubblica che il Service Provider ha ottenuto dall'Identity Wallet.\\
+	Se i due \textit{hash} non sono uguali significa che quello ottenuto dall'Identity Wallet non è corretto. Questo viene segnalato tramite un opportuno messaggio d'errore;
+	\item \textbf{Attori Principali} - Service Provider
+	\item \textbf{Attori Secondari} -
+	\item \textbf{Pre-Condizioni} - L'attore è in attesa della verifica delle informazioni utente per erogare i suoi servizi;
+	\item \textbf{Post-Condizioni} - L'attore, non essendo riuscito a verificare l'identità dell'utente, non può erogare i suoi servizi;
+	\item \textbf{Scenario Principale} - 
+	\begin{enumerate}
+		\item Visualizza un opportuno errore di mismatch tra gli \textit{hash} delle chiavi pubbliche (UC 3.1.3).
+	\end{enumerate}
+	\item \textbf{Estensioni} -
+\end{itemize}
 \subsection{Caso d'uso UC3.4: Visualizza errore verifica degli attributi}
+\begin{itemize}
+	\item \textbf{Descrizione} - Il Service Provider deve, per poter erogare i suoi servizi, verificare l'identità e gli attributi dell'utente.\\
+	L'identità viene spiegata in UC3.1, UC3.3 e in UC3.1.3.\\
+	In questo caso, si ha come precondizione che l'identità sia stata verificata.
+	Per poter erogare i servizi, il Service Provider, deve assicurarsi che l'utente sia in possesso degli attributi necessari che ne permettono l'autorizzazione all'utilizzo.\\
+	Questo viene fatto andando a confrontare una lista di attributi, richiesti dal Service Provider, con la lista di attributi associati all'utente presente nell'\gls{ITF}.\\
+	Essendo presente nell'\gls{ITF} vuol dire che la lista è composta solo da attributi certificati da una terza parte fidata.\\
+	Se gli attributi richiesti dal Service Provider non son presenti, del tutto o in parte, nella lista degli attributi certificati dell'utente, il Service Provider non eroga nessun servizio;
+	\item \textbf{Attori Principali} - Service Provider;
+	\item \textbf{Attori Secondari} -
+	\item \textbf{Pre-Condizioni} - Il Service Provider ha verificato correttamente l'identità dell'utente ma non sa se è in possesso degli attributi necessari per poter accedere ai suoi servizi;
+	\item \textbf{Post-Condizioni} - Il Service Provider non è riuscito a verificare gli attributi dell'utente quindi non può erogare i suoi servizi in quanto non è autorizzato ad accedervi;
+	\item \textbf{Scenario Principale} -
+	\begin{enumerate}
+		\item Visualizza un opportno messaggio d'errore per la verifica degli attributi (UC 3.4).
+	\end{enumerate}
+	\item \textbf{Estensioni} -
+\end{itemize}
+\subsection{Caso d'uso UC4: Aggiornamento}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.50]{immagini/usecase/UC4_Aggiornamento}
+	\caption{Caso d'uso UC4: Aggiornamento}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Descrizione} -La Trusted Third Party, su richiesta dell'utente o non, deve aggiornare lo stato di un attributo o asserzione dell'utente stesso.
+	Questo viene fatto creando un nuovo blocco che rappresenta l'attributo della quale si vuole fare l'aggiornamento. In questo nuovo blocco vengono inseriti: l'ID del vecchio blocco che si vuole aggiornare, la nuova descrizione dell'attributo e lo stato dell'attributo (ovvero se l'attributo è valido, se è all'ultima versione disponibile ecc..).\\
+	Una volta creato il blocco verrà aggiunto un timestamp ed il nuovo blocco aggiunto alla catena.\\
+	Quando un Service Provider vuole recuperare le informazioni riguardanti l'utente dovrà prendere il blocco con timestamp più recente. Questo tipo di aggiornamento fa sì che i nuovi blocchi "oscurino" quelli vecchi.\\
+	I vecchi blocchi son comunque recuperabili grazie al riferimento che i nuovi blocchi hanno verso di loro. Questo permette la realizzazione di uno storico delle certificazioni prese da un utente e dello stato di avanzamento del \textit{Trust} che un utente ha nei confronti della rete;
+	\item \textbf{Attori Principali} - Trusted Third Party;
+	\item \textbf{Attori Secondari} -
+	\item \textbf{Pre-Condizioni} - La Trusted Third Party vuole o deve, su richiesta dell'utente, aggiornare lo stato di un attributo che ha già certificato;
+	\item \textbf{Post-Condizioni} - La Trusted Third Party è riuscita ad aggiornare lo stato di un attributo già certificato ;
+	\item \textbf{Scenario Principale} -
+	\begin{enumerate}
+		\item Inserimento ID dell'attributo da aggiornare (UC 4.1);
+		\item Inserimento del nuovo titolo descrittivo (UC 4.2);
+		\item Inserimento dello stato del nuovo attributo (UC 4.3).
+	\end{enumerate}
+	\item \textbf{Estensioni} -
+	\begin{enumerate}
+		\item VIsualizza errore nell'inserimento ID (UC 4.4).
+	\end{enumerate}
+\end{itemize}
+\subsection{Caso d'uso UC4.4: VIsualizza errore inserimento ID}
+\begin{itemize}
+	\item \textbf{Descrizione} - La Trusted Third Party deve, su richiesta dell'utente o per sua volontà, aggiornare lo stato di una certificazione.\\
+	Questo avviene inserendo l'ID della certificazione che si vuole aggiornare ed aggiornando il titolo e lo stato. In automatico verrà posto un timestamp più recente che andrà ad "oscurare" le certificazioni meno recenti.\\
+	L'errore viene scatenato quando si tenta di aggiornare un attributo che non esiste o non è presente nel sistema (ID errato);
+	\item \textbf{Attori Principali} - Trusted Third Party;
+	\item \textbf{Attori Secondari} -
+	\item \textbf{Pre-Condizioni} - La Trusted Third Party vuole o deve, su richiesta dell'utente, aggiornare lo stato di un attributo che ha già certificato;
+	\item \textbf{Post-Condizioni} - La Trusted Third Party non è riuscita ad aggiornare lo stato dell'attributo richiesto;
+	\item \textbf{Scenario Principale} -
+	\begin{enumerate}
+		\item Visualizza errore inserimento ID (UC 4.4).
+	\end{enumerate}
+	\item \textbf{Estensioni} -
+\end{itemize}
+\subsection{Caso d'uso UC5: Revoca}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.50]{immagini/usecase/UC5_Revoca}
+	\caption{Caso d'uso UC5: Revoca}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Descrizione} - La Trusted Third Party può decidere di revocare una certificazione o un attributo che prima aveva certificato. Questo può avvenire per scadenza della certificazione o per ritiro da parte di enti terzi.\\
+	Le dinamiche sono le stesse dell'aggiornamento (caso d'uso UC4) con la differenza che, lo stato viene utilizzato per indicare se un attributo è ancora valido o meno.\\
+	Anche in questo caso il nuovo blocco inserito andrà ad "oscurare" tutti i blocchi con un timestamp più vecchio e sarà il Service Provider a dover recuperare i blocchi con timestamp più recente.\\
+	Come nell'aggiornamento del UC4, anche qui è possibile ottenere uno storico delle certificazioni così da poter visualizzare il loro stato di avanzamento fino alla loro revoca;
+	\item \textbf{Attori Principali} - Trusted Third Party;
+	\item \textbf{Attori Secondari} -
+	\item \textbf{Pre-Condizioni} - La Trusted Third Party deve revocare una particolare certificazione di un utente specifico;
+	\item \textbf{Post-Condizioni} - La Trusted Third Party è riuscita a revocare la certificazione richiesta;
+	\item \textbf{Scenario Principale} -
+	\begin{enumerate}
+		\item Inserimento dell'ID dell'attributo da rimuovere (UC 5.1);
+		\item Inserimento del titolo dell'attributo da rimuovere (UC 5.2);
+		\item Inserimento dello stato della revoca (UC 5.3).
+	\end{enumerate}
+	\item \textbf{Estensioni} -
+	\begin{enumerate}
+		\item Visualizza errore nell'inserimento dell'ID (UC 5.4).
+	\end{enumerate}
+\end{itemize}
+\subsection{Caso d'uso UC5.4: Visualizza messaggio d'errore inserimento ID}
+\begin{itemize}
+	\item \textbf{Descrizione} - La Trusted Third Party deve revocare una certificazione.\\
+	Questo avviene inserendo l'ID della certificazione che si vuole revocare ed inserendo un codice prefissato nello stato. In automatico verrà posto un timestamp più recente che andrà ad "oscurare" le certificazioni meno recenti.\\
+	L'errore viene scatenato quando si tenta di revocare un attributo che non esiste o non è presente nel sistema (ID errato);	
+	\item \textbf{Attori Principali} - Trusted Third Party;
+	\item \textbf{Attori Secondari} -
+	\item \textbf{Pre-Condizioni} - La Trusted Third Party deve revocare una certificazione sepcifica dell'utente;
+	\item \textbf{Post-Condizioni} - La Trusted Third Party non è riuscita a revocare la certificazione dell'utente;
+	\item \textbf{Scenario Principale} -
+	\begin{enumerate}
+		\item Visualizza errore inserimento ID (UC 5.4).
+	\end{enumerate}
+	\item \textbf{Estensioni} -
+\end{itemize}
