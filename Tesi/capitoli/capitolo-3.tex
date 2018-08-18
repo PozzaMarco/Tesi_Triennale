@@ -537,45 +537,41 @@ Ogni requisito viene calssificato secondo la seguente convenzione:\\
 	&\textbf{RFO4.2.1}&Il sistema richiede l'inserimento di un identificativo per l'attributo&UC1.2.2, UC1.2.2.1 \\\hline
 	&\textbf{RFO4.2.1.1}& L'identificativo associato all'attributo deve essere univoco&UC1.2.2, UC1.2.2.1 \\\hline
 	&\textbf{RFO4.2.2}&Ad ogni attributo va associato un titolo che lo descrive&UC1.2.2, UC1.2.2.2 \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
-	&\textbf{RQD1}& & \\\hline
+	&\textbf{RFO5.0}&Il sistema genera un messaggio d'errore nel caso in cui ci siano problemi durante la registrazione&UC1, UC1.4 \\\hline
+	&\textbf{RFO6.0}&Il sistema permette l'aggiornamento degli attributi associati ad un utente&UC1, UC1.3 \\\hline
+	&\textbf{RFO6.1}&Il sistema richiede l'inserimento di un idetificativo per l'attributo&UC1.3, UC1.3.1 \\\hline
+	&\textbf{RFO6.1.1}&Il sistema richiede l'inserimento di un ID univoco associato ad un attributo&UC1.3, UC1.3.1 \\\hline
+	&\textbf{RFO6.2}&Il sistema richiede l'inserimento di un titolo descrittivo dell'attributo &UC1.3, UC1.3.2 \\\hline
+	&\textbf{RFO7.0}&Il sistema genera un messaggio d'erore nel caso in cui ci siano problemi durante l'aggiornamento degli attributi&UC1, UC1.5 \\\hline
+	&\textbf{RFO8.0}&Il sistema richiede che le informazioni dell'utente siano certificate da un ente certificatore fidato&UC2 \\\hline
+	&\textbf{RFO9.0}&Il sistema richiede la certificazione dell'identità utente&UC2, UC2.1 \\\hline
+	&\textbf{RFO9.1}&Il sistema richiede la certificazione delle informazioni personali&UC2.1, UC2.1.1 \\\hline
+	&\textbf{RFO9.1.1}&La certificazione delle informazioni personali avviene tramite firma con la chiave privata dell'ente certificatore&Capitolo 2 \\\hline
+	&\textbf{RFO9.1.2}&Il sistema notifica, tramite errore, l'impossibilità di certificare le informazioni personali &UC2.1, UC2.1.3 \\\hline
+	&\textbf{RFO9.2}&Il sistema richiede la certificazione degli attributi associati all'identità &UC2.1, UC2.1.2 \\\hline
+	&\textbf{RFO9.2.1}&La certificazione degli attributi avviene tramite firma tramite la chiave privata dell'ente certificatore &Capitolo 2 \\\hline
+	&\textbf{RFO9.2.2}&Il sistema notifica, tramite un errore, l'impossibilità di certificare gli attributi associati all'utente &UC2.1, UC2.1.4 \\\hline
+	&\textbf{RFO10.0}&Il sistema richiede la verifica, da parte del Service Provider, delle informazioni personali dell'utente prima di erogare i suoi servizi &UC3 \\\hline
+	&\textbf{RFO10.1}&Il sistema richiede la verifica dell'identità &UC3, UC3.1 \\\hline
+	&\textbf{RFO10.1.1}&Il sistema, per verificare l'identità, richiede l'\textit{hash} della chiave pubblica &UC3.1, UC3.1.1, Capitolo 2 \\\hline
+	&\textbf{RFO10.1.2}&Il sistema confronta l'\textit{hash} calcolato in RFO10.1.1 e quello presente nell'\gls{ITF} per verificare l'identità& UC3.1, UC3.1.2, Capitolo 2 \\\hline
+	&\textbf{RFO10.1.3}&Il sistema notifica, tramite errore, l'impossibilità di verificare l'identità utente&UC3.1, UC3.1.3 \\\hline
+	&\textbf{RFO10.1.3.1}&Il sistema notifica l'errore se si riscontra un mismatch tra gli \textit{hash} confrontati in RFO10.1.2&UC3.1.3, Capitolo 2 \\\hline
+	&\textbf{RFO10.2}&Il sistema notifica, tramite un errore, l'impossibilità di verificare l'identità& UC3, UC3.3 \\\hline
+	&\textbf{RFO10.3}&Il sistema richiede la veritifca degli attributi associati all'utente&UC3, UC3.2 \\\hline
+	&\textbf{RFO10.3.1}&La verifica avviene tramite confronto tra: lista attributi richiesti dal Service Provider e lista degli attributi associati all'utente&Capitolo 2 \\\hline
+	&\textbf{RFO10.4}&Il sistema notifica l'impossibilità di vertificare gli attributi dell'utente&UC3, UC3.4 \\\hline
+	&\textbf{RFO10.4.1}&Il sistema notifica l'errore in caso in cui non ci siano tutti gli attributi richiesti nella lista&Capitolo 2 \\\hline
+	&\textbf{RFO11.0}&Il sistema prevede l'aggiornamento della certificazione degli attributi rilasciata dall'ente certificatore &UC4, Capitolo 2 \\\hline
+	&\textbf{RFO11.1}&Il sistema prevede l'inserimento dell'ID associato all'attributo da modificare&UC4, UC4.1 \\\hline
+	&\textbf{RFO11.1.1}&Il sistema notifica un errore nel caso in cui l'ID non sia associato a nessun attributo&UC4, UC4.4 \\\hline
+	&\textbf{RFO11.2}&Il sistema prevede l'inserimento del titolo descrittivo dell'attributo da modificare& UC4, UC4.2 \\\hline
+	&\textbf{RFO11.3}&Il sistema prevede l'inserimento dello stato dell'aggiornamento&UC4, UC4.3 \\\hline
+	&\textbf{RFO12.0}&Il sistema prevede la revoca della certificazione degli attributi rilasciata dall'ente certificatore&UC5, Capitolo 2 \\\hline
+	&\textbf{RFO12.1}&Il sistema prevede l'inserimento dell'ID associato all'attributo da revocare&UC5, UC5.1 \\\hline
+	&\textbf{RFO12.1.1}&Il sistema notifica un errore nel caso in cui l'ID non sia associato ad un attributo presente nel sistema&UC5, UC5.4 \\\hline
+	&\textbf{RFO12.2}&Il sistema prevede l'inserimento del titolo descrittivo dell'attributo da revocare&UC5, UC5.2 \\\hline
+	&\textbf{RFO12.3}&Il sistema prevede l'inserimento del codice che segnala la revoca dell'attributo&UC5, UC5.3 \\\hline
 	\caption{Tabella requisiti funzionali}
 \end{longtable}
 \subsection{Requisiti di Qualità}
@@ -606,3 +602,12 @@ Per una migliore spiegazione si rimanda al documento "Blockchain: The Dawn of De
 	\caption{Tabella reqisiti di vincolo}
 \end{longtable}
 \subsection{Riepilogo dei requisiti}
+\begin{longtable}{|r l|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		\multicolumn{2}{|c|}{\textbf{Requisiti}} & \textbf{Obbligatori} & \textbf{Desiderabili} & \textbf{Facoltativi} \tabularnewline
+		\hline
+		&\textbf{Funzionali}&49&0&0\\\hline
+		&\textbf{Qualitativi}&0&6&0\\\hline
+		&\textbf{Di Vincolo}&5&0&0\\\hline
+		\caption{Tabella riassuntiva dei requisiti}
+	\end{longtable}
