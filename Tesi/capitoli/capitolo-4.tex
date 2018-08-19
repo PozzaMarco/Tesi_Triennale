@@ -84,3 +84,50 @@ Andremo ora a spiegarle e ad analizzarle.
 		Quest'ultimo accorgimento è di fondamentale importanza in quanto è stato necessario suddividere la parte fornt-end dal back-end e lo sviluppo è avvenuto in parallelo.
 	\end{itemize}
 \end{itemize}
+\section{Approccio alla progettazione}
+Per la progettazione del modulo si è deciso di utilizzare un approccio \emph{\gls{topDown}}\glsfirstoccur. Essa consiste nel descrivere il sistema partendo da una visione generale ad alto livello per poi scendere nel particolare delle parti individuate.\\
+Nella visione ad alto livello è possibile notare che il sistema è composto da diversi packages che interagiscono tra di loro. Entrando nel dettaglio si vanno ad individuare tutte le componenti più piccole e semplici tramite la strategia \textit{divide-et-impera}. L'approccio \gls{topDown} parte dall’obiettivo e da esso valorizza il "perché" e fa dipendere il "come", permettendo di suddividere il lavoro rendendolo più comprensibile e, quindi, di più facile manutenibilità.
+\section{Architettura generale}
+Il modulo \gls{ITF} è formato da due parti distinte:
+\begin{itemize}
+	\item \textbf{Front-end}:l'applicativo tramite la quale gli utenti e gli attori esterni possono interagire con l'intero sistema;
+	\item \textbf{Back-end}: tutte le componenti che contengono la \textit{Business Logic}, gestiscono la presistenza dei dati interni alla \textit{Blockchain Ethereum} e le componenti necessarie a far sì che il \textit{front-end} riesca ad interagire con la \textit{Business Logic}.
+\end{itemize}
+Il lato \textit{back-end} prevede l'utilizzo della \textit{Blockchain Ethereum} per la gestione e la certificazione delle informazioni personali dell'utente insieme alla verifica delle informazioni da parte di un Service Provider che ha ricevuto una richiesta di accesso da parte di un utente.\\
+Tutte queste operazioni vengono gestite tramite \textit{smart contracts Solidity} in modo da permettere l'interazione con l'\gls{evm}.\\
+Tutte le componenti della parte \textit{back-end} sono raggruppate in packages. Questo viene fatto perchè, all'interno di ogni package, troviamo:
+\begin{itemize}
+	\item Gli \textit{smart contracts} che contengono i dati da gestire e dei metodi fittizi che contengono gli indirizzi ai metodi veri e propri;
+	\item Gli \textit{smart contracts} contenenti l'implementazione vera e propra dei vari metodi.
+\end{itemize}
+Questo è necessario in quanto un contratto \textit{Ethereum}, una volta rilasciato nella rete, diventa immutabile e quindi non più modificabile in caso di malfunzionamenti o risultati inaspettati.\\
+Separando la parte logica (metodi) dalla componente dati (con metodi fittizi) e collegando le due parti tramite indirizzi fa sì che l'eventuale presenza di errori possa essere gestita andando a implementare nuovamente solo la parte logica e cambiando gli indirizzi nella componente dati (questo cambiamento deve essere gestito tramite appositi metodi \textit{setter}).
+\section{Componenti del modulo}
+\subsection{Visione generale}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{immagini/architettura_alto_livello}
+	\caption{Visione ad alto livello}
+	\label{fig:visioneAltoLivello}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Descrizione}:\\
+	Questo è il package principale dell'applicazione lato \textit{back-end}.\\
+	Tutte le classi e i sottosistemi presenti in questo package contengono la \textit{business logic} e la persistenza dei dati necessari per realizzare il modulo \gls{ITF} e la sua interazione con il mondo esterno verso il Service Provider e l'Identity Wallet.
+	\item \textbf{Package contenuti}:\\
+	\begin{itemize}
+		\item Identity Wallet Handler;
+		\item ID List;
+		\item Identity;
+		\item TTP Key List;
+		\item Trusted Third Party;
+		\item Service Provider Handler.
+	\end{itemize}	
+\end{itemize}
+Come si può vedere dallo schema in figura \ref{fig:visioneAltoLivello} le varie componenti presentano dei colori diversi. Questo è stato fatto per rendere più chiara la suddivisione dei package in base al \textit{design pattern} ad essi associati.\\
+\begin{itemize}
+	\item \textbf{Design pattern Observer} - formano questo design pattern: il package Identity Wallet Handler, la classe Trusted Third Party e le interfacce Subject e Observer (colore: azzurro);
+	\item \textbf{Design pattern Façade} - formano questo design pattern i due package Service Provider Handler e Identity Wallet Handler (colore: arancione);
+	\item \textbf{Desing pattern Strategy} - tutti i package nello schema presentano questo design pattern al loro interno quindi: Identity Wallet Handler, Service Provider Handler, ID List e Identity (colore verde).
+\end{itemize}
+Alcuni package non rispettano i colori sopracitati in quanto realizzano più di un design pattern. Vedremo in seguito quali.
