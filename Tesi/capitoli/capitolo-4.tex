@@ -358,3 +358,30 @@ Alcuni package non rispettano i colori sopracitati in quanto realizzano più di 
 	\item \textbf{Design Pattern presenti}\\
 	Componente necessaria per implementare il design pattern \textit{strategy}.
 \end{itemize}
+\section{Design Pattern}
+In questa sezione vengono descritti i design pattern utilizzati per la realizzazione del prodotto. I design pattern sono delle soluzioni progettuali generali a problemi ricorrenti che possono essere adottati durante lo sviluppo del proprio sistema.
+\subsection{Singleton}
+\begin{itemize}
+	\item \textbf{Scopo di utilizzo}: il pattern Singleton assicura che una certa classe abbia una sola istanza e fornisce ad essa un punto d’acceso globale.
+	\item \textbf{Contesto}: all'interno dell’applicazione questo pattern viene usato per garantire la presenza di un unica istanza dei contratti TTP Key List e ID List.
+\end{itemize}
+\subsection{Façade}
+\begin{itemize}
+	\item \textbf{Scopo di utilizzo}: consente di definire un'interfaccia ad alto livello che semplifica l'accesso alle funzionalità erogate dal sottosistema e che fornisce un entry-point unico al sottosistema stesso;
+	\item \textbf{Contesto}: per la realizzazione del modulo \gls{ITF} l'utilizzo di un design pattern di questo tipo è necessario in quanto bisogna far sì che l'utente riesca ad interagire con la \textit{Blockchain Ethereum} senza che si preoccupi della complessità del sistema e delle logiche che governano questo tipo di tecnologia come la gestione degli \emph{\gls{ether}}\glsfirstoccur, del \emph{\gls{gas}}\glsfirstoccur, spesa degli \gls{ether} per le transazioni.
+\end{itemize}
+\subsection{Strategy}
+\begin{itemize}
+	\item \textbf{Scopo di utilizzo}: Il pattern Strategy permette di definire una famiglia di algoritmi, di incapsularli e renderli intercambiabili fra loro. Questo pattern consente agli algoritmi di variare in modo indipendente rispetto al loro contesto di utilizzo, fornendo un basso accoppiamento tra le classi partecipanti.
+	\item \textbf{Contesto}: la motivazione che ha portato alla scelta di questo pattern, è il fatto che, ogni qual volta qualcosa viene inserito all'interno della rete \textit{Blockchain Ethereum} diventa immutabile.\\
+	Per questo motivo si è deciso di strutturare tutto il sistema in package che, al loro interno, dividessero i dati dall'implementazione dei metodi.\\
+	Questo viene fatto perché se un metodo contiene errori o comportamenti anomali, sarebbe necessario sostituire tutto il contratto, perdendo anche tutti i dati utente fino ad ora accumulati.\\
+	Tramite pattern Strategy e alle funzionalità di \textit{Solidity} è possibile separare queste due componenti e, tramite indirizzi, far sì che sia una componente terza a implementare concretamente i metodi.
+	In caso di errori o comportamenti anomali è sufficiente creare un nuovo contratto da aggiungere alle componenti che ereditano dall'interfaccia che realizza lo Strategy e far sì che sia questa nuova componente ad eseguire i metodi che vengono chiamati	
+\end{itemize}
+\subsection{Observer}
+\begin{itemize}
+	\item \textbf{Scopo di utilizzo}: Il pattern Observer permette di definire una dipendeza uno a molti fra oggetti, in modo tale che se un oggetto cambia il suo stato interno, ciascuno degli oggetti dipendenti da esso viene notificato e aggiornato automaticamente.
+	\item \textbf{Contesto}: All'interno del modulo \gls{ITF} questa tipologia di design pattern è richiesta nel momento in cui un utente si registra ed inserisce, o aggiorna, le sue \gls{PII}.\\
+	In automatico, un oggetto \gls{TTP}, deve essere notificato del fatto che è avvenuta l'aggiunta di nuove informazioni così da poterle certificare per essere utilizzate da un Service Provider quando vuole erogare un servizio ad un utente che lo richiede.
+\end{itemize}
