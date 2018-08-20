@@ -117,10 +117,10 @@ Separando la parte logica (metodi) dalla componente dati (con metodi fittizi) e 
 	\item \textbf{Package contenuti}:\\
 	\begin{itemize}
 		\item Identity Wallet Handler;
-		\item ID List;
-		\item Identity;
-		\item TTP Key List;
 		\item Trusted Third Party;
+		\item ID List;
+		\item TTP Key List;
+		\item Identity;
 		\item Service Provider Handler.
 	\end{itemize}	
 \end{itemize}
@@ -132,38 +132,229 @@ Come si può vedere dallo schema in figura \ref{fig:visioneAltoLivello} le varie
 \end{itemize}
 Alcuni package non rispettano i colori sopracitati in quanto realizzano più di un design pattern. Vedremo in seguito quali.
 \subsection{Identity Wallet Handler}
+\begin{figure}[!h]
+	\centering
+	%\includegraphics[width=0.5\textwidth]{immagini/identity_wallet_handler}
+	\caption{Schema Identity Wallet}
+\end{figure}
 \begin{itemize}
 	\item \textbf{Descrizione}
+	Package che modella l'interazione tra l'Identity Wallet ed il sistema esterno. Si occupa principalmente di tutte le attività che l'utente può fare all'interno della \textit{Blockchain Ethereum}.\\
+	Contiene, al suo interno, tutte le classi necessarie affinché si riesca a mantenere separati le informazioni dai metodi.\\
+	Il nome del package tra parentesi (only Identity Wallet Handler) è un modo per indicare la possibilità, che da \textit{Solidity}, di far eseguire le operazioni contenute in Data\_Identity\_Wallet solo dal Wallet stesso e non da altri contratti esterni.
 	\item \textbf{Interazione con altre componenti}
+	\begin{itemize}
+		\item Trusted Third Party;
+		\item ID List;
+		\item Identity.
+	\end{itemize}
 	\item \textbf{Design pattern presenti}
+	\begin{itemize}
+		\item Façade (arancione);
+		\item Strategy (verde);
+		\item Singleton (non segnato);
+		\item Observer (non segnato).
+	\end{itemize}
+\end{itemize}
+\subsubsection{Data\_Identity\_Wallet}
+\begin{itemize}
+	\item \textbf{Descrizione}
+	Componente che racchiude tutta l'essenza del package Identity Wallet Handler.
+	Questa classe contiene metodi, informazioni riguardanti l'identità dell'utente e informazioni necessarie per l'interazione con il sistema.\\
+	Per realizzare il modulo in \textit{Ethereum} è consigliato separare la \textit{business logic} e la persistenza dei dati. Questa componente mantiene principalmente tutti i dati necessari e delega, tramite \textit{strategy} pattern, la realizzazione dei metodi ad altre componenti.\\
+	Il codice, se presenta dei bug o comportamenti anomali, non è possibile correggerlo. L'unico modo per risolvere è andare a rimpiazzare il vecchio contratto con uno nuovo e cambiare gli indirizzi dei client che utilizzavano il modulo precedente.\\
+	Se la classe contenesse sia dati che metodi allora bisognerebbe rimpiazzare tutto il blocco perdendo così i dati degli utenti registrati.\\
+	Separando la componente logica dai dati e collegando il tutto tramite pattern \textit{strategy} è possibile, in caso di errore, creare un nuovo Identity\_Wallet\_Method e, senza alcuna perdita di dati utente, ripristinare il normale funzionamento del modulo.	
+	\item \textbf{Interazione con altre componenti}
+	\begin{itemize}
+		\item\textbf{ Identity\_Wallet\_Interface}: Questo contratto contiene la firma dei metodi che, le classi concrete che realizzano l'interfaccia, devono implementare per andare a soddisfare le richieste che vengono fatte dall'Identity Wallet tramite Data\_Identity\_Wallet.
+		\item\textbf{ Identity\_Wallet\_Method}:Contratto che realizza le specifiche dell'interfaccia Identity\_Wallet\_Interface tramite l'implementazione concreta di tutti i metodi dichiarati.
+	\end{itemize}
+	\item \textbf{Design pattern presenti}\\
+	Partecipa alla realizzazione del pattern \textit{strategy} interno al package Identity Wallet Handler e realizza, insieme alla classe Trusted Third Party, il design pattern \textit{Observer} necessario per la certificazione delle informazioni personali.
 \end{itemize}
 \subsection{ID List}
+\begin{figure}[!h]
+	\centering
+	%\includegraphics[width=0.5\textwidth]{immagini/ID_list}
+	\caption{Schema ID List}
+\end{figure}
 \begin{itemize}
 	\item \textbf{Descrizione}
+	Package che fa da ponte tra le varie componenti interne al sistema. 
+	Al suo interno contiene tutte le informazioni e i metodi necessari per far comunicare tra di loro l'Identity Wallet Handler, Trusted Third Party e Service Provider Handler.\\
+	Come gli altri package, anche questo presenta il consueto \textit{strategy} pattern per separare la business logic e la persistenza dei dati.\\
+	Un altro design pattern che questa componente realizza è il \textit{singleton} in quanto è utilizzata da tutte le altre componenti per recuperare le informazioni delle identità utente che essa contiene.\\
+	Alcuni metodi di questo package sono segnati come onlyWallet ovvero con il permesso reso disponibile da \textit{Solidity} che fa sì che sia possibile specificare quale componente può invocare i metodi, rigettando le chiamate da tutti gli altri contratti non specificati.
 	\item \textbf{Interazione con altre componenti}
-	\item \textbf{Design pattern presenti}
+	\begin{itemize}
+		\item Identiy Wallet Handler;
+		\item Identity;
+		\item Trusted Third Party;
+		\item Service Provider Handler.
+	\end{itemize}
+	\item \textbf{Design pattern presenti}\\
+	Partecipa alla realizzazione del design pattern \textit{strategy} ed è un \textit{singleton} per recuperare tutte le informazioni riguardanti le identità digitali degli utenti.
+\end{itemize}
+\subsubsection{Data\_ID\_List}
+\begin{itemize}
+	\item \textbf{Descrizione}
+	Rappresenta la componente principale di tutto il package ID List in quanto si occupa sia della gestione dei dati che dell'invocazione dei metodi.\\
+	Questa componente si occupa principalmente di mantenere una mappatura tra l'identità dell'utente (rappresentata da un indirizzo \textit{Ethereum}) e la corrispondente identità nell'Identity Wallet (rappresentata da una chiave pubblica). Queste informazioni vengono conservate all'interno di una mappa che associa i due tipi di informazioni per ogni utente registrato al sistema.\\
+	Oltre a questo, troviamo anche i metodi necessari per poter inserire, rimuovere e recuperare l'identità utente.\\
+	Partecipando ad un design pattern \textit{strategy} i metodi interni a questa componente delegano l'esecuzione a ID\_Method in modo da preservare la separazione tra dati e business logic.
+	\item \textbf{Interazione con altre componenti}
+	\begin{itemize}
+		\item \textbf{ID\_Handler}: Interfaccia necessaria per la realizzazione del pattern \textit{strategy} interno al package ID List.\\
+		Contiene le firme di tutti i metodi che sono utilizzati da Data\_ID\_List e che sono realizzati, concretamente, dalla componente ID\_Method.
+		\item \textbf{ID\_Method}: Classe che implementa i metodi necessari per recuperare, inserire ed eliminare le informazioni associate alle identità utente.\\
+		Realizza, concretamente, tutti i metodi richiamati dal Data\_ID\_List ed esposti dall'interfaccia ID\_Handler.
+	\end{itemize}
+	\item \textbf{Design pattern presenti}\\
+	Realizza il design pattern \textit{strategy} interno al package.
 \end{itemize}
 \subsection{Identity}
+\begin{figure}[!h]
+	\centering
+	%\includegraphics[width=0.5\textwidth]{immagini/Identity}
+	\caption{Schema Identity}
+\end{figure}
 \begin{itemize}
 	\item \textbf{Descrizione}
+	Package che contiene tutti i dati e le informazioni personali relative all'identità di un utente e tutti i metodi necessari, agli altri package, per poter aggiungere, rimuovere, certificare e verificare le \gls{PII}.\\
+	Questo è un altro dei package core del sistema \gls{ITF} che si vuole realizzare in quanto, insieme all'Identity\_Wallet\_Handler crea e gestisce le identità degli utenti.\\
+	Anche in questo package possiamo trovare il solito design pattern \textit{strategy} per poter mantenere separati la \textit{business logic} dai dati modellati dal package.
 	\item \textbf{Interazione con altre componenti}
-	\item \textbf{Design pattern presenti}
+	\begin{itemize}
+		\item Identity Wallet Handler;
+		\item Trusted Third Party Handler;
+		\item ID List;
+		\item Service Provider Handler.
+	\end{itemize}
+	\item \textbf{Design pattern presenti}\\
+	Al suo interno troviamo il design pattern \textit{strategy} per mantenere separati \textit{business logic} e persistenza dei dati.
+\end{itemize}
+\subsubsection{Data\_Identity}
+\begin{itemize}
+	\item \textbf{Descrizione}
+	Classe che modella tutto il package Identity in quanto contiene sia i dati riguardanti un utente (le sue \gls{PII} sotto forma di lista) sia tutti i metodi necessari per la realizzazione della business logic del modulo \gls{ITF} (con delega ad oggetti concreti di tipo Identity\_Method).\\
+	Come per gli altri package, anche questa componente partecipa alla realizzazione di un design pattern \textit{strategy} necessario per mantenere separate le due componenti sopracitate in modo da poter corregere eventuali errori o malfunzionamenti e per permettere, in futuro, l'espansione delle funzionalità del package.
+	\item \textbf{Interazione con altre componenti}
+	\begin{itemize}
+		\item \gls{PII}: Rappresenta un'informazione personale che appartiene ad un determinato utente.\\
+		Le informazioni personali che vengono rappresentate vanno dal semplice nome e cognome fino a certificazioni o attestati conseguiti dall'utente che si sta esaminando.\\
+		Queste informazioni formano, all'interno di Data\_Identity, una lista di \gls{PII} che rappresentano il profilo identificativo di un utente che vuole accedere ad un determinato servizio.		
+		\item \textbf{Identity\_Interface}: Interfaccia che espone tutti i metodi necessari a Data\_Identity per poter realizzare la \textit{business logic} del package Identity tramite delega ad un oggetto che realizza concretamente l'interfaccia (Identity\_Method).
+		\item \textbf{Identity\_Method}: Classe che realizza concretamente i metodi esposti dall'interfaccia Identity\_Interface e che sono necessari a Data\_Identity per andare a realizzare la business logic del modulo.\\
+		Questa componente realizza il design pattern \textit{strategy} interno al modulo.\\
+		I metodi implementati dovranno essere segnati con particolari privilegi in modo che non tutti i contratti (interni o esterni al sistema \gls{ITF}) possano invocarli e gestire i dati personali degli utenti.	
+	\end{itemize}
+	\item \textbf{Design pattern presenti}\\
+	Partecipa alla realizzazione del design pattern \textit{strategy}.
 \end{itemize}
 \subsection{TTP Key List}
+\begin{figure}[!h]
+	\centering
+	%\includegraphics[width=0.5\textwidth]{immagini/TTP_key_list}
+	\caption{Schema TTP Key List}
+\end{figure}
 \begin{itemize}
 	\item \textbf{Descrizione}
+	Questa componente fa da tramite tra il Service Provider Handler e Trusted Third Party Handler.
+	Ogni qual volta un Service Provider vuole recuperare le informazioni di un utente e vuole verificare che, contenute nel suo oggetto Identity, siano certificate recupera, tramite TTP Key List, la chiave pubblica dell'ente certificatore che ha certificato le informazioni dell'utente e, tramite un confronto con la firma posta nelle informazioni personali dell'utente (firma = hash(dati utente + chiave privata \gls{TTP})), controlla che le informazioni siano effettivamente state firmate dall'ente che è stato segnato come certificatore per quelle informazioni.\\
+	Quindi, questa componente, è di fondamentale importanza per permettere il sistema di verifica e certificazione che il modulo \gls{ITF} deve implementare.\\
+	Anche questa componente, come tutte le altre, viene implementata tramite uno \textit{strategy} pattern in modo da mantenere separata la logica e i dati che rappresentano l'associazione \gls{TTP} - chiave pubblica.\\
+	Oltre a questo
 	\item \textbf{Interazione con altre componenti}
-	\item \textbf{Design pattern presenti}
+	\begin{itemize}
+		\item Service Provider Handler;
+		\item Trusted Third Party Handler.
+	\end{itemize}
+	\item \textbf{Design pattern presenti}\\
+	All'interno del package TTP Key List troviamo il design pattern \textit{strategy} ed è un \textit{singleton} per recuperare tutte le informazioni riguardanti gli enti certificatori autorizzati.
 \end{itemize}
-\subsection{Trusted Third Party}
+\subsubsection{Key\_List}
 \begin{itemize}
 	\item \textbf{Descrizione}
+	Componente che gestisce tutto il package TTP Key List in quanto contiene sia i dati che i metodi necessari per recuperare tutte le informazioni necessarie per andare a verificare le informazioni personali dell'utente.\\
+	La parte principale di questa componente sono principalmente i dati che rappresentano l'associazione tra l'identificativo univoco di un ente certificatore e la sua chiave pubblica necessaria per andare a verificare i dati.\\
+	Insieme a questo contiene tutti i metodi, segnati come onlyTTP\_Handler, che servono per andare ad inserire, rimuovere e recuperare tutte le informazioni riguardo una Trusted Third Party.\\
+	Come le altre componenti, anche questa delega l'implementazione dei metodi ad una componente terza il Key\_Method.
 	\item \textbf{Interazione con altre componenti}
-	\item \textbf{Design pattern presenti}
+	\begin{itemize}
+		\item \textbf{Key\_Interface}: Interfaccia che espone tutti i metodi necessari a Key\_List per poter recuperare, inserire e rimuovere le informazioni relative alle Trusted Third Party che certificano le informazioni personali degli utenti.\\
+		È una delle componenti necessarie per andare a realizzare il design pattern I del package TTP Key List che separa dati da business logic.
+		\item \textbf{Key\_Method} :Classe che realizza i metodi esposti dall'interfaccia Key\_Interface e che sono richiamati dalla classe Key\_List per implementare la business logic del package TTP Key List.
+	\end{itemize}
+	\item \textbf{Design pattern presenti}\\
+	Componente che partecipa alla realizzazione del design pattern \textit{strategy} ed è un \textit{singleton} per recuperare tutte le informazioni riguardanti gli enti certificatori autorizzati.
+\end{itemize}
+\subsection{Trusted Third Party Handler}
+\begin{figure}[!h]
+	\centering
+	%\includegraphics[width=0.5\textwidth]{immagini/trusted_third_party}
+	\caption{Schema Trusted Third Party}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Descrizione}
+	Questa componente è necessaria per realizzare il pattern \textit{Observer} necessario per il funzionamento dell'intero sistema.\\
+	La \gls{TTP} viene inserita all'interno di questo pattern in quanto, ogni qual volta un utente inserisce una nuova certificazione o un'informazione personale, in automatico viene notificata la Trusted Third Party.\\
+	Questa, grazie all'indirizzo che gli viene passato dall'Identity Wallet Handler, recupera tutte le informazioni riguardanti l'identità di quell'utente e certifica le informazioni personali, appena aggiunte, ponendo la propria firma.\\
+	Alcuni metodi di questo package come l'aggiunta e la rimozione di un ente certificatore dal sistema, sono segnati come onlyTTP\_Handler grazie alla funzionalità di proprietà di \textit{Solidity} che impedisce l'invocazione di metodi all'infuori del proprietario del contratto.
+	\item \textbf{Interazione con altre componenti}
+	\begin{itemize}
+		\item Identity Wallet Handler;
+		\item TTP Key List;
+		\item Identity.
+	\end{itemize}
+	\item \textbf{Design pattern presenti}\\
+	Seconda componente necessaria per la ralizzazione del pattern \textit{Observer}.
+\end{itemize}
+\subsubsection{Trusted Third Party}
+\begin{itemize}
+	\item \textbf{Descrizione}
+	Componente interna al package Trusted Third Party Handler che ha lo scopo di mantenere al suo interno tutte le informazioni necessarie per poter certificare tutte le informazioni e certificazioni personali dell'utente.\\
+	Contiene sia dati che invocazioni a metodi.\\
+	I dati qui contenuti rappresentano, in modo univoco, l'ente certificatore (ID e Public Key) e il modo tramite la quale riesce a certificare i dati utente (Private Key).\\
+	Per mantenere separata la \textit{business logic} dai dati partecipa come componente ad uno strategy pattern.
+	\item \textbf{Interazione con altre componenti}
+	\begin{itemize}
+		\item \textbf{TTP\_Interface}: Interfaccia che contiene la firma dei metodi che il pattern \textit{strategy} deve realizzare all'interno del package Trusted Third Party Handler.\\
+		Contiene tutti i metodi realizzati da TTP\_Method e richiamati da Trusted Third Party.		
+		\item \textbf{TTP\_Method}: Componente concreta che realizza i metodi esposti dall'interfaccia TTP\_Interface e richiamati dal componente Trusted Third Party.\\
+		Questa componente è fondamentale per andare a realizzare il design pattern \textit{strategy} che troviamo all'interno del package Trusted Third Party Handler
+	\end{itemize}
+	\item \textbf{Design pattern presenti}\\
+	Partecipa alla realizzazione del design pattern \textit{strategy} interno al package.
 \end{itemize}
 \subsection{Service Provider Handler}
+\begin{figure}[!h]
+	\centering
+	%\includegraphics[width=0.5\textwidth]{immagini/service_provider_handler}
+	\caption{Schema Service Provider}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Descrizione}
+	Questo package è modella tutte le interazioni che avvengono tra il mondo esterno e la \textit{Blockchain Ethereum} che modella il sistema \gls{ITF}. In particolare modella tutte le operazioni che un Service Provider deve effettuare prima di erogare i suoi servizi ad un particolare utente.\\
+	Per questo motivo, oltre che il consueto \textit{strategy} pattern questo package implementa anche il design pattern \textit{façade} per permettere l'interazione tra il presentation layer lato Serivce Provider e il sistema interno alla \textit{Blockchain Ethereum}.\\
+	L'operazione principale che viene effettuata da questi componenti è la verifica delle informazioni personali di un utente (\gls{PII}) per accertarsi che siano certificate (firmate da un ente certificatore fidato).
+	\item \textbf{Interazione con altre componenti}
+	\begin{itemize}
+		\item ID List;
+		\item Identity;
+		\item TTP Key List.
+	\end{itemize}
+	\item \textbf{Design pattern presenti}\\
+	Oltre al consueto pattern \textit{strategy} questo contratto funge anche da \textit{façade} tra l'\gls{ITF} e il mondo esterno dalla parte di un Service Provider.
+\end{itemize}
+\subsubsection{Data\_Service\_Provider}
 \begin{itemize}
 	\item \textbf{Descrizione}
 	\item \textbf{Interazione con altre componenti}
-	\item \textbf{Design pattern presenti}
+	\begin{itemize}
+		\item Service\_Provider\_Interface:Interfaccia che espone tutti i metodi necessari a Data\_Service\_Provider per poter implementare le funzionalità di verifica richieste dal Service Provider prima di erogare i servizi ad un utente.
+		\item Service\_Provider\_Method:Classe concreta che implementa tutti i metodi esposti da Data\_Service\_Interface e che sono necessari a Data\_Service\_Provider per poter implementare la business logic del package Service Provider Handler.
+	\end{itemize}
+	\item \textbf{Design Pattern presenti}\\
+	Componente necessaria per implementare il design pattern \textit{strategy}.
 \end{itemize}
