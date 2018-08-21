@@ -546,28 +546,28 @@ Ogni requisito viene calssificato secondo la seguente convenzione:\\
 	&\textbf{RFO8.0}&Il sistema richiede che le informazioni dell'utente siano certificate da un ente certificatore fidato&UC2 \\\hline
 	&\textbf{RFO9.0}&Il sistema richiede la certificazione dell'identità utente&UC2, UC2.1 \\\hline
 	&\textbf{RFO9.1}&Il sistema richiede la certificazione delle informazioni personali&UC2.1, UC2.1.1 \\\hline
-	&\textbf{RFO9.1.1}&La certificazione delle informazioni personali avviene tramite firma con la chiave privata dell'ente certificatore&Capitolo 2 \\\hline
+	&\textbf{RFO9.1.1}&La certificazione delle informazioni personali avviene tramite firma con la chiave privata dell'ente certificatore&\hyperref[cap:tecnologie_e_strumenti]{Capitolo 2} \\\hline
 	&\textbf{RFO9.1.2}&Il sistema notifica, tramite errore, l'impossibilità di certificare le informazioni personali &UC2.1, UC2.1.3 \\\hline
 	&\textbf{RFO9.2}&Il sistema richiede la certificazione degli attributi associati all'identità &UC2.1, UC2.1.2 \\\hline
-	&\textbf{RFO9.2.1}&La certificazione degli attributi avviene tramite firma tramite la chiave privata dell'ente certificatore &Capitolo 2 \\\hline
+	&\textbf{RFO9.2.1}&La certificazione degli attributi avviene tramite firma tramite la chiave privata dell'ente certificatore &\hyperref[cap:tecnologie_e_strumenti]{Capitolo 2} \\\hline
 	&\textbf{RFO9.2.2}&Il sistema notifica, tramite un errore, l'impossibilità di certificare gli attributi associati all'utente &UC2.1, UC2.1.4 \\\hline
 	&\textbf{RFO10.0}&Il sistema richiede la verifica, da parte del Service Provider, delle informazioni personali dell'utente prima di erogare i suoi servizi &UC3 \\\hline
 	&\textbf{RFO10.1}&Il sistema richiede la verifica dell'identità &UC3, UC3.1 \\\hline
-	&\textbf{RFO10.1.1}&Il sistema, per verificare l'identità, richiede l'\textit{hash} della chiave pubblica &UC3.1, UC3.1.1, Capitolo 2 \\\hline
-	&\textbf{RFO10.1.2}&Il sistema confronta l'\textit{hash} calcolato in RFO10.1.1 e quello presente nell'\gls{ITF} per verificare l'identità& UC3.1, UC3.1.2, Capitolo 2 \\\hline
+	&\textbf{RFO10.1.1}&Il sistema, per verificare l'identità, richiede l'\textit{hash} della chiave pubblica &UC3.1, UC3.1.1, \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2} \\\hline
+	&\textbf{RFO10.1.2}&Il sistema confronta l'\textit{hash} calcolato in RFO10.1.1 e quello presente nell'\gls{ITF} per verificare l'identità& UC3.1, UC3.1.2, \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2} \\\hline
 	&\textbf{RFO10.1.3}&Il sistema notifica, tramite errore, l'impossibilità di verificare l'identità utente&UC3.1, UC3.1.3 \\\hline
-	&\textbf{RFO10.1.3.1}&Il sistema notifica l'errore se si riscontra un mismatch tra gli \textit{hash} confrontati in RFO10.1.2&UC3.1.3, Capitolo 2 \\\hline
+	&\textbf{RFO10.1.3.1}&Il sistema notifica l'errore se si riscontra un mismatch tra gli \textit{hash} confrontati in RFO10.1.2&UC3.1.3, \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2} \\\hline
 	&\textbf{RFO10.2}&Il sistema notifica, tramite un errore, l'impossibilità di verificare l'identità& UC3, UC3.3 \\\hline
 	&\textbf{RFO10.3}&Il sistema richiede la veritifca degli attributi associati all'utente&UC3, UC3.2 \\\hline
-	&\textbf{RFO10.3.1}&La verifica avviene tramite confronto tra: lista attributi richiesti dal Service Provider e lista degli attributi associati all'utente&Capitolo 2 \\\hline
+	&\textbf{RFO10.3.1}&La verifica avviene tramite confronto tra: lista attributi richiesti dal Service Provider e lista degli attributi associati all'utente&\hyperref[cap:tecnologie_e_strumenti]{Capitolo 2} \\\hline
 	&\textbf{RFO10.4}&Il sistema notifica l'impossibilità di vertificare gli attributi dell'utente&UC3, UC3.4 \\\hline
-	&\textbf{RFO10.4.1}&Il sistema notifica l'errore in caso in cui non ci siano tutti gli attributi richiesti nella lista&Capitolo 2 \\\hline
-	&\textbf{RFO11.0}&Il sistema prevede l'aggiornamento della certificazione degli attributi rilasciata dall'ente certificatore &UC4, Capitolo 2 \\\hline
+	&\textbf{RFO10.4.1}&Il sistema notifica l'errore in caso in cui non ci siano tutti gli attributi richiesti nella lista&\hyperref[cap:tecnologie_e_strumenti]{Capitolo 2} \\\hline
+	&\textbf{RFO11.0}&Il sistema prevede l'aggiornamento della certificazione degli attributi rilasciata dall'ente certificatore &UC4, \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2} \\\hline
 	&\textbf{RFO11.1}&Il sistema prevede l'inserimento dell'ID associato all'attributo da modificare&UC4, UC4.1 \\\hline
 	&\textbf{RFO11.1.1}&Il sistema notifica un errore nel caso in cui l'ID non sia associato a nessun attributo&UC4, UC4.4 \\\hline
 	&\textbf{RFO11.2}&Il sistema prevede l'inserimento del titolo descrittivo dell'attributo da modificare& UC4, UC4.2 \\\hline
 	&\textbf{RFO11.3}&Il sistema prevede l'inserimento dello stato dell'aggiornamento&UC4, UC4.3 \\\hline
-	&\textbf{RFO12.0}&Il sistema prevede la revoca della certificazione degli attributi rilasciata dall'ente certificatore&UC5, Capitolo 2 \\\hline
+	&\textbf{RFO12.0}&Il sistema prevede la revoca della certificazione degli attributi rilasciata dall'ente certificatore&UC5, \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2} \\\hline
 	&\textbf{RFO12.1}&Il sistema prevede l'inserimento dell'ID associato all'attributo da revocare&UC5, UC5.1 \\\hline
 	&\textbf{RFO12.1.1}&Il sistema notifica un errore nel caso in cui l'ID non sia associato ad un attributo presente nel sistema&UC5, UC5.4 \\\hline
 	&\textbf{RFO12.2}&Il sistema prevede l'inserimento del titolo descrittivo dell'attributo da revocare&UC5, UC5.2 \\\hline
@@ -577,16 +577,16 @@ Ogni requisito viene calssificato secondo la seguente convenzione:\\
 \subsection{Requisiti di Qualità}
 Tramite i requisiti di qualità si vogliono indicare quelle caratteristiche che un \gls{ITF} dovrebbe riuscire a raggiungere in modo da garantire un certo livello di \textit{Trust} del sistema.\\
 Per una migliore spiegazione si rimanda al documento "Blockchain: The Dawn of Decentralized Identity"\cite{ITF_gartner} dalla quale son stati presi tutti i requisiti di qualità che verranno elencati.
-\begin{longtable}{|r l|p{10cm}|p{2cm}|}
+\begin{longtable}{|r l|p{10cm}|p{2.5cm}|}
 	\hline
 	\multicolumn{2}{|c|}{\textbf{ID Requisito}} & \textbf{Descrizione} & \textbf{Fonti}\tabularnewline
 	\hline
-	&\textbf{RQD1}&Il sistema deve garantire un certo livello di\textit{Trust} (Fiducia)& Capitolo 2, Doc.Gartner\cite{ITF_gartner}\\\hline
-	&\textbf{RQD2}&Il sistema deve garantire un certo livello di \textit{Assurance} (Garanzia)& Capitolo 2, Doc.Gartner\cite{ITF_gartner}\\\hline
-	&\textbf{RQD3}&Il sistema deve garantire un certo livello di \textit{Provenance} (Provenienza delle informazioni)& Capitolo 2, Doc.Gartner\cite{ITF_gartner}\\\hline
-	&\textbf{RQD4}&Il sistema deve garantire un certo livello di \textit{Security} (Sicurezza)& Capitolo 2, Doc.Gartner\cite{ITF_gartner}\\\hline
-	&\textbf{RQD5}&Il sistema deve garantire un certo livello di \textit{Scalability} (Scalabilità)& Capitolo 2, Doc.Gartner\cite{ITF_gartner}\\\hline
-	&\textbf{RQD6}&Il sistema deve garantire un certo livello di \textit{Efficency} (Efficenza)& Capitolo 2, Doc.Gartner\cite{ITF_gartner}\\\hline
+	&\textbf{RQD1}&Il sistema deve garantire un certo livello di\textit{Trust} (Fiducia)& \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}, Doc.Gartner\cite{ITF_gartner}\\\hline
+	&\textbf{RQD2}&Il sistema deve garantire un certo livello di \textit{Assurance} (Garanzia)& \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}, Doc.Gartner\cite{ITF_gartner}\\\hline
+	&\textbf{RQD3}&Il sistema deve garantire un certo livello di \textit{Provenance} (Provenienza delle informazioni)& \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}, Doc.Gartner\cite{ITF_gartner}\\\hline
+	&\textbf{RQD4}&Il sistema deve garantire un certo livello di \textit{Security} (Sicurezza)& \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}, Doc.Gartner\cite{ITF_gartner}\\\hline
+	&\textbf{RQD5}&Il sistema deve garantire un certo livello di \textit{Scalability} (Scalabilità)& \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}, Doc.Gartner\cite{ITF_gartner}\\\hline
+	&\textbf{RQD6}&Il sistema deve garantire un certo livello di \textit{Efficency} (Efficenza)& \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}, Doc.Gartner\cite{ITF_gartner}\\\hline
 	\caption{Tabella requisiti di qualità}
 \end{longtable}
 \subsection{Requisiti di Vincolo}
@@ -594,11 +594,11 @@ Per una migliore spiegazione si rimanda al documento "Blockchain: The Dawn of De
 	\hline
 	\multicolumn{2}{|c|}{\textbf{ID Requisito}} & \textbf{Descrizione} & \textbf{Fonti}\tabularnewline
 	\hline
-	&\textbf{RVO1}& La piattaforma Blockchain utilizzata sarà Ethereum & Capitolo 2\\\hline
-	&\textbf{RVO1.1}& Per lo sviluppo della rete Blockchain verrà utilizzato il \gls{framework} \textit{Truffle suite} & Capitolo 2\\\hline
-	&\textbf{RVO2}& Per lo sviluppo degli \textit{smart contracts} il linguaggio utilizzato sarà Solidity (versione 0.4.24 o superiore) & Capitolo 2\\\hline
-	&\textbf{RVO3}& Il sistema deve funzionare con il sistema operativo Windows 10 & Capitolo 2\\\hline
-	&\textbf{RVO4}& Per lo sviluppo della rete Blockchain verrà utilizzato il tool \textit{Ganache} & Capitolo 2\\\hline
+	&\textbf{RVO1}& La piattaforma Blockchain utilizzata sarà Ethereum & \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}\\\hline
+	&\textbf{RVO1.1}& Per lo sviluppo della rete Blockchain verrà utilizzato il \gls{framework} \textit{Truffle suite} & \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}\\\hline
+	&\textbf{RVO2}& Per lo sviluppo degli \textit{smart contracts} il linguaggio utilizzato sarà Solidity (versione 0.4.24 o superiore) & \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}\\\hline
+	&\textbf{RVO3}& Il sistema deve funzionare con il sistema operativo Windows 10 & \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}\\\hline
+	&\textbf{RVO4}& Per lo sviluppo della rete Blockchain verrà utilizzato il tool \textit{Ganache} & \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}\\\hline
 	\caption{Tabella reqisiti di vincolo}
 \end{longtable}
 \subsection{Riepilogo dei requisiti}
