@@ -75,11 +75,11 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\item \textbf{Scenario Principale} - Rappresenta il flusso principale degli eventi ovvero il caso in cui tutto funzioni come deve;
 	\item \textbf{Estensioni} - Rappresenta il flusso secondario degli eventi nel caso in cui si verifichino degli errori nel flusso principale.
 \end{itemize}
-
+\newpage
 \subsection{Caso d'uso UC1: Registrazione}
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.50]{immagini/usecase/UC1_Registrazione}
+	\includegraphics[scale=0.35]{immagini/usecase/UC1_Registrazione}
 	\caption{Caso d'uso UC1: Registrazione}
 \end{figure}
 \begin{itemize}
@@ -100,6 +100,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 		\item All'Identity Wallet viene segnalato un errore sull'aggiornamento degli attributi (UC 1.5).
 	\end{enumerate}
 \end{itemize}
+\newpage
 \subsection{Caso d'uso UC1.1: Generazione Chiavi}
 \begin{figure}[h]
 	\centering
@@ -120,6 +121,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\end{enumerate}
 	\item \textbf{Estensioni} -
 \end{itemize}
+\newpage
 \subsection{Caso d'uso UC1.2: Inserimento informazioni personali}
 \begin{figure}[h]
 	\centering
@@ -139,6 +141,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\end{enumerate}
 	\item \textbf{Estensioni} -
 \end{itemize}
+\newpage
 \subsection{Caso d'uso UC1.2.1: Inserimento dati personali utente}
 \begin{figure}[h]
 	\centering
@@ -161,6 +164,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\end{enumerate}
 	\item \textbf{Estensioni} -
 \end{itemize}
+\newpage
 \subsection{Caso d'uso UC1.2.2: Inserimento attributi}
 \begin{figure}[h]
 	\centering
@@ -180,6 +184,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\end{enumerate}
 	\item \textbf{Estensioni} -
 \end{itemize}
+\newpage
 \subsection{Caso d'uso UC1.3: Aggiornamento attributi}
 \begin{figure}[h]
 	\centering
@@ -225,6 +230,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\end{enumerate}
 	\item \textbf{Estensioni} -
 \end{itemize}
+\newpage
 \subsection{Caso d'uso UC2: Certificazione}
 \begin{figure}[h]
 	\centering
@@ -316,7 +322,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 \subsection{Caso d'uso UC3: Verifica dell'identità}
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.50]{immagini/usecase/UC31_VerificaIdentita}
+	\includegraphics[scale=0.50]{immagini/usecase/UC3_Verifica}
 	\caption{Caso d'uso UC3: Verifica}
 \end{figure}
 \begin{itemize}
@@ -358,7 +364,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 		\item Visualizza errore mismatch degli hash (UC 3.1.3).
 	\end{enumerate}
 \end{itemize}
-\subsection{Caso d'uso UC3.3: Visualizza errore verifica dell'identità}
+\subsection{Caso d'uso UC3.3: Visualizza errore verifica identità}
 \begin{itemize}
 	\item \textbf{Descrizione} - Il Service Provider, prima di poter erogare i suoi servizi, deve verificare che l'identità utente sia certificata e quindi presente nell'\gls{ITF}.\\
 	Se questo non avviene, allora il Service Provider, non deve erogare nessun servizio all'utente che li richiede.\\
@@ -373,7 +379,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\end{enumerate}
 	\item \textbf{Estensioni} -
 \end{itemize}
-\subsection{Caso d'uso UC3.1.3: Visualizza errore mismatch degli hash}
+\subsection{Caso d'uso UC3.1.3: Visualizza errore mismatch hash}
 \begin{itemize}
 	\item \textbf{Descrizione} - Il Service Provider, prima di poter erogare i suoi servizi, deve verificare che l'identità dell'utente sia corretta. Questo viene fatto tramite confronto degli \textit{hash}.\\
 	Gli \textit{hash} da confrontare sono: quello presente nell'\gls{ITF} (certificato) e quello calcolato a partire dalla chiave pubblica che il Service Provider ha ottenuto dall'Identity Wallet.\\
@@ -407,6 +413,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\end{enumerate}
 	\item \textbf{Estensioni} -
 \end{itemize}
+\newpage
 \subsection{Caso d'uso UC4: Aggiornamento}
 \begin{figure}[h]
 	\centering
@@ -434,7 +441,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 		\item VIsualizza errore nell'inserimento ID (UC 4.4).
 	\end{enumerate}
 \end{itemize}
-\subsection{Caso d'uso UC4.4: VIsualizza errore inserimento ID}
+\subsection{Caso d'uso UC4.4: Visualizza errore inserimento ID}
 \begin{itemize}
 	\item \textbf{Descrizione} - La Trusted Third Party deve, su richiesta dell'utente o per sua volontà, aggiornare lo stato di una certificazione.\\
 	Questo avviene inserendo l'ID della certificazione che si vuole aggiornare ed aggiornando il titolo e lo stato. In automatico verrà posto un timestamp più recente che andrà ad "oscurare" le certificazioni meno recenti.\\
@@ -449,6 +456,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\end{enumerate}
 	\item \textbf{Estensioni} -
 \end{itemize}
+\newpage
 \subsection{Caso d'uso UC5: Revoca}
 \begin{figure}[h]
 	\centering
