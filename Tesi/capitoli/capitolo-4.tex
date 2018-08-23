@@ -102,11 +102,12 @@ Tutte le componenti della parte \textit{back-end} sono raggruppate in packages. 
 \end{itemize}
 Questo è necessario in quanto un contratto \textit{Ethereum}, una volta rilasciato nella rete, diventa immutabile e quindi non più modificabile in caso di malfunzionamenti o risultati inaspettati.\\
 Separando la parte logica (metodi) dalla componente dati (con metodi fittizi) e collegando le due parti tramite indirizzi fa sì che l'eventuale presenza di errori possa essere gestita andando a implementare nuovamente solo la parte logica e cambiando gli indirizzi nella componente dati (questo cambiamento deve essere gestito tramite appositi metodi \textit{setter}).
+\newpage
 \section{Componenti del modulo}
 \subsection{Visione generale}
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{immagini/architettura_alto_livello}
+	\includegraphics[scale=0.5]{immagini/architettura_alto_livello}
 	\caption{Visione ad alto livello}
 	\label{fig:visioneAltoLivello}
 \end{figure}
@@ -134,7 +135,7 @@ Alcuni package non rispettano i colori sopracitati in quanto realizzano più di 
 \subsection{Identity Wallet Handler}
 \begin{figure}[!h]
 	\centering
-	%\includegraphics[width=0.5\textwidth]{immagini/identity_wallet_handler}
+	\includegraphics[width=0.8\textwidth]{immagini/identityWalletHandler}
 	\caption{Schema Identity Wallet}
 \end{figure}
 \begin{itemize}
@@ -176,7 +177,7 @@ Alcuni package non rispettano i colori sopracitati in quanto realizzano più di 
 \subsection{ID List}
 \begin{figure}[!h]
 	\centering
-	%\includegraphics[width=0.5\textwidth]{immagini/ID_list}
+	\includegraphics[width=0.8\textwidth]{immagini/idList}
 	\caption{Schema ID List}
 \end{figure}
 \begin{itemize}
@@ -216,7 +217,7 @@ Alcuni package non rispettano i colori sopracitati in quanto realizzano più di 
 \subsection{Identity}
 \begin{figure}[!h]
 	\centering
-	%\includegraphics[width=0.5\textwidth]{immagini/Identity}
+	\includegraphics[width=0.8\textwidth]{immagini/identity}
 	\caption{Schema Identity}
 \end{figure}
 \begin{itemize}
@@ -255,7 +256,7 @@ Alcuni package non rispettano i colori sopracitati in quanto realizzano più di 
 \subsection{TTP Key List}
 \begin{figure}[!h]
 	\centering
-	%\includegraphics[width=0.5\textwidth]{immagini/TTP_key_list}
+	\includegraphics[width=0.8\textwidth]{immagini/ttpkeylist}
 	\caption{Schema TTP Key List}
 \end{figure}
 \begin{itemize}
@@ -292,7 +293,7 @@ Alcuni package non rispettano i colori sopracitati in quanto realizzano più di 
 \subsection{Trusted Third Party Handler}
 \begin{figure}[!h]
 	\centering
-	%\includegraphics[width=0.5\textwidth]{immagini/trusted_third_party}
+	\includegraphics[width=0.8\textwidth]{immagini/trustedThirdPartyScheme}
 	\caption{Schema Trusted Third Party}
 \end{figure}
 \begin{itemize}
@@ -327,10 +328,11 @@ Alcuni package non rispettano i colori sopracitati in quanto realizzano più di 
 	\item \textbf{Design pattern presenti}\\
 	Partecipa alla realizzazione del design pattern \textit{strategy} interno al package.
 \end{itemize}
+\newpage
 \subsection{Service Provider Handler}
 \begin{figure}[!h]
 	\centering
-	%\includegraphics[width=0.5\textwidth]{immagini/service_provider_handler}
+	\includegraphics[width=0.8\textwidth]{immagini/serviceproviderhandler}
 	\caption{Schema Service Provider}
 \end{figure}
 \begin{itemize}
