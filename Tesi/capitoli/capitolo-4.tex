@@ -40,14 +40,14 @@ Andremo ora a spiegarle e ad analizzarle.
 		\item \textbf{Analisi}: è la capacità del sistema di reagire velocemente ad un ambiente in costante cambiamento. Nonostante le modifiche siano essere isolate attraverso i livelli è comunque difficile apportare dei cambiamenti a causa della sua struttura monolitica della maggior parte delle implementazioni che lo adottano e dello stretto accoppiamento che si ha tra i livelli\cite{3tierArch}\cite{3tierArch2}.
 		\item \textbf{Valutazione}: nonostante la non semplice gestione dei cambiamenti questo non è un problema per lo sviluppo del modulo \gls{ITF} in quanto, essendo il sistema sviluppato interamente appoggiandosi ad \textit{Ethereum}, le modifiche sono difficili di per sé a causa dell'immutabilità garantita ai contratti una volta che questi sono rilasciati nella rete.\\
 		Per andare a modificare un contratto, l'unico modo è riscriverlo con tutte le modifiche necessarie e sostituire gli indirizzi nei contratti che lo utilizzano.\\
-		Potrebbe risultare un procedimento complesso ma così non è se si adottano strategie che prevedono questo scenario (metodi di \textit{setting} degli indirizzi bloccati ai soli proprietari dei contrati).\\
+		Potrebbe risultare un procedimento complesso ma così non è se si adottano strategie che prevedono questo scenario (metodi di \textit{setting} degli indirizzi bloccati ai soli proprietari dei contratti).\\
 	\end{itemize}
 	Per questa motivazione nonostante il rating basso di questa caratteristica, il sistema non ne viene influenzato in modo negativo.
 	\item \textbf{Ease of deployment}:
 	\begin{itemize}
 		\item \textbf{Rating}: Basso;
 		\item \textbf{Analisi}: un piccolo cambiamento ad una componente può richiedere la ri-implementazione dell'intera applicazione o di una grossa porzione di essa, facendo sì che sia necessaria la pianificazione e l'implementazione durante ore non lavorative\cite{3tierArch}\cite{3tierArch2}.
-		\item \textbf{Valutazione}: come per l'\textit{Overall agility} questa caratteristica non è un problema per l'implementazione del modulo se viene pensato per essere estesto in quanto, come detto nel punto precedente, essento tutto appoggiato sopra la rete \textit{Ethereum} l'implementazione di nuovi contratti o la loro modifica necessità la creazione del contratto e la sostituzione degli indirizzi all'interno dei contratti che lo utilizzano.
+		\item \textbf{Valutazione}: come per l'\textit{Overall agility} questa caratteristica non è un problema per l'implementazione del modulo se viene pensato per essere esteso in quanto, come detto nel punto precedente, essendo tutto appoggiato sopra la rete \textit{Ethereum} l'implementazione di nuovi contratti o la loro modifica necessità la creazione del contratto e la sostituzione degli indirizzi all'interno dei contratti che lo utilizzano.
 	\end{itemize}
 	\item \textbf{Testability}:
 	\begin{itemize}
@@ -86,19 +86,19 @@ Andremo ora a spiegarle e ad analizzarle.
 \end{itemize}
 \section{Approccio alla progettazione}
 Per la progettazione del modulo si è deciso di utilizzare un approccio \emph{\gls{topDown}}\glsfirstoccur. Essa consiste nel descrivere il sistema partendo da una visione generale ad alto livello per poi scendere nel particolare delle parti individuate.\\
-Nella visione ad alto livello è possibile notare che il sistema è composto da diversi packages che interagiscono tra di loro. Entrando nel dettaglio si vanno ad individuare tutte le componenti più piccole e semplici tramite la strategia \textit{divide-et-impera}. L'approccio \gls{topDown} parte dall’obiettivo e da esso valorizza il "perché" e fa dipendere il "come", permettendo di suddividere il lavoro rendendolo più comprensibile e, quindi, di più facile manutenibilità.
+Nella visione ad alto livello è possibile notare che il sistema è composto da diversi packages che interagiscono tra di loro. Entrando nel dettaglio si vanno ad individuare tutte le componenti più piccole e semplici tramite la strategia \textit{divide-et-impera}. L'approccio \gls{topDown} parte dall'obiettivo e da esso valorizza il "perché" e fa dipendere il "come", permettendo di suddividere il lavoro rendendolo più comprensibile e, quindi, di più facile manutenibilità.
 \section{Architettura generale}
 Il modulo \gls{ITF} è formato da due parti distinte:
 \begin{itemize}
 	\item \textbf{Front-end}:l'applicativo tramite la quale gli utenti e gli attori esterni possono interagire con l'intero sistema;
-	\item \textbf{Back-end}: tutte le componenti che contengono la \textit{Business Logic}, gestiscono la presistenza dei dati interni alla \textit{Blockchain Ethereum} e le componenti necessarie a far sì che il \textit{front-end} riesca ad interagire con la \textit{Business Logic}.
+	\item \textbf{Back-end}: tutte le componenti che contengono la \textit{Business Logic}, gestiscono la persistenza dei dati interni alla \textit{Blockchain Ethereum} e le componenti necessarie a far sì che il \textit{front-end} riesca ad interagire con la \textit{Business Logic}.
 \end{itemize}
 Il lato \textit{back-end} prevede l'utilizzo della \textit{Blockchain Ethereum} per la gestione e la certificazione delle informazioni personali dell'utente insieme alla verifica delle informazioni da parte di un Service Provider che ha ricevuto una richiesta di accesso da parte di un utente.\\
 Tutte queste operazioni vengono gestite tramite \textit{smart contracts Solidity} in modo da permettere l'interazione con l'\gls{evm}.\\
-Tutte le componenti della parte \textit{back-end} sono raggruppate in packages. Questo viene fatto perchè, all'interno di ogni package, troviamo:
+Tutte le componenti della parte \textit{back-end} sono raggruppate in packages. Questo viene fatto perché, all'interno di ogni package, troviamo:
 \begin{itemize}
 	\item Gli \textit{smart contracts} che contengono i dati da gestire e dei metodi fittizi che contengono gli indirizzi ai metodi veri e propri;
-	\item Gli \textit{smart contracts} contenenti l'implementazione vera e propra dei vari metodi.
+	\item Gli \textit{smart contracts} contenenti l'implementazione vera e propria dei vari metodi.
 \end{itemize}
 Questo è necessario in quanto un contratto \textit{Ethereum}, una volta rilasciato nella rete, diventa immutabile e quindi non più modificabile in caso di malfunzionamenti o risultati inaspettati.\\
 Separando la parte logica (metodi) dalla componente dati (con metodi fittizi) e collegando le due parti tramite indirizzi fa sì che l'eventuale presenza di errori possa essere gestita andando a implementare nuovamente solo la parte logica e cambiando gli indirizzi nella componente dati (questo cambiamento deve essere gestito tramite appositi metodi \textit{setter}).
@@ -239,7 +239,7 @@ Alcuni package non rispettano i colori sopracitati in quanto realizzano più di 
 \begin{itemize}
 	\item \textbf{Descrizione}
 	Classe che modella tutto il package Identity in quanto contiene sia i dati riguardanti un utente (le sue \gls{PII} sotto forma di lista) sia tutti i metodi necessari per la realizzazione della business logic del modulo \gls{ITF} (con delega ad oggetti concreti di tipo Identity\_Method).\\
-	Come per gli altri package, anche questa componente partecipa alla realizzazione di un design pattern \textit{strategy} necessario per mantenere separate le due componenti sopracitate in modo da poter corregere eventuali errori o malfunzionamenti e per permettere, in futuro, l'espansione delle funzionalità del package.
+	Come per gli altri package, anche questa componente partecipa alla realizzazione di un design pattern \textit{strategy} necessario per mantenere separate le due componenti sopracitate in modo da poter correggere eventuali errori o malfunzionamenti e per permettere, in futuro, l'espansione delle funzionalità del package.
 	\item \textbf{Interazione con altre componenti}
 	\begin{itemize}
 		\item \gls{PII}: Rappresenta un'informazione personale che appartiene ad un determinato utente.\\
@@ -365,7 +365,7 @@ In questa sezione vengono descritti i design pattern utilizzati per la realizzaz
 \subsection{Singleton}
 \begin{itemize}
 	\item \textbf{Scopo di utilizzo}: il pattern Singleton assicura che una certa classe abbia una sola istanza e fornisce ad essa un punto d’acceso globale.
-	\item \textbf{Contesto}: all'interno dell’applicazione questo pattern viene usato per garantire la presenza di un unica istanza dei contratti TTP Key List e ID List.
+	\item \textbf{Contesto}: all'interno dell'applicazione questo pattern viene usato per garantire la presenza di un unica istanza dei contratti TTP Key List e ID List.
 \end{itemize}
 \subsection{Façade}
 \begin{itemize}
@@ -383,7 +383,7 @@ In questa sezione vengono descritti i design pattern utilizzati per la realizzaz
 \end{itemize}
 \subsection{Observer}
 \begin{itemize}
-	\item \textbf{Scopo di utilizzo}: Il pattern Observer permette di definire una dipendeza uno a molti fra oggetti, in modo tale che se un oggetto cambia il suo stato interno, ciascuno degli oggetti dipendenti da esso viene notificato e aggiornato automaticamente.
+	\item \textbf{Scopo di utilizzo}: Il pattern Observer permette di definire una dipendenza uno a molti fra oggetti, in modo tale che se un oggetto cambia il suo stato interno, ciascuno degli oggetti dipendenti da esso viene notificato e aggiornato automaticamente.
 	\item \textbf{Contesto}: All'interno del modulo \gls{ITF} questa tipologia di design pattern è richiesta nel momento in cui un utente si registra ed inserisce, o aggiorna, le sue \gls{PII}.\\
 	In automatico, un oggetto \gls{TTP}, deve essere notificato del fatto che è avvenuta l'aggiunta di nuove informazioni così da poterle certificare per essere utilizzate da un Service Provider quando vuole erogare un servizio ad un utente che lo richiede.
 \end{itemize}

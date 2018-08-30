@@ -6,7 +6,7 @@
 \chapter{Codifica}
 \label{cap:codifica}
 %**************************************************************
-Dopo aver analizato l'architettura del modulo \gls{ITF} insieme ai design pattern necessari alla realizzazione del prodotto passiamo ad analizzare nel dettaglio la struttura delle singole componenti.\\
+Dopo aver analizzato l'architettura del modulo \gls{ITF} insieme ai design pattern necessari alla realizzazione del prodotto passiamo ad analizzare nel dettaglio la struttura delle singole componenti.\\
 I seguenti paragrafi analizzano quali metodi, attributi ed eventuali sottoclassi compongono i package più importanti necessari per la realizzazione del sistema.\\
 Andremo ad analizzare:
 \begin{itemize}
@@ -41,7 +41,7 @@ Andremo ad analizzare:
 	\item \textbf{Metodi}
 	\begin{itemize}
 		\item \textit{+ GetState(): void}\\
-		Metodo necessario per realizzare il patterno \textit{observer} per la certificazione automatica delle \gls{PII}.
+		Metodo necessario per realizzare il pattern \textit{observer} per la certificazione automatica delle \gls{PII}.
 		\item \textit{+ createID(publicKey: address): identity}\\
 		Metodo che permette la creazione di una nuova identità digitale all'interno del modulo \gls{ITF}.
 		\textbf{Parametri:}
@@ -59,14 +59,14 @@ Andremo ad analizzare:
 		\item \textit{+ removeID(): void}\\
 		Metodo che rimuove l'identità digitale dell'utente del sistema andando a cancellare la sua entry nella struttura dati che associa le chiavi pubbliche agli indirizzi delle identità.
 		\item \textit{+ setHandler(address: address): void}\\
-		Metodo necessario per impostare l'indirizzo dell'oggetto che deve andare ad implementare i medtodi. Il metodo è segnato come pubblico anche se, grazie a \textit{Solidity}, bisogna impostare la proprietà dell'oggetto in modo che solo il proprietario del contratto possa cambiare l'indirizzo dell'oggetto che risolve i metodi.\\\\
+		Metodo necessario per impostare l'indirizzo dell'oggetto che deve andare ad implementare i metodi. Il metodo è segnato come pubblico anche se, grazie a \textit{Solidity}, bisogna impostare la proprietà dell'oggetto in modo che solo il proprietario del contratto possa cambiare l'indirizzo dell'oggetto che risolve i metodi.\\\\
 		\textbf{Parametri:}
 		\begin{itemize}
 			\item \textit{address: address}
 			Indirizzo dell'oggetto delegato alla risoluzione dei metodi.
 		\end{itemize}
 		\item \textit{+ removePII(PII\_ID: string): void}\\
-		Metodo che permette ad un utente di rimuovere una o più informazoni personali che sono state inserite e certificate all'interno della propria identità digitale.\\\\
+		Metodo che permette ad un utente di rimuovere una o più informazioni personali che sono state inserite e certificate all'interno della propria identità digitale.\\\\
 		\textbf{Parametri:}
 		\begin{itemize}
 			\item \textit{PII\_ID: string}\\
@@ -94,7 +94,7 @@ Andremo ad analizzare:
 		\item \textit{- publicKey: address}\\
 		Chiave pubblica utilizzata per permettere la decodifica, da parte del Service Provider Handler, del \textit{hash} per permettere la verifica.
 		\item \textit{- privateKey: address}\\
-		Chiave privata dell'ente certificatore necessaria epr andare a certificare le informazioni personali dell'utente.
+		Chiave privata dell'ente certificatore necessaria per andare a certificare le informazioni personali dell'utente.
 	\end{itemize}
 	\item \textbf{Metodi}
 	\begin{itemize}
@@ -119,10 +119,10 @@ Andremo ad analizzare:
 		\textbf{Parametri:}
 		\begin{itemize}
 			\item \textit{TTP\_ID: string}\\
-			Identificativo univoco mnemonico necessario per sepcificare quale ente certificatore si vuole rimuovere dalla lista.
+			Identificativo univoco mnemonico necessario per specificare quale ente certificatore si vuole rimuovere dalla lista.
 		\end{itemize}
 		\item \textit{+ setHandler(address: address): void}\\
-		Metodo necessario per impostare l'indirizzo dell'oggetto che deve andare ad implementare i medtodi. Il metodo è segnato come pubblico anche se, grazie a \textit{Solidity}, bisogna impostare la proprietà dell'oggetto in modo che solo il proprietario del contratto possa cambiare l'indirizzo dell'oggetto che risolve i metodi.\\\\
+		Metodo necessario per impostare l'indirizzo dell'oggetto che deve andare ad implementare i metodi. Il metodo è segnato come pubblico anche se, grazie a \textit{Solidity}, bisogna impostare la proprietà dell'oggetto in modo che solo il proprietario del contratto possa cambiare l'indirizzo dell'oggetto che risolve i metodi.\\\\
 		\textbf{Parametri:}
 		\begin{itemize}
 			\item \textit{address: address}\\
@@ -157,7 +157,7 @@ Andremo ad analizzare:
 			\item \textit{publicKey: address}\\
 			Chiave pubblica associata all'utente che rappresenta il suo identificativo univoco;
 			\item \textit{ID\_Address: address}\\
-			Indirizzo \textit{Ethereum} che rappresenta un "puntatore" grazie al quale è possibile rcuperare le \gls{PII} di un utente.
+			Indirizzo \textit{Ethereum} che rappresenta un "puntatore" grazie al quale è possibile recuperare le \gls{PII} di un utente.
 		\end{itemize}
 		\item \textit{+ removeID(publicKey: address): void}\\
 		Metodo che consente di rimuovere dalla mappa un'associazione utente-identità. In questo modo è possibile rendere irrecuperabile tutte le informazioni riguardanti un utente nel caso in cui questo decida di eliminare il proprio profilo dal sistema \gls{ITF}.\\\\
@@ -174,7 +174,7 @@ Andremo ad analizzare:
 			Chiave pubblica dell'utente della quale si vogliono recuperare le \gls{PII} per andare a verificare le sue informazioni.
 		\end{itemize}
 		\item \textit{+ setHandler(address: address): void}\\
-		Metodo necessario per impostare l'indirizzo dell'oggetto che deve andare ad implementare i medtodi. Il metodo è segnato come pubblico anche se, grazie a \textit{Solidity}, bisogna impostare la proprietà dell'oggetto in modo che solo il proprietario del contratto possa cambiare l'indirizzo dell'oggetto che risolve i metodi.\\\\
+		Metodo necessario per impostare l'indirizzo dell'oggetto che deve andare ad implementare i metodi. Il metodo è segnato come pubblico anche se, grazie a \textit{Solidity}, bisogna impostare la proprietà dell'oggetto in modo che solo il proprietario del contratto possa cambiare l'indirizzo dell'oggetto che risolve i metodi.\\\\
 		\textbf{Parametri:}
 		\begin{itemize}
 			\item \textit{address: address}\\
@@ -212,7 +212,7 @@ Andremo ad analizzare:
 			Indirizzo delle informazioni personali da certificare.
 		\end{itemize}
 		\item \textit{+ addPII(PII: PII): void}\\
-		Metodo utilizzato per aggiungere un'informazione eprsnale all'interno della lsita delle \gls{PII} associate all'utente.\\\\
+		Metodo utilizzato per aggiungere un'informazione personale all'interno della lista delle \gls{PII} associate all'utente.\\\\
 		\textbf{Parametri:}
 		\begin{itemize}
 			\item \textit{PII: PII}\\
@@ -233,7 +233,7 @@ Andremo ad analizzare:
 			Identificativo univoco mnemonico utilizzato per indicare quale delle informazioni personali recuperare dalla lista.
 		\end{itemize}
 		\item \textit{+ setHandler(address: address): void}\\
-		Metodo necessario per impostare l'indirizzo dell'oggetto che deve andare ad implementare i medtodi. Il metodo è segnato come pubblico anche se, grazie a \textit{Solidity}, bisogna impostare la proprietà dell'oggetto in modo che solo il proprietario del contratto possa cambiare l'indirizzo dell'oggetto che risolve i metodi.\\\\
+		Metodo necessario per impostare l'indirizzo dell'oggetto che deve andare ad implementare i metodi. Il metodo è segnato come pubblico anche se, grazie a \textit{Solidity}, bisogna impostare la proprietà dell'oggetto in modo che solo il proprietario del contratto possa cambiare l'indirizzo dell'oggetto che risolve i metodi.\\\\
 		\textbf{Parametri:}
 		\begin{itemize}
 			\item \textit{address: address}\\
@@ -249,7 +249,7 @@ Andremo ad analizzare:
 \end{figure}
 \begin{itemize}
 	\item \textbf{Descrizione}\\
-	Classe concreta necessaria che rappresenta un informazione eprsonale dell'utente all'interno del sistema \gls{ITF}.
+	Classe concreta necessaria che rappresenta un informazione personale dell'utente all'interno del sistema \gls{ITF}.
 	\item \textbf{Attributi}\\
 	\begin{itemize}
 		\item \textit{- ID\_PII: string}\\
@@ -271,7 +271,7 @@ Andremo ad analizzare:
 \end{figure}
 \begin{itemize}
 	\item \textbf{Descrizione}\\
-	Classe concreta che mantiene una mappa che consente di associare un identificativo mnemonico, che rappresenta un ente certificatore, e la sua chiave pubblica necessara per poter verificare le \gls{PII} certificate.
+	Classe concreta che mantiene una mappa che consente di associare un identificativo mnemonico, che rappresenta un ente certificatore, e la sua chiave pubblica necessaria per poter verificare le \gls{PII} certificate.
 	\item \textbf{Attributi}
 	\begin{itemize}
 		\item \textit{- KeyList: map<TTP\_ID: string, publicKey: address>}\\
@@ -292,7 +292,7 @@ Andremo ad analizzare:
 			Chiave pubblica dell'ente certificatore che si desidera agiungere alla mappa.
 		\end{itemize}
 		\item \textit{+ removeTTP(TTP\_ID: string): void}\\
-		Metodo che consente di rimuovere gli enti certificatori dalla lista di quelli idonei a certificare le \gls{PII} delgi utenti.\\\\
+		Metodo che consente di rimuovere gli enti certificatori dalla lista di quelli idonei a certificare le \gls{PII} degli utenti.\\\\
 		\textbf{Parametri:}
 		\begin{itemize}
 			\item \textit{TTP\_ID: string}\\
@@ -306,7 +306,7 @@ Andremo ad analizzare:
 			Identificativo univoco mnemonico dell'ente certificatore della quale si desidera recuperare la chiave pubblica.
 		\end{itemize}
 		\item \textit{+ setHandler(address: address): void}\\
-		Metodo necessario per impostare l'indirizzo dell'oggetto che deve andare ad implementare i medtodi. Il metodo è segnato come pubblico anche se, grazie a \textit{Solidity}, bisogna impostare la proprietà dell'oggetto in modo che solo il proprietario del contratto possa cambiare l'indirizzo dell'oggetto che risolve i metodi.\\\\
+		Metodo necessario per impostare l'indirizzo dell'oggetto che deve andare ad implementare i metodi. Il metodo è segnato come pubblico anche se, grazie a \textit{Solidity}, bisogna impostare la proprietà dell'oggetto in modo che solo il proprietario del contratto possa cambiare l'indirizzo dell'oggetto che risolve i metodi.\\\\
 		\textbf{Parametri:}
 		\begin{itemize}
 			\item \textit{address: address}\\
@@ -342,12 +342,12 @@ Andremo ad analizzare:
 		\textbf{Parametri:}
 		\begin{itemize}
 			\item \textit{publicKey: address}\\
-			Chiave pubblica necessara per recuperare le \gls{PII} dell'utente che ha richiesto l'accesso ad un servizio;
+			Chiave pubblica necessaria per recuperare le \gls{PII} dell'utente che ha richiesto l'accesso ad un servizio;
 			\item \textit{TTP\_ID: string}\\
 			Identificativo univoco mnemonico dell'ente certificatore che ha certificato le informazioni personali. Questo attributo è utilizzato per recuperare la chiave pubblica necessaria per la verifica degli \textit{hash}.
 		\end{itemize}
 		\item \textit{+ setHandler(address: address): void}\\
-		Metodo necessario per impostare l'indirizzo dell'oggetto che deve andare ad implementare i medtodi. Il metodo è segnato come pubblico anche se, grazie a \textit{Solidity}, bisogna impostare la proprietà dell'oggetto in modo che solo il proprietario del contratto possa cambiare l'indirizzo dell'oggetto che risolve i metodi.\\\\
+		Metodo necessario per impostare l'indirizzo dell'oggetto che deve andare ad implementare i metodi. Il metodo è segnato come pubblico anche se, grazie a \textit{Solidity}, bisogna impostare la proprietà dell'oggetto in modo che solo il proprietario del contratto possa cambiare l'indirizzo dell'oggetto che risolve i metodi.\\\\
 		\textbf{Parametri:}
 		\begin{itemize}
 			\item \textit{address: address}\\

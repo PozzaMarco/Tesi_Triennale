@@ -39,9 +39,9 @@ Il prodotto finale prevede l'interazione delle tre tipologie di attori allo scop
 \end{itemize}
 Questo viene garantito dall'\gls{ITF} e dalla tecnologia \textit{Blockchain} che ne è alla base.\\
 Di seguito viene descritto il flusso di chiamate che intercorrono affinchè un utente possa accedere ad uno o più servizi di sua scelta.\\\\
-Quando un utente richiede dei servizi, da parte di un \textit{service provider}, il sistema viene interrogato e inizia lo scambio di informazioni che coinvolge l'\textit{identity wallet}, gli enti certifictori ed il \textit{service provider}.\\
+Quando un utente richiede dei servizi, da parte di un \textit{service provider}, il sistema viene interrogato e inizia lo scambio di informazioni che coinvolge l'\textit{identity wallet}, gli enti certificatori ed il \textit{service provider}.\\
 Ogni qual volta un utente richiede l'accesso a dei servizi di un determinato \textit{service provider}, \gls{monokee} reindirizza la richiesta d'accesso all'\textit{identity wallet} che, a sua volta, invia la richiesta di accesso all'\gls{ITF} passandogli un identificativo dell'utente che ha fatto la richiesta di accesso insieme alle informazioni che il \textit{service provider} necessita per poter permettere l'erogazione dei suoi servizi.\\
-Nell'\gls{ITF} viene eseguita una ricerca nella rete \textit{Blockchain} sottostante in modo da verificare se le informazioni richieste dal \textit{service provider} siano efffettivamente associate all'utente. Se il riscontro è positivo, il \textit{service provider} permette l'accesso all'utente altrimenti gli viene negato.\\\\
+Nell'\gls{ITF} viene eseguita una ricerca nella rete \textit{Blockchain} sottostante in modo da verificare se le informazioni richieste dal \textit{service provider} siano effettivamente associate all'utente. Se il riscontro è positivo, il \textit{service provider} permette l'accesso all'utente altrimenti gli viene negato.\\\\
 La seconda tipologia di attori che partecipano al sistema, gli enti certificatori, entrano in gioco durante la fase di registrazione di un nuovo utente o quando un amministratore di dominio associa degli attributi alle identità digitali dei suoi utenti.
 Gli enti certificatori hanno il compito di verificare e certificare che, le asserzioni o gli attributi, di una particolare identità, siano conformi alle informazioni associate a quell'utente.\\
 Questo ruolo è di fondamentale importanza all'interno del sistema che si sta sviluppando in quanto, essendo l'\gls{ITF} basata su una \textit{Blockchain}, tutte le informazioni che popolano la rete sono immutabili e, quindi, prima di essere definitivamente inserite in un blocco, devono essere verificate e approvate, dagli enti certificatori, tramite gli algoritmi di consenso.\\\\
@@ -56,7 +56,7 @@ Ogni caso d'uso è classificato secondo la seguente convienzione:\\\\
 In cui i due codici rappresentano:
 \begin{itemize}
 	\item \textbf{codicePadre} - identifica univocamente il caso d'uso;
-	\item \textbf{codiceFiglio} - identifica univocamente i sotto casi d'uso apparteneti ad un determinato "codicePadre".
+	\item \textbf{codiceFiglio} - identifica univocamente i sotto casi d'uso appartenenti ad un determinato "codicePadre".
 \end{itemize}
 
 \subsection{Descrizione dei casi d'uso}
@@ -169,7 +169,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.50]{immagini/usecase/UC122_InserimentoAttributi}
-	\caption{Caso d'uso UC1.2.2: Insierimento attributi}
+	\caption{Caso d'uso UC1.2.2: Inserimento attributi}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Descrizione} -L'Identity Wallet compila i campi dedicati agli attributi/certificazioni per creare l'identità digitale dell'utente;
@@ -180,7 +180,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\item \textbf{Scenario Principale} -
 	\begin{enumerate}
 		\item Inserimento dell'ID che individua l'attributo (UC 1.2.2.1);
-		\item Insierimento del titolo che descrive l'attributo (UC 1.2.2.2).
+		\item Inserimento del titolo che descrive l'attributo (UC 1.2.2.2).
 	\end{enumerate}
 	\item \textbf{Estensioni} -
 \end{itemize}
@@ -209,15 +209,15 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\item \textbf{Descrizione} - All'Identity Wallet viene segnalata, tramite un opportuno errore, l'impossibilità di creare e registrare una nuova identità digitale per l'utente. Questo avviene quando si tenta di registrare un'identità che è già presente nel sistema;
 	\item \textbf{Attori Principali} - Identity Wallet;
 	\item \textbf{Attori Secondari} -
-	\item \textbf{Pre-Condizioni} - L'Identity Wallet vuole registrare una nuova identityà digitale per l'utente;
-	\item \textbf{Post-Condizioni} - L'Identity Wallet non è riuscito a registrare la nuova identityà digitale nell'\gls{ITF};
+	\item \textbf{Pre-Condizioni} - L'Identity Wallet vuole registrare una nuova identità digitale per l'utente;
+	\item \textbf{Post-Condizioni} - L'Identity Wallet non è riuscito a registrare la nuova identità digitale nell'\gls{ITF};
 	\item \textbf{Scenario Principale} -
 	\begin{enumerate}
 		\item All'Identity Wallet viene segnalata, tramite un errore, l'impossibilità di registrare il nuovo utente al sistema (UC 1.4);
 	\end{enumerate}
 	\item \textbf{Estensioni} -
 \end{itemize}
-\subsection{Caso d'uso UC1.5: Visualizza errore aggioranemento attributo}
+\subsection{Caso d'uso UC1.5: Visualizza errore aggiornamento attributo}
 \begin{itemize}
 	\item \textbf{Descrizione} - All'Identity Wallet viene segnalata, tramite un opportuno errore, l'impossibilità di aggiornare la lista di attributi/certificazioni dell'utente. Questo avviene quando si tenta di aggiornare un attributo/certificazione che non è presente nell'\gls{ITF};
 	\item \textbf{Attori Principali} - Identity Wallet;
@@ -226,7 +226,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\item \textbf{Post-Condizioni} - La lista non è stata aggiornata;
 	\item \textbf{Scenario Principale} -
 	\begin{enumerate}
-		\item All'Identity Wallet viene segnalata, tramite un errore, l'impossibilità di agiornare gli attributi (UC 1.5);
+		\item All'Identity Wallet viene segnalata, tramite un errore, l'impossibilità di aggiornare gli attributi (UC 1.5);
 	\end{enumerate}
 	\item \textbf{Estensioni} -
 \end{itemize}
@@ -289,20 +289,20 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\item \textbf{Post-Condizioni} - L'attore non è riuscito a certificare gli attributi e/o i dati personali dell'utente;
 	\item \textbf{Scenario Principale} -
 	\begin{enumerate}
-		\item L'attore viene segnalato dell'impossibilità di certificare le informazioni personlai dell'utente, tramite un apposito errore (UC 2.4).
+		\item L'attore viene segnalato dell'impossibilità di certificare le informazioni personali dell'utente, tramite un apposito errore (UC 2.4).
 	\end{enumerate}
 	\item \textbf{Estensioni} -
 \end{itemize}
 \subsection{Caso d'uso UC 2.1.3: Visualizza errore certificazione informazioni personali}
 \begin{itemize}
-	\item \textbf{Descrizione} - Alla Trusted Third Party viene segnalata l'impossibilità di certificare le informazoni personali dell'utente;
+	\item \textbf{Descrizione} - Alla Trusted Third Party viene segnalata l'impossibilità di certificare le informazioni personali dell'utente;
 	\item \textbf{Attori Principali} - Trusted Third Party
 	\item \textbf{Attori Secondari} -
 	\item \textbf{Pre-Condizioni} - L'attore vuole certificare le informazioni personali dell'utente;
 	\item \textbf{Post-Condizioni} - L'attore non è riuscito a certificare le informazioni personali dell'utente;
 	\item \textbf{Scenario Principale} -
 	\begin{enumerate}
-		\item L'attore viene senglatao dell'impossibilità di certificare le informazioni personali, tramite un apposito errore (UC 2.1.3).
+		\item L'attore viene segnalato dell'impossibilità di certificare le informazioni personali, tramite un apposito errore (UC 2.1.3).
 	\end{enumerate}
 	\item \textbf{Estensioni} -
 \end{itemize}
@@ -315,7 +315,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\item \textbf{Post-Condizioni} - L'attore non è riuscito a certificare gli attributi dell'utente;
 	\item \textbf{Scenario Principale} - 
 	\begin{enumerate}
-		\item L'attore viene segnalato dell'impossibilità di certificare gli attributi, trmaite un apposito errore (UC 2.1.4).
+		\item L'attore viene segnalato dell'impossibilità di certificare gli attributi, tramite un apposito errore (UC 2.1.4).
 	\end{enumerate}
 	\item \textbf{Estensioni} -
 \end{itemize}
@@ -334,7 +334,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\item \textbf{Scenario Principale} -
 	\begin{enumerate}
 		\item Verifica dell'identità dell'utente (UC 3.1);
-		\item Verfica degli attributi dell'utente (UC 3.2).
+		\item Verifica degli attributi dell'utente (UC 3.2).
 	\end{enumerate}
 	\item \textbf{Estensioni} -
 	\begin{enumerate}
@@ -409,7 +409,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\item \textbf{Post-Condizioni} - Il Service Provider non è riuscito a verificare gli attributi dell'utente quindi non può erogare i suoi servizi in quanto non è autorizzato ad accedervi;
 	\item \textbf{Scenario Principale} -
 	\begin{enumerate}
-		\item Visualizza un opportno messaggio d'errore per la verifica degli attributi (UC 3.4).
+		\item Visualizza un opportuno messaggio d'errore per la verifica degli attributi (UC 3.4).
 	\end{enumerate}
 	\item \textbf{Estensioni} -
 \end{itemize}
@@ -507,7 +507,7 @@ In questa sezione verranno elencati e descritti tutti i requisiti rilevati duran
 \end{itemize}
 Prima di questo, verrà spiegata la nomenclatura adottata al fine di catalogare, ordinare e tracciare tutti i requisiti.
 \subsection{Classificazione dei requisiti}
-Ogni requisito viene calssificato secondo la seguente convenzione:\\
+Ogni requisito viene classificato secondo la seguente convenzione:\\
 \centerline{R[Tipologia][Importanza]][Padre].[Livello]}\\
 \begin{itemize}
 	\item \textbf{Tipologia} - Indica la tipologia del requisito indicata con una lettera tra:
@@ -521,7 +521,7 @@ Ogni requisito viene calssificato secondo la seguente convenzione:\\
 	\begin{itemize}
 		\item \textbf{O}: Rappresenta un requisito \textit{Obbligatorio} che deve essere soddisfatto per garantire le funzionalità base del sistema;
 		\item \textbf{D}: Rappresenta un requisito \textit{Desiderabile} il cui non soddisfacimento non pregiudica le funzionalità del sistema ma, la sua realizzazione, da un valore aggiunto rendendo il tutto più completo;
-		\item \textbf{F}: Rappresenta un requisito \textit{Facoltativo} che, se soddisfatto, renderebbe il sistema ancora più vompleto a discapito di risorse e aumento dei potenziali costi.
+		\item \textbf{F}: Rappresenta un requisito \textit{Facoltativo} che, se soddisfatto, renderebbe il sistema ancora più completo a discapito di risorse e aumento dei potenziali costi.
 	\end{itemize}
 	\item \textbf{Padre} - Numero che rappresenta univocamente un requisito;
 	\item \textbf{Livello} - Per ogni "padre" il livello indica il numero del sotto requisito del caso preso in esame.
@@ -536,7 +536,7 @@ Ogni requisito viene calssificato secondo la seguente convenzione:\\
 	&\textbf{RFO3.0}&Il sistema richiede la generazione delle chiavi private&UC1, UC1.1 \\\hline
 	&\textbf{RFO4.0}&Il sistema richiede l'inserimento delle informazioni personali dell'utente&UC1, UC1.2, UC1.2.1, UC1.2.2 \\\hline
 	&\textbf{RFO4.1}&Il sistema richiede l'inserimento dei dati personali utente&UC1, UC1.2, UC1.2.1 \\\hline
-	&\textbf{RFO4.1.1}&Il sistema richiede l'inserimento di un idetificativo&UC1.2, UC1.2.1 \\\hline
+	&\textbf{RFO4.1.1}&Il sistema richiede l'inserimento di un identificativo&UC1.2, UC1.2.1 \\\hline
 	&\textbf{RFO4.1.2}&Il sistema richiede l'inserimento della data di nascita&UC1.2, UC1.2.1 \\\hline
 	&\textbf{RFO4.1.3}&Il sistema richiede l'inserimento del sesso ("M" per maschio o "F" per femmina)&UC1.2, UC1.2.1\\\hline
 	&\textbf{RFO4.1.4}&Il sistema richiede l'inserimento del nome da associare all'identità digitale&UC1.2.1, UC1.2.1.1\\\hline
@@ -547,10 +547,10 @@ Ogni requisito viene calssificato secondo la seguente convenzione:\\
 	&\textbf{RFO4.2.2}&Ad ogni attributo va associato un titolo che lo descrive&UC1.2.2, UC1.2.2.2 \\\hline
 	&\textbf{RFO5.0}&Il sistema genera un messaggio d'errore nel caso in cui ci siano problemi durante la registrazione&UC1, UC1.4 \\\hline
 	&\textbf{RFO6.0}&Il sistema permette l'aggiornamento degli attributi associati ad un utente&UC1, UC1.3 \\\hline
-	&\textbf{RFO6.1}&Il sistema richiede l'inserimento di un idetificativo per l'attributo&UC1.3, UC1.3.1 \\\hline
+	&\textbf{RFO6.1}&Il sistema richiede l'inserimento di un identificativo per l'attributo&UC1.3, UC1.3.1 \\\hline
 	&\textbf{RFO6.1.1}&Il sistema richiede l'inserimento di un ID univoco associato ad un attributo&UC1.3, UC1.3.1 \\\hline
 	&\textbf{RFO6.2}&Il sistema richiede l'inserimento di un titolo descrittivo dell'attributo &UC1.3, UC1.3.2 \\\hline
-	&\textbf{RFO7.0}&Il sistema genera un messaggio d'erore nel caso in cui ci siano problemi durante l'aggiornamento degli attributi&UC1, UC1.5 \\\hline
+	&\textbf{RFO7.0}&Il sistema genera un messaggio d'errore nel caso in cui ci siano problemi durante l'aggiornamento degli attributi&UC1, UC1.5 \\\hline
 	&\textbf{RFO8.0}&Il sistema richiede che le informazioni dell'utente siano certificate da un ente certificatore fidato&UC2 \\\hline
 	&\textbf{RFO9.0}&Il sistema richiede la certificazione dell'identità utente&UC2, UC2.1 \\\hline
 	&\textbf{RFO9.1}&Il sistema richiede la certificazione delle informazioni personali&UC2.1, UC2.1.1 \\\hline
@@ -566,9 +566,9 @@ Ogni requisito viene calssificato secondo la seguente convenzione:\\
 	&\textbf{RFO10.1.3}&Il sistema notifica, tramite errore, l'impossibilità di verificare l'identità utente&UC3.1, UC3.1.3 \\\hline
 	&\textbf{RFO10.1.3.1}&Il sistema notifica l'errore se si riscontra un mismatch tra gli \textit{hash} confrontati in RFO10.1.2&UC3.1.3, \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2} \\\hline
 	&\textbf{RFO10.2}&Il sistema notifica, tramite un errore, l'impossibilità di verificare l'identità& UC3, UC3.3 \\\hline
-	&\textbf{RFO10.3}&Il sistema richiede la veritifca degli attributi associati all'utente&UC3, UC3.2 \\\hline
+	&\textbf{RFO10.3}&Il sistema richiede la verifica degli attributi associati all'utente&UC3, UC3.2 \\\hline
 	&\textbf{RFO10.3.1}&La verifica avviene tramite confronto tra: lista attributi richiesti dal Service Provider e lista degli attributi associati all'utente&\hyperref[cap:tecnologie_e_strumenti]{Capitolo 2} \\\hline
-	&\textbf{RFO10.4}&Il sistema notifica l'impossibilità di vertificare gli attributi dell'utente&UC3, UC3.4 \\\hline
+	&\textbf{RFO10.4}&Il sistema notifica l'impossibilità di verificare gli attributi dell'utente&UC3, UC3.4 \\\hline
 	&\textbf{RFO10.4.1}&Il sistema notifica l'errore in caso in cui non ci siano tutti gli attributi richiesti nella lista&\hyperref[cap:tecnologie_e_strumenti]{Capitolo 2} \\\hline
 	&\textbf{RFO11.0}&Il sistema prevede l'aggiornamento della certificazione degli attributi rilasciata dall'ente certificatore &UC4, \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2} \\\hline
 	&\textbf{RFO11.1}&Il sistema prevede l'inserimento dell'ID associato all'attributo da modificare&UC4, UC4.1 \\\hline
@@ -607,7 +607,7 @@ Per una migliore spiegazione si rimanda al documento "Blockchain: The Dawn of De
 	&\textbf{RVO2}& Per lo sviluppo degli \textit{smart contracts} il linguaggio utilizzato sarà Solidity (versione 0.4.24 o superiore) & \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}\\\hline
 	&\textbf{RVO3}& Il sistema deve funzionare con il sistema operativo Windows 10 & \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}\\\hline
 	&\textbf{RVO4}& Per lo sviluppo della rete Blockchain verrà utilizzato il tool \textit{Ganache} & \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}\\\hline
-	\caption{Tabella reqisiti di vincolo}
+	\caption{Tabella requisiti di vincolo}
 \end{longtable}
 \subsection{Riepilogo dei requisiti}
 \begin{longtable}{|r l|p{2cm}|p{2cm}|p{2cm}|}

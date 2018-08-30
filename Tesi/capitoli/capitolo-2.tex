@@ -7,7 +7,7 @@
 \label{cap:tecnologie_e_strumenti}
 %**************************************************************
 In questo capitolo verranno illustrate le tecnologie e gli strumenti che sono stati utilizzati per realizzare il progetto di stage.\\
-Il capitolo si apre con una descrizione di che cos'è una \textit{Blockchain} e del perchè è stata scelta come tecnologia chiave per la realizzazione del progetto e, di seguito, verranno descritti tutti gli strumenti utilizzati.\\\\
+Il capitolo si apre con una descrizione di che cos'è una \textit{Blockchain} e del perché è stata scelta come tecnologia chiave per la realizzazione del progetto e, di seguito, verranno descritti tutti gli strumenti utilizzati.\\\\
 Questa sezione è frutto di studi di vari documenti e \textit{whitepaper} forniti dall'azienda\cite{spidchain_whitepaper}\cite{SSID}\cite{jolocom_whitepaper}\cite{ITF_gartner}\cite{hashgraph_whitepaper}
 %**************************************************************
 \section{Cos'è una Blockchain}
@@ -26,29 +26,29 @@ Questi blocchi sono formati da quattro sezioni:
 		\item \textbf{Previous Block Hash} contiene l'hash dell'header del blocco precedente.;
 		\item \textbf{Markle root} hash della radice del \textit{Markle tree} (spiegato di seguito);
 		\item \textbf{Timestamp} tempo di creazione del blocco;
-		\item \textbf{Difficulty target} numero che indica il livello di difficolta per l'aggiunta del blocco alla \textit{Blockchain};
+		\item \textbf{Difficulty target} numero che indica il livello di difficoltà per l'aggiunta del blocco alla \textit{Blockchain};
 		\item \textbf{numero casuale o pseudo-casuale dato come risultato dell'elaborazione della \emph{\gls{pow}}\glsfirstoccur}.
 	\end{itemize}
 	\item \textbf{Transaction counter} contiene il numero di transazioni che compongono il blocco;
 	\item \textbf{Transaction} lista di tutte le transazioni che verranno processate nel blocco.
 \end{itemize}
 \subsection{Caratteristiche chiave}
-Abbiamo spiegato,a grandi linee, che cos'è una \textit{Blockchain} ma perchè questa dovrebbe essere una buona candidata per la realizzazione del modulo \gls{ITF}?\\
+Abbiamo spiegato,a grandi linee, che cos'è una \textit{Blockchain} ma perché questa dovrebbe essere una buona candidata per la realizzazione del modulo \gls{ITF}?\\
 La risposta sta in tre caratteristiche che sono parte integrante del concetto stesso di \textit{Blockchain} e che la rendono un'ottima struttura anti-manomissione:
 \begin{itemize}
 	\item Funzione crittografica di hash;
 	\item Strutture dati con hash pointer;
-	\item Protocollo di consenso distributio.
+	\item Protocollo di consenso distribuito.
 \end{itemize}
-Le funzioni \textit{crittografiche di hash}, unite agli \textit{hash pointer} fanno sì che la struttura dati complessiva sia immutabile il che è la base del'anti-manomissione della \textit{Blockchain}.
-Se un utente malevolo modifica un dato in uno qualsiasi dei blocchi della \textit{Blockchain} questo farà sì che il puntatore hash the blocco successivo sia incorretto. Questo permette oltre di individuare un tentativo di manomissione anche di capire quale blocco è stato manomesso.\\
+Le funzioni \textit{crittografiche di hash}, unite agli \textit{hash pointer} fanno sì che la struttura dati complessiva sia immutabile il che è la base dell'anti-manomissione della \textit{Blockchain}.
+Se un utente malevolo modifica un dato in uno qualsiasi dei blocchi della \textit{Blockchain} questo farà sì che il puntatore hash del blocco successivo sia incorretto. Questo permette oltre di individuare un tentativo di manomissione anche di capire quale blocco è stato manomesso.\\
 Per comprendere meglio questi concetti vediamo nel dettaglio le tre caratteristiche.
 \subsubsection{Funzione crittografica di hash}
 È una funzione matematica che converte un input di qualsiasi grandezza in un output di grandezza fissa.\\
 Le funzioni crittografiche di hash hanno due proprietà fondamentali:
 \begin{itemize}
 	\item \textbf{Collision-resistant} - è difficile, quasi impossibile, che due input diversi creino lo stesso output;
-	\item \textbf{Enabke hiding} - non è possibile, partendo dall'output, recuperare l'input iniziale.
+	\item \textbf{Enable hiding} - non è possibile, partendo dall'output, recuperare l'input iniziale.
 \end{itemize}
 Un esempio di algoritmo che rispetta queste caratteristiche è \emph{\gls{sha256}}\glsfirstoccur.
 
@@ -58,7 +58,7 @@ Gli \textit{Hash pointer} sono particolari strutture dati che contengono:
 	\item un puntatore a dove sono immagazzinati i dati;
 	\item l'\textit{hash} crittografico dei dati alla quale il puntatore fa riferimento
 \end{itemize}
-Questo fa sì che sia possibile, oltre che recuperare le informazioni, verificare, tramite l'\textit{hash}, che le informazioni recuperate siano corrette e non manomese.\\
+Questo fa sì che sia possibile, oltre che recuperare le informazioni, verificare, tramite l'\textit{hash}, che le informazioni recuperate siano corrette e non manomesse.\\
 Grazie a questa tipologia di struttura dati, la \textit{Blockchain} realizza un altra struttura di fondamentale importanza per il funzionamento del sistema il \textit{Markle Tree}.\\
 Questa tipologia di struttura non è altro che un albero binario che, tramite l'ausilio degli \textit{hash pointer}, mantiene al suo interno i dati e le transazioni di ogni blocco che fa parte della \textit{Blockchain}.\\
 I dati, contenuti nelle foglie dell'albero, vengono crittografati tramite \textit{hash} e posti su un nodo padre di livello superiore. Qui, i nodi padre, vengono raggruppati a coppie, calcolato il loro \textit{hash} e posti a loro volta in un livello superiore. 
@@ -89,7 +89,7 @@ Per l'implementazione di un \gls{ITF} sono necessarie sei caratteristiche.
 Sia le \textit{permissioned Blockchain} che quelle \textit{permissionless} implementano queste caratteristiche ma con leggere differenze che possono determinare la scelta verso una o l'altra tecnologia.
 
 \subsection{Permissionless vs Permissioned}
-Viene, di seguito, riportata un immagine che racchiude le sei caratteristiche necessarie per poter creare un \gls{ITF} sicuro ed efficente insieme ad una valutazione, data da \emph{\gls{gartner}}\glsfirstoccur, che mostra come le varie tipologie di \textit{Blockchain} implementano tale caratteristica.
+Viene, di seguito, riportata un immagine che racchiude le sei caratteristiche necessarie per poter creare un \gls{ITF} sicuro ed efficiente insieme ad una valutazione, data da \emph{\gls{gartner}}\glsfirstoccur, che mostra come le varie tipologie di \textit{Blockchain} implementano tale caratteristica.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.50]{immagini/blockchain_ability_to_implement_ITF}
@@ -103,7 +103,7 @@ I motivi che portano a questa scelta sono:
 	\item \textbf{Sicurezza (Assurance)} - una \textit{permissionless Blockchain} assicura un livello inferiore di assurance proprio perché permette a qualsiasi nodo, anche uno potenzialmente maligno, di partecipare alla rete cosa che, una \textit{permissioned Blockchain}, non permette;
 	\item \textbf{Provenienza (Provenance)} - le \textit{permissionless Blockchain} non condividono un servizio centrale di timing. Le \textit{permissioned Blockchain} riescono, tramite un accordo, ad utilizzare un clock centrale che sincronizza i loro timestamp
 	\item \textbf{Scalabilità (Scalability)} - una \textit{permissioned Blockchain} risulta più efficace se sottoposta ad un grande carico di lavoro grazie ai suoi algoritmi di consenso più snelli che non devono garantire la fiducia tra i singoli nodi ma solo che il blocco da inserire, nella \textit{Blockchain}, sia corretto 
-	\item \textbf{Efficenza (Efficency)} - conseguenza diretta della Scalabilità e quindi della leggerezza degli algoritmi di consenso, una \textit{permissioned Blockchain} risulta più efficiente, per quanto riguarda i consumi energetici, rispetto alla sua controparte \textit{permissionless}.
+	\item \textbf{Efficienza (Efficency)} - conseguenza diretta della Scalabilità e quindi della leggerezza degli algoritmi di consenso, una \textit{permissioned Blockchain} risulta più efficiente, per quanto riguarda i consumi energetici, rispetto alla sua controparte \textit{permissionless}.
 \end{itemize}
 \subsection{Scelta tecnologica}
 Dal punto di vista prettamente tecnologico la tipologia migliore di \textit{Blockchain} che sarebbe da utilizzare per implementare il modulo \gls{ITF} è quella di tipo \textit{permissioned}.\\
@@ -115,7 +115,7 @@ Durante questo periodo di tempo sono state studiate molte tecnologie sia di tipo
 	È conosciuta soprattutto per la sua robustezza e flessibilità nella creazione degli \textit{smart contracts} e per questo è utilizzata per modellare molti use-case aziendali\cite{ethereumProject}.
 \end{itemize}
 Nonostante tutti gli studi, i confronti e le analisi effettuate sulle varie tecnologie, conducessero a scegliere una \textit{Blockchain} di tipo \textit{permissioned} e, più nel dettaglio, \textit{permissioned} creata tramite \textit{Hyperledger Fabric}, la scelta tecnologia finale è ricaduta sulla tecnologia di tipo \textit{permissionless} creata tramite la piattaforma \textit{Ethereum}.\\
-Questa scelta è stata presa dopo numerosi dibatti e riunioni interne all' azienda in cui, sia io che l'altro stagista che ha partecipato alla realizzazione del progetto, ci siamo interrogati sulla fattibilità del progetto con una tecnologia di tipo \textit{permissioned} realizzata tramite \textit{Hyperledger Fabric}.\\
+Questa scelta è stata presa dopo numerosi dibatti e riunioni interne all'azienda in cui, sia io che l'altro stagista che ha partecipato alla realizzazione del progetto, ci siamo interrogati sulla fattibilità del progetto con una tecnologia di tipo \textit{permissioned} realizzata tramite \textit{Hyperledger Fabric}.\\
 Le motivazioni che ci hanno spinto a scegliere \textit{Ethereum} come tecnologia finale, nonostante le analisi condotte precedentemente, sono state:
 \begin{itemize}
 	\item \textit{Ethereum} è una tecnologia molto più matura, solida e conosciuta rispetto ad \textit{Hyperledger Fabric};
@@ -126,21 +126,21 @@ Le motivazioni che ci hanno spinto a scegliere \textit{Ethereum} come tecnologia
 	\textit{Ethereum} fa pagare ogni transazione che viene eseguita nella sua \textit{Blockchain permissionless} come tassa di utilizzo.\\
 	\textit{Hyperledger Fabric} non richiede alcun tipo di pagamento per eseguire codice o transazioni nella rete in quanto, essendo \textit{permissioned}, si sarebbe dovuto creare una rete privata di nostra proprietà per realizzare il progetto. Il costo quindi si sposta nel mantenimento dell'intera rete e non più sul suo utilizzo.
 \end{itemize}
-Oltre a queste motivazioni, un altra ci ha spinto a scegliere la tecnologia \textit{Ethereum} ovvero la volontà che avevamo di lasciare qualcosa di concreto in mano all'azienda una volta finito il periodo di stage, qualcosa che funzionasse e che non fosse solo un "abbiamo provato". La tecnologia \textit{Ethereum} essendo di più facile comprensione e utilizzo ci avrebbe permesso di concentracti di più sull'effettiva implementazione della logica e dei test e così è stato tanto che alla fine del periodo di stage siamo riusciti a realizzare e consegnare una \gls{poc} funzionante e, per quanto siamo riusciti a verificare, solida.
+Oltre a queste motivazioni, un altra ci ha spinto a scegliere la tecnologia \textit{Ethereum} ovvero la volontà che avevamo di lasciare qualcosa di concreto in mano all'azienda una volta finito il periodo di stage, qualcosa che funzionasse e che non fosse solo un "abbiamo provato". La tecnologia \textit{Ethereum} essendo di più facile comprensione e utilizzo ci avrebbe permesso di concentrarci di più sull'effettiva implementazione della logica e dei test e così è stato tanto che alla fine del periodo di stage siamo riusciti a realizzare e consegnare una \gls{poc} funzionante e, per quanto siamo riusciti a verificare, solida.
 
 \section{Strumenti e tecnologie utilizzate}
 Passiamo ora a descrivere tutte le tecnologie e gli strumenti che sono stati utilizzati per la modellazione concettuale, l'implementazione, il testing ed il deployement del modulo \gls{ITF} realizzato utilizzando la piattaforma \textit{Ethereum}.
 
 \subsection{Strumenti per la gestione ed il versioning}
 \subsubsection{Node.js}
-Node.js è un runtime Javascript costruito sul JavaScript Engine\cite{nodeGuida}, che è il runtime di Google utilizzato anche da chrome e disponibile sulle varie piattaforme.
+Node.js è un runtime Javascript costruito sul JavaScript Engine\cite{nodeGuida}, che è il runtime di Google utilizzato anche da Chrome e disponibile sulle varie piattaforme.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.05]{immagini/nodejs}
 	\caption{Logo di Node.js}
 \end{figure}
 \\
-La caratteristica principale di Node.js risiede nella possibilità che offre di accedere alle risorse del sistema operativo in modalità \emph{\gls{event-driven}}\glsfirstoccur\cite{nodeEvent} e non sfruttando il classico modello basato su processi o \textit{thread} concorreti, utilizzato dai classici Web Server. L'ecosistema dei pacchetti di Node.js, \textbf{npm}, è il più grande ecosistema di librerie \gls{event-driven} al mondo.
+La caratteristica principale di Node.js risiede nella possibilità che offre di accedere alle risorse del sistema operativo in modalità \emph{\gls{event-driven}}\glsfirstoccur\cite{nodeEvent} e non sfruttando il classico modello basato su processi o \textit{thread} concorrenti, utilizzato dai classici Web Server. L'ecosistema dei pacchetti di Node.js, \textbf{npm}, è il più grande ecosistema di librerie \gls{event-driven} al mondo.
 \subsubsection{Git}
 \gls{git} è un software di controllo di versione distribuito, creato nel 2005 da Linus Torvalds\cite{gitSite}. Viene utilizzato da Athesys S.r.l per il controllo di versione dei progetti.
 \begin{figure}[h]
@@ -160,14 +160,14 @@ Come tutti i software per il controllo di versione, si basa sul concetto di \emp
 I file in \gls{git} possono trovarsi in tre stati differenti:
 \begin{enumerate}
 	\item \textbf{Committed} - significa che il file è al sicuro nel database locale;
-	\item \textbf{Modified} - significa che il file è stato modificato, ma non è ancora stato committato nel database quindi non è ancora salvato;
-	\item \textbf{Staged} - significa che il file è stato contrassegnato in modo tale che venga inserito come istantaea alla prossima \emph{\gls{commit}}\glsfirstoccur
+	\item \textbf{Modified} - significa che il file è stato modificato, ma non è ancora stato "committato" nel database quindi non è ancora salvato;
+	\item \textbf{Staged} - significa che il file è stato contrassegnato in modo tale che venga inserito come istantanea alla prossima \emph{\gls{commit}}\glsfirstoccur
 \end{enumerate}
-Quanto detto prota alle quattro sezioni principali di un progetto \gls{git}: la \textit{working directory}, la \textit{stagin area}, la \textit{local repo} e la \textit{remote repo}.
+Quanto detto porta alle quattro sezioni principali di un progetto \gls{git}: la \textit{working directory}, la \textit{staging area}, la \textit{local repo} e la \textit{remote repo}.
 
 \subsection{Strumenti per la modellazione concettuale}
 \subsubsection{Astah Professional}
-Per la progettazione è stato necessario modellare i casi d'uso tramite \emph{\gls{uml}}\glsfirstoccur e la scelta del software da utilizzare è ricaduta su Astah Professional, disponibile in verione gratuita grazie alla licenza accademica.
+Per la progettazione è stato necessario modellare i casi d'uso tramite \emph{\gls{uml}}\glsfirstoccur e la scelta del software da utilizzare è ricaduta su Astah Professional, disponibile in versione gratuita grazie alla licenza accademica.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=1]{immagini/astah}
@@ -179,8 +179,8 @@ Astah Professional supporta sia i costrutti di \gls{uml} 1 che di \gls{uml} 2 e 
 \subsubsection{Sistema Operativo}
 Durante tutta la durata dello stage si è fatto uso del sistema operativo \textbf{Windows 10} per pura preferenza personale in quanto, se ve ne fosse stata la necessità o la preferenza, sarebbe stato possibile lavorare in ambiente Linux.
 \subsubsection{IDE}
-Per quanto riguarda l'ambiente di sviluppo, la norma aziendale prevede che ogni presona venga lasciata libera di adottare ciò che ritiene più adatto nello svolgimento del proprio lavoro.\\
-La mia scelta è ricaduta sull'editor \textit{Visual Studio Code} poiché è un software \gls{opensource} costantemente aggiornato e stabile. Inoltre il grande numero di estesioni dispoibili è un punto di forza dell'editor, in quanto permettono di aggiungere funzionalità che lo rendono uno strumento comodo e veloce da utilizzare.
+Per quanto riguarda l'ambiente di sviluppo, la norma aziendale prevede che ogni persona venga lasciata libera di adottare ciò che ritiene più adatto nello svolgimento del proprio lavoro.\\
+La mia scelta è ricaduta sull'editor \textit{Visual Studio Code} poiché è un software \gls{opensource} costantemente aggiornato e stabile. Inoltre il grande numero di estensioni disponibili è un punto di forza dell'editor, in quanto permettono di aggiungere funzionalità che lo rendono uno strumento comodo e veloce da utilizzare.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.5]{immagini/vsc_interface}
@@ -201,15 +201,15 @@ Le sue principali caratteristiche sono:
 \begin{itemize}
 	\item Testing automatico degli \textit{smart contracts};
 	\item Possiede una pipeline configurabile per fare building di applicazioni web e console;
-	\item Possiede dei generatori per la creazione di accuont di testing fittizzi;
+	\item Possiede dei generatori per la creazione di account di testing fittizi;
 	\item Possiede una console in grado di interagire con i contratti già compilati;
 	\item Permette l'esecuzione di script JavaScript utilizzati principalmente per il testing;
 \end{itemize}
-La caratteristica più importante è il fatto che permette di creare ambienti di test in modo molto rapido e semplice il chè è una caratteristica fondamentale quando si vuole progettare una \gls{dapp} in quanto, una volta rilasciata nella rete \textit{Blockchain}, non è più possibile modificare o aggiornare quanto fatto se non rilasciando una nuova \gls{dapp} che va a "sostituire" quella malfunzionante\cite{truffle}.
+La caratteristica più importante è il fatto che permette di creare ambienti di test in modo molto rapido e semplice il ché è una caratteristica fondamentale quando si vuole progettare una \gls{dapp} in quanto, una volta rilasciata nella rete \textit{Blockchain}, non è più possibile modificare o aggiornare quanto fatto se non rilasciando una nuova \gls{dapp} che va a "sostituire" quella mal funzionante\cite{truffle}.
 \subsubsection{Ganache}
 
-È una \textit{Blockchain Ethereum} personale locale utilizzata per la fase di test e debugg delle \gls{dapp} prima di rilasciarle nella rete \textit{Ethereum principale}.
-Le carattersistiche di questo tool sono\cite{ganache}:
+È una \textit{Blockchain Ethereum} personale locale utilizzata per la fase di test e debug delle \gls{dapp} prima di rilasciarle nella rete \textit{Ethereum principale}.
+Le caratteristiche di questo tool sono\cite{ganache}:
 \begin{itemize}
 	\item Permette la creazione di una versione personale della \textit{Blockchain Ethereum} con tutte le sue caratteristiche e configurazioni;
 	\item Ha un interfaccia grafica che permette di visualizzare, ad occhio, tutti gli account, indirizzi, chiavi private, transazioni e bilanci della rete e di come questi evolvono man mano che avvengono varie transazioni;
