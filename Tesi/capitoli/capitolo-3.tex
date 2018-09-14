@@ -28,7 +28,7 @@ La seconda tipologia di attori che interagiscono con il sistema da realizzare so
 Questi, chiamati enti certificatori, hanno il compito di certificare le informazioni che sono presenti all'interno dell'\gls{ITF} in modo che, ogni qual volta che vengono richieste informazioni per poter accedere ad un \textit{service provider}, le informazioni che il sistema fornisce per l'autenticazione e/o l'erogazione di servizi, siano verificate da un ente esterno che garantisce la loro veridicità.
 \subsubsection{Service Provider}
 La terza e ultima tipologia di attori che partecipano al sistema sono i \textit{service provider}.
-Questi interagiscono con l'\gls{ITF} durante la fase di verifica delle informazioni. Questi devono autenticare gli utenti tramite le loro credenziali e autorizzare l'erogazione di servizi dopo la verifica degli attributi
+Questi interagiscono con l'\gls{ITF} durante la fase di verifica delle informazioni. Questi devono autenticare gli utenti tramite le loro credenziali e autorizzare l'erogazione di servizi dopo la verifica degli attributi.
 %**************************************************************
 \subsection{Overview del sistema}
 Una rappresentazione delle funzionalità che deve implementare il modulo \gls{ITF} può essere ripresa in figura \ref{fig:moduloITF}.\\\\
@@ -86,8 +86,8 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\item \textbf{Descrizione} - L'Identity Wallet genera la chiave pubblica, quella privata ed inserisce le informazioni personali dell'utente. In alternativa può aggiornare gli attributi esistenti aggiungendone di nuovi;
 	\item \textbf{Attori Principali} - Identity Wallet;
 	\item \textbf{Attori Secondari} -
-	\item \textbf{Pre-Condizioni} - L'Identity Wallet non possiede un identità digitale per l'utente;
-	\item \textbf{Post-Condizioni} - L'Identity Wallet ha creato un identità per l'utente ed è in attesa che questa venga certificata;
+	\item \textbf{Pre-Condizioni} - L'Identity Wallet non possiede un'identità digitale per l'utente;
+	\item \textbf{Post-Condizioni} - L'Identity Wallet ha creato un'identità per l'utente ed è in attesa che questa venga certificata;
 	\item \textbf{Scenario Principale} - 
 	\begin{enumerate}
 		\item Generazione delle chiavi (UC 1.1);
@@ -547,7 +547,7 @@ Ogni requisito viene classificato secondo la seguente convenzione:\\
 	&\textbf{RFO4.2.2}&Ad ogni attributo va associato un titolo che lo descrive&UC1.2.2, UC1.2.2.2 \\\hline
 	&\textbf{RFO5.0}&Il sistema genera un messaggio d'errore nel caso in cui ci siano problemi durante la registrazione&UC1, UC1.4 \\\hline
 	&\textbf{RFO6.0}&Il sistema permette l'aggiornamento degli attributi associati ad un utente&UC1, UC1.3 \\\hline
-	&\textbf{RFO6.1}&Il sistema richiede l'inserimento di un identificativo per l'attributo&UC1.3, UC1.3.1 \\\hline
+	&\textbf{RFO6.1}&Il sistema richiede l'inserimento di un'identificativo per l'attributo&UC1.3, UC1.3.1 \\\hline
 	&\textbf{RFO6.1.1}&Il sistema richiede l'inserimento di un ID univoco associato ad un attributo&UC1.3, UC1.3.1 \\\hline
 	&\textbf{RFO6.2}&Il sistema richiede l'inserimento di un titolo descrittivo dell'attributo &UC1.3, UC1.3.2 \\\hline
 	&\textbf{RFO7.0}&Il sistema genera un messaggio d'errore nel caso in cui ci siano problemi durante l'aggiornamento degli attributi&UC1, UC1.5 \\\hline

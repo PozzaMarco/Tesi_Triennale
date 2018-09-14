@@ -54,24 +54,24 @@ Athesys adotta \textit{sprint} di durata quindicinale, preceduti da riunioni per
 
 %**************************************************************
 \section{Il progetto proposto}
-Il progetto nasce nel contesto di migliorare e far evolvere il sistema di \emph{\gls{IAM}}\glsfirstoccur già in utilizzo da parte dell'azienda.\\
+Il progetto nasce nel contesto di migliorare e far evolvere il sistema di \emph{\gls{IAM}}\glsfirstoccur sviluppato da parte dell'azienda.\\
 Nelle sezioni seguenti si andrà quindi a discutere dettagliatamente il problema che si è voluto affrontare, le soluzioni che si sono trovate, l'ambito di sviluppo del prodotto, le funzionalità richieste e la pianificazione del progetto aziendale.
 
 \subsection{Il contesto}
 I servizi di identità decentralizzati permettono alle persone di registrarsi, a specifici servizi, come utenti in modo autonomo utilizzando gli \emph{\gls{identityWallet}}\glsfirstoccur. 
-Da questi gli utenti possono scegliere quali attributi, del loro profilo, immagazzinare e condividere con il \textit{service provider} verso la quale si vogliono autenticare.
+Da questi gli utenti possono scegliere quali attributi, del loro profilo, immagazzinare e condividere con il \textit{service provider} verso il quale si vogliono autenticare.
 Nella forma più semplice l'identità è formata da due chiavi crittografiche, una pubblica ed una privata.
 La chiave privata è mantenuta protetta all'interno dell'\gls{identityWallet} mentre, quella pubblica, è crittografata tramite \textit{hash} e mantenuta immutabile all'interno dell'\gls{ITF}. 
-La chiave privata viene utilizzata per crittografare le informazioni e gli attributi degli utenti mentre, quella pubblica, viene utilizzata per decriptare le informazioni appena criptate. Questo meccanismo nasce allo scopo di assicurare che le informazioni, criptate, che arrivano al \textit{service provider}, appartengano all'utente che effettivamente ha richiesto l'accesso al servizio. Questo sicurezza viene garantita proprio dal meccanismo delle chiavi in quanto solo l'utente stesso può conoscere la propria chiave privata e quindi criptare le proprie informazioni.\\
+La chiave privata viene utilizzata per crittografare le informazioni e gli attributi degli utenti mentre, quella pubblica, viene utilizzata per decriptare le informazioni appena criptate. Questo meccanismo nasce allo scopo di assicurare che le informazioni, criptate, che arrivano al \textit{service provider}, appartengano all'utente che effettivamente ha richiesto l'accesso al servizio. La sicurezza viene garantita proprio dal meccanismo delle chiavi in quanto solo l'utente stesso può conoscere la propria chiave privata e quindi criptare le proprie informazioni.\\
 Le operazioni che avvengono, sia da parte dell'utente che del \textit{service provider}, per poter permettere l'accesso ad un servizio sono le seguenti:
 \begin{enumerate}
-	\item l'utente via la richiesta d'accesso al \textit{service provider} inviando le proprie informazioni criptate con la sua chiave privata;
+	\item l'utente invia la richiesta d'accesso al \textit{service provider} inviando le proprie informazioni criptate con la sua chiave privata;
 	\item il \textit{service provider} riceve le informazioni dell'utente ed un suo identificativo;
 	\item il \textit{service provider} interroga l'\gls{ITF} per recuperare la chiave pubblica associata a quell'utente;
 	\item il \textit{service provider} decripta le informazioni dell'utente utilizzando la chiave pubblica recuperata;
 \end{enumerate}
 A questo punto il \textit{service provider} è sicuro che le informazioni che ha ricevuto sono di proprietà dell'utente e può permettere o meno l'accesso al servizio richiesto.\\
-Questi passaggi sono la base di due modelli di autenticazione:
+Questi passaggi sono la base di tre modelli di autenticazione:
 \begin{itemize}
 	\item Modello Centralizzato;
 	\item Modello Decentralizzato;
@@ -105,7 +105,7 @@ Tuttavia la gestione completa delle informazioni personali, da parte dei singoli
 \subsubsection{Modello basato sugli Identity Custodians}
 Gli \textit{Identity Custodians} nascono con l'obiettivo di semplificare la gestione e accrescere la disponibilità e protezione delle identità decentralizzate mantenendo, al loro interno, tutti gli attributi di identità necessari.
 Sorgono spontanee alcune preoccupazioni in quanto, un \textit{Identity Custodian}, rimane suscettibile ad attacchi esterni in quanto mantiene informazioni sensibili e di valore nonostante siano criptate. Questo è il motivo alla base della creazione di consorzi che adempiono al compito di \textit{Identity Custodians} sfruttando la \textit{BlockChian} come tecnologia di decentralizzazione delle informazioni.\\
-Utilizzato gli \textit{Identity Custodians} all'interno di un modello a consorzi si aumenta la privacy e la sicurezza delle informazioni. I dati utente ed i riferimenti ai loro hash nell'\gls{ITF} sono criptati e immagazzinati all'interno dell'ambiente decentralizzato. Questo permette all'\gls{identityWallet} di condividere solamente il riferimento alla locazione nell' \textit{Identity Custodian} facendo sì che i \textit{service provider} possano recuperare le informazioni e verificare l'identità utente prima dell'accesso\cite{ITF_gartner}.
+Utilizzando gli \textit{Identity Custodians} all'interno di un modello a consorzi si aumenta la privacy e la sicurezza delle informazioni. I dati utente ed i riferimenti ai loro hash nell'\gls{ITF} sono criptati e immagazzinati all'interno dell'ambiente decentralizzato. Questo permette all'\gls{identityWallet} di condividere solamente il riferimento alla locazione nell' \textit{Identity Custodian} facendo sì che i \textit{service provider} possano recuperare le informazioni e verificare l'identità utente prima dell'accesso\cite{ITF_gartner}.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.50]{immagini/ITF_IdentityCustodians}

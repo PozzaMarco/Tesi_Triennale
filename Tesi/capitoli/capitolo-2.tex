@@ -33,7 +33,7 @@ Questi blocchi sono formati da quattro sezioni:
 	\item \textbf{Transaction} lista di tutte le transazioni che verranno processate nel blocco.
 \end{itemize}
 \subsection{Caratteristiche chiave}
-Abbiamo spiegato,a grandi linee, che cos'è una \textit{Blockchain} ma perché questa dovrebbe essere una buona candidata per la realizzazione del modulo \gls{ITF}?\\
+Abbiamo spiegato, a grandi linee, che cos'è una \textit{Blockchain} ma perché questa dovrebbe essere una buona candidata per la realizzazione del modulo \gls{ITF}?\\
 La risposta sta in tre caratteristiche che sono parte integrante del concetto stesso di \textit{Blockchain} e che la rendono un'ottima struttura anti-manomissione:
 \begin{itemize}
 	\item Funzione crittografica di hash;
@@ -59,7 +59,7 @@ Gli \textit{Hash pointer} sono particolari strutture dati che contengono:
 	\item l'\textit{hash} crittografico dei dati alla quale il puntatore fa riferimento
 \end{itemize}
 Questo fa sì che sia possibile, oltre che recuperare le informazioni, verificare, tramite l'\textit{hash}, che le informazioni recuperate siano corrette e non manomesse.\\
-Grazie a questa tipologia di struttura dati, la \textit{Blockchain} realizza un altra struttura di fondamentale importanza per il funzionamento del sistema il \textit{Markle Tree}.\\
+Grazie a questa tipologia di struttura dati, la \textit{Blockchain} realizza un'altra struttura di fondamentale importanza per il funzionamento del sistema il \textit{Markle Tree}.\\
 Questa tipologia di struttura non è altro che un albero binario che, tramite l'ausilio degli \textit{hash pointer}, mantiene al suo interno i dati e le transazioni di ogni blocco che fa parte della \textit{Blockchain}.\\
 I dati, contenuti nelle foglie dell'albero, vengono crittografati tramite \textit{hash} e posti su un nodo padre di livello superiore. Qui, i nodi padre, vengono raggruppati a coppie, calcolato il loro \textit{hash} e posti a loro volta in un livello superiore. 
 Continuando a raggruppare i nodi padre e facendo l'\textit{hash} si arriva fino all'apice dell'albero che va a formare il \textit{Markle tree root.}
@@ -89,7 +89,7 @@ Per l'implementazione di un \gls{ITF} sono necessarie sei caratteristiche.
 Sia le \textit{permissioned Blockchain} che quelle \textit{permissionless} implementano queste caratteristiche ma con leggere differenze che possono determinare la scelta verso una o l'altra tecnologia.
 
 \subsection{Permissionless vs Permissioned}
-Viene, di seguito, riportata un immagine che racchiude le sei caratteristiche necessarie per poter creare un \gls{ITF} sicuro ed efficiente insieme ad una valutazione, data da \emph{\gls{gartner}}\glsfirstoccur, che mostra come le varie tipologie di \textit{Blockchain} implementano tale caratteristica.
+Viene, di seguito, riportata un'immagine che racchiude le sei caratteristiche necessarie per poter creare un \gls{ITF} sicuro ed efficiente insieme ad una valutazione, data da \emph{\gls{gartner}}\glsfirstoccur, che mostra come le varie tipologie di \textit{Blockchain} implementano tale caratteristica.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.50]{immagini/blockchain_ability_to_implement_ITF}
@@ -102,7 +102,7 @@ I motivi che portano a questa scelta sono:
 	\item \textbf{Fiducia (Trust)} - la \textit{permissioned Blockchain} risulta più appropriata per gestire la fiducia ed il rischio in un \gls{ITF} a causa del suo modello di governance che pone un certo controllo su chi può e chi non può accedere alla rete; 
 	\item \textbf{Sicurezza (Assurance)} - una \textit{permissionless Blockchain} assicura un livello inferiore di assurance proprio perché permette a qualsiasi nodo, anche uno potenzialmente maligno, di partecipare alla rete cosa che, una \textit{permissioned Blockchain}, non permette;
 	\item \textbf{Provenienza (Provenance)} - le \textit{permissionless Blockchain} non condividono un servizio centrale di timing. Le \textit{permissioned Blockchain} riescono, tramite un accordo, ad utilizzare un clock centrale che sincronizza i loro timestamp
-	\item \textbf{Scalabilità (Scalability)} - una \textit{permissioned Blockchain} risulta più efficace se sottoposta ad un grande carico di lavoro grazie ai suoi algoritmi di consenso più snelli che non devono garantire la fiducia tra i singoli nodi ma solo che il blocco da inserire, nella \textit{Blockchain}, sia corretto 
+	\item \textbf{Scalabilità (Scalability)} - una \textit{permissioned Blockchain} risulta più efficace se sottoposta ad un grande carico di lavoro grazie ai suoi algoritmi di consenso più snelli che non devono garantire la fiducia tra i singoli nodi ma solo che il blocco da inserire, nella \textit{Blockchain}, sia corretto;
 	\item \textbf{Efficienza (Efficency)} - conseguenza diretta della Scalabilità e quindi della leggerezza degli algoritmi di consenso, una \textit{permissioned Blockchain} risulta più efficiente, per quanto riguarda i consumi energetici, rispetto alla sua controparte \textit{permissionless}.
 \end{itemize}
 \subsection{Scelta tecnologica}
@@ -110,8 +110,8 @@ Dal punto di vista prettamente tecnologico la tipologia migliore di \textit{Bloc
 Questa scelta deriva dalle numerose considerazioni, studi e analisi che sono stati condotti durante buona parte del primo mese di stage.\\
 Durante questo periodo di tempo sono state studiate molte tecnologie sia di tipo \textit{permissioned} che di tipo \textit{permissionless} tra le quali menziono:
 \begin{itemize}
-	\item \textbf{Hyperledger Fabric} - è un framework di proprietà della Linux Foundation\cite{linuxFoundation} e fa parte del \emph{\gls{hyperledgerProject}}\glsfirstoccur per la creazione di \textit{Blockchain} di tipo \textit{permissioned}. Fornisce un'architettura modulare che permette alle varie entità di condurre transazioni confidenziali senza passare le informazioni attraverso un'autorità centrale. Questo può essere ottenuto grazie alla creazione di canali confidenziali alla quale possono partecipare soltanto le parti coinvolte in una transazione;
-	\item \textbf{Ethereum} - Fondata da Vitalk Buterin, \textit{Ethereum} e una delle piattaforme \textit{Blockchain permissionless} più mature disponibili oggi.
+	\item \textbf{Hyperledger Fabric} - è un framework di proprietà della Linux Foundation\cite{linuxFoundation} e fa parte del \emph{\gls{hyperledgerProject}}\glsfirstoccur per la creazione di \textit{Blockchain} di tipo \textit{permissioned}. Fornisce un'architettura modulare che permette alle varie entità di condurre transazioni confidenziali senza passare le informazioni attraverso un'autorità centrale. Questo può essere ottenuto grazie alla creazione di canali confidenziali nella quale possono partecipare soltanto le parti coinvolte in una transazione;
+	\item \textbf{Ethereum} - Fondata da Vitalk Buterin, \textit{Ethereum} è una delle piattaforme \textit{Blockchain permissionless} più mature disponibili oggi.
 	È conosciuta soprattutto per la sua robustezza e flessibilità nella creazione degli \textit{smart contracts} e per questo è utilizzata per modellare molti use-case aziendali\cite{ethereumProject}.
 \end{itemize}
 Nonostante tutti gli studi, i confronti e le analisi effettuate sulle varie tecnologie, conducessero a scegliere una \textit{Blockchain} di tipo \textit{permissioned} e, più nel dettaglio, \textit{permissioned} creata tramite \textit{Hyperledger Fabric}, la scelta tecnologia finale è ricaduta sulla tecnologia di tipo \textit{permissionless} creata tramite la piattaforma \textit{Ethereum}.\\
@@ -205,14 +205,14 @@ Le sue principali caratteristiche sono:
 	\item Possiede una console in grado di interagire con i contratti già compilati;
 	\item Permette l'esecuzione di script JavaScript utilizzati principalmente per il testing;
 \end{itemize}
-La caratteristica più importante è il fatto che permette di creare ambienti di test in modo molto rapido e semplice il ché è una caratteristica fondamentale quando si vuole progettare una \gls{dapp} in quanto, una volta rilasciata nella rete \textit{Blockchain}, non è più possibile modificare o aggiornare quanto fatto se non rilasciando una nuova \gls{dapp} che va a "sostituire" quella mal funzionante\cite{truffle}.
+La caratteristica più importante è il fatto che permette di creare ambienti di test in modo molto rapido e semplice il che è una caratteristica fondamentale quando si vuole progettare una \gls{dapp} in quanto, una volta rilasciata nella rete \textit{Blockchain}, non è più possibile modificare o aggiornare quanto fatto se non rilasciando una nuova \gls{dapp} che va a "sostituire" quella mal funzionante\cite{truffle}.
 \subsubsection{Ganache}
 
 È una \textit{Blockchain Ethereum} personale locale utilizzata per la fase di test e debug delle \gls{dapp} prima di rilasciarle nella rete \textit{Ethereum principale}.
 Le caratteristiche di questo tool sono\cite{ganache}:
 \begin{itemize}
 	\item Permette la creazione di una versione personale della \textit{Blockchain Ethereum} con tutte le sue caratteristiche e configurazioni;
-	\item Ha un interfaccia grafica che permette di visualizzare, ad occhio, tutti gli account, indirizzi, chiavi private, transazioni e bilanci della rete e di come questi evolvono man mano che avvengono varie transazioni;
+	\item Ha un'interfaccia grafica che permette di visualizzare, ad occhio, tutti gli account, indirizzi, chiavi private, transazioni e bilanci della rete e di come questi evolvono man mano che avvengono varie transazioni;
 	\item Da la possibilità di visualizzare, tramite log, lo stato interno della \textit{Blockchain} e tutte le informazioni utili per il debugging;
 	\item Da la possibilità di configurare tutte le impostazioni del \emph{\gls{mining}}\glsfirstoccur dei blocchi a seconda delle esigenze;
 	\item Viene distribuito con un \textit{Block Explorer} che permette di esaminare tutti i blocchi e le transazioni in modo da avere una visione interna di quello che succede nella rete.
@@ -222,7 +222,7 @@ Le caratteristiche di questo tool sono\cite{ganache}:
 	\includegraphics[scale=0.5]{immagini/ganache}
 	\caption{Logo Ganache}
 \end{figure}
-Questo strumento è stato di molto utile per le fasi di testing e di debugging del modulo \gls{ITF} in quanto, essendo una delle prime \gls{dapp} che stavo per realizzare, avere chiaro come funzionasse una \textit{Blockchain} e di come venissero modificate le informazioni al suo interno era di fondamentale importanza. Questo strumento ha permesso, in modo molto semplice grazie alla sua interfaccia grafica, di ottenere tutte le informazioni necessarie semplicemente con uno sguardo.
+Questo strumento è stato molto utile per le fasi di testing e di debugging del modulo \gls{ITF} in quanto, essendo una delle prime \gls{dapp} che stavo per realizzare, avere chiaro come funzionasse una \textit{Blockchain} e come venissero modificate le informazioni al suo interno era di fondamentale importanza. Questo strumento ha permesso, in modo molto semplice grazie alla sua interfaccia grafica, di ottenere tutte le informazioni necessarie semplicemente con uno sguardo.
 \subsection{Linguaggi di programmazione}
 \subsubsection{Solidity}
 \begin{figure}[h]
