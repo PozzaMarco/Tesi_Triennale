@@ -62,7 +62,7 @@ Solitamente l'unità trova corrispondenza in un singolo metodo di una classe (in
 	&\textbf{testTTPPKSet}&Viene testato che il sistema permetta ad un nuovo \gls{TTP}, non autorizzato, di impostare la propria chiave pubblica univoca & Superato\\\hline
 	&\textbf{testAddTTP}&Viene testato che il sistema permetta ad un nuovo TTP, non autorizzato, di registrarsi al sistema& Superato\\\hline
 	&\textbf{testAddPII}&Viene testato che il sistema permetta ad un \gls{TTP} autorizzato di aggiungere delle \gls{PII} certificate all'utente che le richiede& Superato\\\hline
-	&\textbf{testTTPIDSet}&Viene testato che il sistema permetta, ad un \gls{TTP} autorizzato, di venire rimosso dalla lista dei \gls{TTP} autorizzati per la certificazione delle \gls{PII}.Questo fa sì che tutte le certificazioni da lui rilasciate non siano più valide& Superato\\\hline
+	&\textbf{testTTPIDSet}&Viene testato che il sistema permetta, ad un \gls{TTP} autorizzato, di venire rimosso dalla lista dei \gls{TTP} autorizzati per la certificazione delle \gls{PII}. Questo fa sì che tutte le certificazioni da lui rilasciate non siano più valide& Superato\\\hline
 	\caption{Tabella Test di unità TrsutedThirdParty\_Data}
 \end{longtable}
 \subsubsection{PersonalInformation}
@@ -82,7 +82,7 @@ Solitamente l'unità trova corrispondenza in un singolo metodo di una classe (in
 	\multicolumn{2}{|c|}{\textbf{ID Requisito}} & \textbf{Descrizione} & \textbf{Stato}\tabularnewline
 	\hline
 	&\textbf{testAddID}&Viene testato che il sistema permetta di aggiungere una nuova identità utente quando questa viene creata dal metodo presente nel contratto IdentityWallet\_Method& Superato\\\hline
-	&\textbf{testGetID}&Viene testato che il sistema permetta di recuperare, a partire dall'identificativo univoco dell'utente, l'indirizzo di dove si trova il suo oggetto Identity che contiene tutte le sue informazioni personali certificate& Superato\\\hline
+	&\textbf{testGetID}&Viene testato che il sistema permetta di recuperare, a partire dall'identificativo univoco dell'utente, l'indirizzo del suo oggetto Identity che contiene tutte le sue informazioni personali certificate& Superato\\\hline
 	&\textbf{testRemoveID}&Viene testato che il sistema permetta ad un utente di eliminare il proprio profilo, andando cancellare l'indirizzo di dove si trova il suo oggetto Identity che contiene tutte le sue informazioni personali.
 	Da questo momento in poi l'utente non presenta più nessun'oggetto Identity andando così a risultare non registrato
 	& Superato\\\hline
@@ -96,7 +96,7 @@ Solitamente l'unità trova corrispondenza in un singolo metodo di una classe (in
 	&\textbf{testAddTTP}&Viene testato che il sistema permetta l'aggiunta di un nuovo \gls{TTP} alla lista dei \gls{TTP} autorizzati a rilasciare \gls{PII} certificate& Superato\\\hline
 	&\textbf{testGetAddress}&Viene testato che il sistema permetta di recuperare l'indirizzo del \gls{TTP} a partire dal suo identificativo univoco& Superato\\\hline
 	&\textbf{testGetInfo}&Viene testato che il sistema permetta di recuperare, a partire dall'identificativo univoco del \gls{TTP}, tutte le sue informazioni.& Superato\\\hline
-	&\textbf{testRemove}&Viene testato che il sistema permetta di rimuovere, dalla lista delle \gls{TTP} autorizzate, la \gls{TTP} identificata dal suo identificativo univoco.Tutte le certificazioni rilasciate da questa \gls{TTP} non so più valide& Superato\\\hline
+	&\textbf{testRemove}&Viene testato che il sistema permetta di rimuovere, dalla lista delle \gls{TTP} autorizzate, la \gls{TTP} identificata dal suo identificativo univoco. Tutte le certificazioni rilasciate da questa \gls{TTP} non so più valide& Superato\\\hline
 	\caption{Tabella Test di unità keyList\_Data}
 \end{longtable}
 \subsubsection{Identity\_Data}
@@ -106,18 +106,18 @@ Solitamente l'unità trova corrispondenza in un singolo metodo di una classe (in
 	\hline
 	&\textbf{testGetAddress}&Viene testato che il sistema permetta di ritornare l'indirizzo associato all'oggetto Identity& Superato\\\hline
 	&\textbf{testAddPII}&Viene testato che il sistema aggiunga correttamente una nuova \gls{PII} alla lista delle \gls{PII} dell'utente preso in esame& Superato\\\hline
-	&\textbf{testGetData}&Viene testato che il sistema permetta di recuperare tutte le informazioni associate alla \gls{PII} identificata dal suo ID passato come parametro.& Superato\\\hline
+	&\textbf{testGetData}&Viene testato che il sistema permetta di recuperare tutte le informazioni associate alla \gls{PII} identificata dal suo ID passato come parametro& Superato\\\hline
 	&\textbf{testDeleteData}&Viene testato che il sistema permette di rimuovere una \gls{PII} associata ad un utente& Superato\\\hline
 	\caption{Tabella Test di unità Identity\_Data}
 \end{longtable}
 \subsection{Test di integrazione}
 Questa tipologia di test viene utilizzata per verificare che le varie componenti del sistema interagiscano tra di loro nel modo corretto e quindi che riescano a comunicare nel modo giusto scambiandosi le giuste informazioni e richiamando le giuste funzioni.\\
-I test di integrazione vengono fatti a seguito dei test di unità in quanto, dopo aver testato che le singole funzionalità, se utilizzate singolarmente, producono gli output attesi bisogna assicurarsi che, questi risultati attesi, siano mantenuti anche in caso di interazioni con altre componenti del sistema.
+I test di integrazione vengono fatti a seguito dei test di unità in quanto, dopo aver testato che le singole funzionalità, se utilizzate singolarmente, producono gli output attesi, bisogna assicurarsi che questi risultati siano mantenuti anche in caso di interazioni con altre componenti del sistema.
 \subsubsection{testIntegrazione\_uno}
 \begin{enumerate}
 	\item Tramite la chiave pubblica recuperata dal wallet, viene creato un nuovo utente con tanto di oggetto Identity associato e salvato nella lista delle identità presenti nel sistema;
-	\item Viene creato un nuovo ente certificatore. Questo viene creato impostando un identificativo univoco e una password;\\
-	Queste informazioni sono necessarie in fase di aggiunta di una \gls{PII} certificata in quanto il nome viene aggiunto come campo della \gls{PII} ed usato come prova del fatto che un ente certificatore ha certificato l'informazione. La password, per ora è inutilizzata ma, in futuro, verrà usata per essere sicuri che l'ente certificatore sia chi dice di essere andando a confrontare la password hashata presente nel sistema con l'hash della password passata in chiaro;
+	\item Viene creato un nuovo ente certificatore. Questo viene creato impostando un identificativo univoco e una password.\\
+	Queste informazioni sono necessarie in fase di aggiunta di una \gls{PII} certificata in quanto il nome viene aggiunto come campo della \gls{PII} ed usato come prova del fatto che un ente certificatore ha certificato l'informazione. La password per ora è inutilizzata ma, in futuro, verrà usata per essere sicuri che l'ente certificatore sia chi dice di essere andando a confrontare la password \textit{hashata} presente nel sistema con l'hash della password passata in chiaro;
 	\item Vengono aggiunte due \gls{PII} all'utente appena creato. Queste vengono create specificando il nome della \gls{PII} e la sua descrizione.\\
 	L'aggiunta viene fatta passando questi due parametri ed un terzo ovvero l'identificativo dell'utente alla quale si vuole aggiungere la \gls{PII} (chiave pubblica hashata);
 	\item Il service provider prova a verificare le \gls{PII} appena aggiunte. Vengono fatte due verifiche:
@@ -126,7 +126,7 @@ I test di integrazione vengono fatti a seguito dei test di unità in quanto, dop
 		\item Una prova a verificare una \gls{PII} inesistente.
 	\end{enumerate}
 	\item Il test si conclude con le due asserzioni che hanno il compito di verificare che il risultato della verify sia corretto.\\
-	Il primo Assert attesta che la prima verify è corretta ovvero che la \gls{PII} sia stata correttamente verificata.\\
+	Il primo Assert attesta che la prima \textit{verify} è corretta ovvero che la \gls{PII} sia stata correttamente verificata.\\
 	Il secondo Assert attesta che la seconda verify è errata ovvero che la \gls{PII} che si è tentato di verificare non è presente nella lista delle PII associate all'utente;
 	\item \textbf{Stato}: superato.
 \end{enumerate}
@@ -149,11 +149,11 @@ I test di integrazione vengono fatti a seguito dei test di unità in quanto, dop
 	\item Viene creato un nuovo utente tramite la chiave pubblica recuperata dal wallet.\\
 	La creazione prevede l'inserimento della chiave pubblica e successiva creazione dell'oggetto identity associato all'utente. Le sue informazioni sono mantenute all'interno dell'oggetto IDList;	
 	\item A questo secondo utente vengono aggiunte due \gls{PII} certificate dall'unico ente certificatore presente nel sistema;
-	\item Sempre a questo utente viene rimossa una delle due \gls{PII} appena aggiunte. Questo serve per testare che la \gls{TTP} sia in grado di eliminare le giuste \gls{PII} a seconda dell'utente specificato. Questo aiuta anche a capire come, i vari oggetti Identity, siano totalmente indipendenti gli uni con gli altri e abbiamo indirizzi univoci; 
+	\item Sempre a questo utente viene rimossa una delle due \gls{PII} appena aggiunte. Questo serve per testare che la \gls{TTP} sia in grado di eliminare le giuste \gls{PII} a seconda dell'utente specificato. Questo aiuta anche a capire come i vari oggetti Identity siano totalmente indipendenti gli uni con gli altri e abbiamo indirizzi univoci; 
 	\item Il service provider prova ad eseguire la verifica di:
 	\begin{enumerate}
-		\item L'unica \gls{PII} rimasta al secondo utente;
-		\item Una delle \gls{PII} del primo utente.
+		\item l'unica \gls{PII} rimasta al secondo utente;
+		\item una delle \gls{PII} del primo utente.
 	\end{enumerate}
 	\item Il test si conclude con due asserzioni che hanno il compito di verificare che il risultato della verify sia corretto.\\
 	Il primo Assert attesta che la prima verify è corretta ovvero che la \gls{PII} che si sta cercando di verificare, del secondo utente, sia corretta e verificata.\\
@@ -180,7 +180,7 @@ I test di integrazione vengono fatti a seguito dei test di unità in quanto, dop
 		\item Si cerca di verificare una delle \gls{PII} certificate e aggiunte dall'ente certificatore appena rimosso.
 	\end{enumerate}
 	\item Il test si conclude con due asserzioni che hanno il compito di verificare che il risultato della verify sia corretto.\\
-	Il primo Assert attesta che la prima verify è corretta ovvero che la \gls{PII} che si sta cercando di verificare, del primo utente, sia corretta e verificata.\\
+	Il primo Assert attesta che la prima \textit{verify} è corretta ovvero che la \gls{PII} che si sta cercando di verificare, appartenente al primo utente, sia corretta e verificata.\\
 	Il secondo Assert attesta che la seconda verify è errata il che è corretto in quanto si sta cercando di verificare una \gls{PII} che è stata rilasciata da un ente certificatore non più presente nella lista degli enti certificatori autorizzati.\\
 	Questo dimostra che, se un ente viene rimosso, allora tutte le sue \gls{PII} rilasciate diventano invalide e necessitano di essere certificate nuovamente;	
 	\item \textbf{Stato}: superato.

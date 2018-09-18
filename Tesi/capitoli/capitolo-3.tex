@@ -6,7 +6,7 @@
 \chapter{Analisi dei requisiti}
 \label{cap:analisi_dei_requisiti}
 %**************************************************************
-In questo capitolo verranno esposti i casi d'uso e i requisiti del modulo \gls{ITF} che erano oggetto del lavoro di stage.\\
+In questo capitolo verranno esposti i casi d'uso e i requisiti del modulo \gls{ITF} oggetto del lavoro di stage.\\
 Si procede con la descrizione dello stato del sistema, gli attori che vi partecipano, le pre-condizioni, le post-condizioni e gli scenari.\\
 I casi d'uso principali sono associati ad un diagramma \gls{uml} 2.0 che riporta lo stesso codice identificativo e titolo del caso d'uso al quale si riferisce.
 
@@ -15,9 +15,9 @@ I casi d'uso principali sono associati ad un diagramma \gls{uml} 2.0 che riporta
 \subsection{Caratteristiche degli attori}
 L'interazione con il modulo \gls{ITF} coinvolge essenzialmente tre tipologie diverse di attori:
 \begin{itemize}
-	\item L'identity wallet;
-	\item Un ente certificatore;
-	\item Un service provider.
+	\item l'identity wallet;
+	\item un ente certificatore;
+	\item un service provider.
 \end{itemize}
 
 \subsubsection{Identity Wallet}
@@ -25,17 +25,17 @@ Questa componente del sistema ha il compito di generare, mantenere e presentare 
 Il sistema \gls{monokee}, una volta che l'utente richiede l'accesso ad un \textit{service provider}, reindirizza la richiesta di accesso all'\gls{ITF}.
 \subsubsection{Ente Certificatore (Trusted Third Party)}
 La seconda tipologia di attori che interagiscono con il sistema da realizzare sono i \textit{Trusted Third Party}.\\
-Questi, chiamati enti certificatori, hanno il compito di certificare le informazioni che sono presenti all'interno dell'\gls{ITF} in modo che, ogni qual volta che vengono richieste informazioni per poter accedere ad un \textit{service provider}, le informazioni che il sistema fornisce per l'autenticazione e/o l'erogazione di servizi, siano verificate da un ente esterno che garantisce la loro veridicità.
+Questi, chiamati enti certificatori, hanno il compito di certificare le informazioni che sono presenti all'interno dell'\gls{ITF} in modo che, ogni volta che vengono richieste per poter accedere ad un \textit{service provider}, le informazioni che il sistema fornisce per l'autenticazione e/o l'erogazione di servizi siano verificate da un ente esterno che garantisce la loro veridicità.
 \subsubsection{Service Provider}
 La terza e ultima tipologia di attori che partecipano al sistema sono i \textit{service provider}.
 Questi interagiscono con l'\gls{ITF} durante la fase di verifica delle informazioni. Questi devono autenticare gli utenti tramite le loro credenziali e autorizzare l'erogazione di servizi dopo la verifica degli attributi.
 %**************************************************************
 \subsection{Overview del sistema}
-Una rappresentazione delle funzionalità che deve implementare il modulo \gls{ITF} può essere ripresa in figura \ref{fig:moduloITF}.\\\\
+Una rappresentazione delle funzionalità che deve implementare il modulo \gls{ITF} può essere ripresa in Figura \ref{fig:moduloITF}.\\\\
 Il prodotto finale prevede l'interazione delle tre tipologie di attori allo scopo di garantire:
 \begin{itemize}
-	\item L'accesso sicuro al \textit{service provider} desiderato;
-	\item L'erogazione dei servizi offerti dal \textit{service provider} in modo controllato.
+	\item l'accesso sicuro al \textit{service provider} desiderato;
+	\item l'erogazione dei servizi offerti dal \textit{service provider} in modo controllato.
 \end{itemize}
 Questo viene garantito dall'\gls{ITF} e dalla tecnologia \textit{Blockchain} che ne è alla base.\\
 Di seguito viene descritto il flusso di chiamate che intercorrono affinchè un utente possa accedere ad uno o più servizi di sua scelta.\\\\
@@ -85,7 +85,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 \begin{itemize}
 	\item \textbf{Descrizione} - L'Identity Wallet genera la chiave pubblica, quella privata ed inserisce le informazioni personali dell'utente. In alternativa può aggiornare gli attributi esistenti aggiungendone di nuovi;
 	\item \textbf{Attori Principali} - Identity Wallet;
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - L'Identity Wallet non possiede un'identità digitale per l'utente;
 	\item \textbf{Post-Condizioni} - L'Identity Wallet ha creato un'identità per l'utente ed è in attesa che questa venga certificata;
 	\item \textbf{Scenario Principale} - 
@@ -110,7 +110,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 \begin{itemize}
 	\item \textbf{Descrizione} - L'Identity Wallet genera la chiave privata e quella pubblica. Quest'ultima viene crittografata tramite \textit{hash} e rappresenta l'identità digitale dell'utente;
 	\item \textbf{Attori Principali} - Identity Wallet;
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - L'Identity Wallet non possiede una coppia di chiavi pubblica-privata;
 	\item \textbf{Post-Condizioni} - L'Identity Wallet è in possesso di una coppia di chiavi (pubblica e privata) e del \textit{hash} di quella pubblica;
 	\item \textbf{Scenario Principale} -
@@ -119,7 +119,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 		\item Generazione della chiave pubblica (UC 1.1.2);
 		\item Generazione del \textit{hash} della chiave pubblica (UC 1.1.3).
 	\end{enumerate}
-	\item \textbf{Estensioni} -
+	\item \textbf{Estensioni} - non previste.
 \end{itemize}
 \newpage
 \subsection{Caso d'uso UC1.2: Inserimento informazioni personali}
@@ -131,7 +131,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 \begin{itemize}
 	\item \textbf{Descrizione} - L'Identity Wallet crea l'identità digitale dell'utente come un insieme di dati personali e attributi a lui associati;
 	\item \textbf{Attori Principali} - Identity Wallet;
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - L'Identity Wallet non possiede le informazioni personali dell'utente ed i suoi attributi;
 	\item \textbf{Post-Condizioni} - L'Identity Wallet possiede tutte le informazioni personali dell'utente ed i suoi attributi;
 	\item \textbf{Scenario Principale} -
@@ -139,7 +139,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 		\item Inserimento dei dati personali utente (UC 1.2.1);
 		\item Inserimento dei degli attributi utente (UC 1.2.2);
 	\end{enumerate}
-	\item \textbf{Estensioni} -
+	\item \textbf{Estensioni} - non previste.
 \end{itemize}
 \newpage
 \subsection{Caso d'uso UC1.2.1: Inserimento dati personali utente}
@@ -151,7 +151,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 \begin{itemize}
 	\item \textbf{Descrizione} - L'Identity Wallet compila i campi dedicati alle informazioni personali dell'identità utente che vuole registrare all'ITF;
 	\item \textbf{Attori Principali} - Identity Wallet;
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - L'Identity Wallet non ha inserito le informazioni personali dell'identità utente che vuole registrare nell'\gls{ITF};
 	\item \textbf{Post-Condizioni} - L'Identity Wallet ha inserito tutte le informazioni personali dell'identità utente che vuole registrare nell'\gls{ITF};
 	\item \textbf{Scenario Principale} -
@@ -162,7 +162,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 		\item Inserimento del sesso dell'utente (UC 1.2.1.4);
 		\item Inserimento del codice fiscale (UC 1.2.1.5).
 	\end{enumerate}
-	\item \textbf{Estensioni} -
+	\item \textbf{Estensioni} - non previste.
 \end{itemize}
 \newpage
 \subsection{Caso d'uso UC1.2.2: Inserimento attributi}
@@ -174,7 +174,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 \begin{itemize}
 	\item \textbf{Descrizione} -L'Identity Wallet compila i campi dedicati agli attributi/certificazioni per creare l'identità digitale dell'utente;
 	\item \textbf{Attori Principali} - Identity Wallet;
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - L'Identity Wallet non possiede le informazioni inerenti agli attributi/certificazioni dell'utente che sta registrando nell'\gls{ITF};
 	\item \textbf{Post-Condizioni} - L'Identity Wallet possiede tutte le informazioni inerenti agli attributi/certificazioni dell'utente che sta registrando nell'\gls{ITF};
 	\item \textbf{Scenario Principale} -
@@ -182,7 +182,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 		\item Inserimento dell'ID che individua l'attributo (UC 1.2.2.1);
 		\item Inserimento del titolo che descrive l'attributo (UC 1.2.2.2).
 	\end{enumerate}
-	\item \textbf{Estensioni} -
+	\item \textbf{Estensioni} - non previste.
 \end{itemize}
 \newpage
 \subsection{Caso d'uso UC1.3: Aggiornamento attributi}
@@ -194,7 +194,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 \begin{itemize}
 	\item \textbf{Descrizione} - L'Identity Wallet aggiorna gli attributi/certificazioni dell'utente, aggiungendone di nuove alla lista di quelle già presente nell'\gls{ITF};
 	\item \textbf{Attori Principali} - Identity Wallet;
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - L'Identity Wallet vuole aggiornare la lista di attributi/certificazioni associati all'utente;
 	\item \textbf{Post-Condizioni} - L'Identity Wallet ha aggiornato la lista di attributi/certificazioni associati all'utente;
 	\item \textbf{Scenario Principale} -
@@ -202,33 +202,33 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 		\item Inserimento dell'ID corrispondente all'attributo (UC 1.3.1);
 		\item Inserimento del titolo descrittivo dell'attributo (UC 1.3.2).
 	\end{enumerate}
-	\item \textbf{Estensioni} -
+	\item \textbf{Estensioni} - non previste.
 \end{itemize}
 \subsection{Caso d'uso UC1.4: Visualizza errore registrazione utente}
 \begin{itemize}
 	\item \textbf{Descrizione} - All'Identity Wallet viene segnalata, tramite un opportuno errore, l'impossibilità di creare e registrare una nuova identità digitale per l'utente. Questo avviene quando si tenta di registrare un'identità che è già presente nel sistema;
 	\item \textbf{Attori Principali} - Identity Wallet;
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - L'Identity Wallet vuole registrare una nuova identità digitale per l'utente;
 	\item \textbf{Post-Condizioni} - L'Identity Wallet non è riuscito a registrare la nuova identità digitale nell'\gls{ITF};
 	\item \textbf{Scenario Principale} -
 	\begin{enumerate}
 		\item All'Identity Wallet viene segnalata, tramite un errore, l'impossibilità di registrare il nuovo utente al sistema (UC 1.4);
 	\end{enumerate}
-	\item \textbf{Estensioni} -
+	\item \textbf{Estensioni} - non previste.
 \end{itemize}
 \subsection{Caso d'uso UC1.5: Visualizza errore aggiornamento attributo}
 \begin{itemize}
 	\item \textbf{Descrizione} - All'Identity Wallet viene segnalata, tramite un opportuno errore, l'impossibilità di aggiornare la lista di attributi/certificazioni dell'utente. Questo avviene quando si tenta di aggiornare un attributo/certificazione che non è presente nell'\gls{ITF};
 	\item \textbf{Attori Principali} - Identity Wallet;
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - L'Identity Wallet vuole aggiornare la lista degli attributi e certificazioni associati all'utente;
 	\item \textbf{Post-Condizioni} - La lista non è stata aggiornata;
 	\item \textbf{Scenario Principale} -
 	\begin{enumerate}
 		\item All'Identity Wallet viene segnalata, tramite un errore, l'impossibilità di aggiornare gli attributi (UC 1.5);
 	\end{enumerate}
-	\item \textbf{Estensioni} -
+	\item \textbf{Estensioni} - non previste.
 \end{itemize}
 \newpage
 \subsection{Caso d'uso UC2: Certificazione}
@@ -241,7 +241,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	\item \textbf{Descrizione} - L'attore vuole certificare tutte le informazioni riguardanti l'identità digitale dell'utente e, una volta certificate, inserirle nell'\gls{ITF}.\\
 	La certificazione avviene grazie alla firma, delle informazioni personali e degli attributi, tramite la chiave privata dell'attore. Una volta firmate, le informazioni vengono inserite in un record, fatto l'\textit{hash} del record e quindi inserito nell'\gls{ITF};	
 	\item \textbf{Attori Principali} - Trusted Third Party;
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - L'attore vuole certificare l'identità e gli attributi di un particolare utente;
 	\item \textbf{Post-Condizioni} - La Trusted Third Party ha certificato correttamente l'identità e gli attributi dell'utente e ha inserito il record nell'\gls{ITF};
 	\item \textbf{Scenario Principale} -
@@ -263,9 +263,9 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 \end{figure}
 \begin{itemize}
 	\item \textbf{Descrizione} - La Trusted Third Party, prima di inserire il record nell'ITF, deve certificare tutte le informazioni personali associate all'utente (dati e attributi/certificazioni).\\
-	Questo viene fatto grazie alla firma, dei dati e degli attributi, tramite chiave privata della Trusted Third Party;
+	Questo viene fatto grazie alla firma dei dati e degli attributi tramite chiave privata della Trusted Third Party;
 	\item \textbf{Attori Principali} - Trusted Third Party;
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - L'attore vuole certificare tutte le informazioni personali dell'utente;
 	\item \textbf{Post-Condizioni} - L'attore ha certificato tutte le informazioni personali dell'utente;
 	\item \textbf{Scenario Principale} -
@@ -282,44 +282,44 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 \subsection{Caso d'uso UC 2.4: Visualizza errore certificazione dell'identità}
 \begin{itemize}
 	\item \textbf{Descrizione} - Alla Trusted Third Party viene segnalata l'impossibilità di certificare uno o più informazioni personali dell'utente (dati personali, attributo o certificazioni).\\
-	Questo avviene quando, la Trusted Third Party, non riesce a trovare corrispondenza tra gli attributi e i dati indicati con l'identità dell'utente;
+	Questo avviene quando la Trusted Third Party non riesce a trovare corrispondenza tra gli attributi e i dati indicati con l'identità dell'utente;
 	\item \textbf{Attori Principali} - Trusted Third Party;
-	\item \textbf{Attori Secondari} - L'attore vuole certificare tutte le informazioni personali dell'utente (dati personali e attributi);
-	\item \textbf{Pre-Condizioni} -
+	\item \textbf{Attori Secondari} - nessuno;
+	\item \textbf{Pre-Condizioni} - L'attore vuole certificare tutte le informazioni personali dell'utente (dati personali e attributi);
 	\item \textbf{Post-Condizioni} - L'attore non è riuscito a certificare gli attributi e/o i dati personali dell'utente;
 	\item \textbf{Scenario Principale} -
 	\begin{enumerate}
-		\item L'attore viene segnalato dell'impossibilità di certificare le informazioni personali dell'utente, tramite un apposito errore (UC 2.4).
+		\item L'attore viene segnalato dell'impossibilità di certificare le informazioni personali dell'utente tramite un apposito errore (UC 2.4).
 	\end{enumerate}
-	\item \textbf{Estensioni} -
+	\item \textbf{Estensioni} - non previste.
 \end{itemize}
 \subsection{Caso d'uso UC 2.1.3: Visualizza errore certificazione informazioni personali}
 \begin{itemize}
 	\item \textbf{Descrizione} - Alla Trusted Third Party viene segnalata l'impossibilità di certificare le informazioni personali dell'utente;
 	\item \textbf{Attori Principali} - Trusted Third Party
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - L'attore vuole certificare le informazioni personali dell'utente;
 	\item \textbf{Post-Condizioni} - L'attore non è riuscito a certificare le informazioni personali dell'utente;
 	\item \textbf{Scenario Principale} -
 	\begin{enumerate}
 		\item L'attore viene segnalato dell'impossibilità di certificare le informazioni personali, tramite un apposito errore (UC 2.1.3).
 	\end{enumerate}
-	\item \textbf{Estensioni} -
+	\item \textbf{Estensioni} - non previste.
 \end{itemize}
 \subsection{Caso d'uso UC 2.1.4: Visualizza errore certificazione attributi}
 \begin{itemize}
 	\item \textbf{Descrizione} - Alla Trusted Third Party viene segnalata l'impossibilità di certificare gli attributi dell'utente;
 	\item \textbf{Attori Principali} - Trusted Third Party;
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - L'attore vuole certificare gli attributi dell'utente;
 	\item \textbf{Post-Condizioni} - L'attore non è riuscito a certificare gli attributi dell'utente;
 	\item \textbf{Scenario Principale} - 
 	\begin{enumerate}
 		\item L'attore viene segnalato dell'impossibilità di certificare gli attributi, tramite un apposito errore (UC 2.1.4).
 	\end{enumerate}
-	\item \textbf{Estensioni} -
+	\item \textbf{Estensioni} - non previste.
 \end{itemize}
-\subsection{Caso d'uso UC3: Verifica dell'identità}
+\subsection{Caso d'uso UC3: Verifica delle informazioni utente}
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.50]{immagini/usecase/UC3_Verifica}
@@ -328,7 +328,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 \begin{itemize}
 	\item \textbf{Descrizione} - Il Service Provider, prima di poter erogare i suoi servizi, deve accertarsi che l'utente sia in possesso delle credenziali e degli attributi necessari. Questo avviene tramite la verifica dell'identità e la verifica degli attributi presenti nell'\gls{ITF};
 	\item \textbf{Attori Principali} -Service Provider;
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - Il Service Provider non ha verificato l'identità e gli attributi dell'utente;
 	\item \textbf{Post-Condizioni} - Il Service Provider ha verificato l'identità dell'utente e può erogare i suoi servizi;
 	\item \textbf{Scenario Principale} -
@@ -351,7 +351,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 \begin{itemize}
 	\item \textbf{Descrizione} -  Il Service Provider, prima di permettere all'utente di usufruire dei suoi servizi, deve accertarsi che l'identità dell'utente sia corretta rispetto a quella presente nell'\gls{ITF};
 	\item \textbf{Attori Principali} - Service Provider;
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - L'attore non sa se può erogare i servizi all'utente;
 	\item \textbf{Post-Condizioni} - Il Service Provider ha verificato l'identità dell'utente e può erogare i suoi servizi;
 	\item \textbf{Scenario Principale} -
@@ -367,17 +367,17 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 \subsection{Caso d'uso UC3.3: Visualizza errore verifica identità}
 \begin{itemize}
 	\item \textbf{Descrizione} - Il Service Provider, prima di poter erogare i suoi servizi, deve verificare che l'identità utente sia certificata e quindi presente nell'\gls{ITF}.\\
-	Se questo non avviene, allora il Service Provider, non deve erogare nessun servizio all'utente che li richiede.\\
+	Se questo non avviene, allora il Service Provider non deve erogare nessun servizio all'utente che li richiede.\\
 	Specificato meglio in caso d'uso UC3.1.3;
 	\item \textbf{Attori Principali} - Service Provider;
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - Il Service Provider è in attesa della verifica delle informazioni utente per erogare i suoi servizi;
 	\item \textbf{Post-Condizioni} - Il Service Provider non è riuscito a verificare l'identità utente;
 	\item \textbf{Scenario Principale} -
 	\begin{enumerate}
 		\item Viene visualizzato un errore di verifica dell'identità (UC 3.3).
 	\end{enumerate}
-	\item \textbf{Estensioni} -
+	\item \textbf{Estensioni} - non previste.
 \end{itemize}
 \subsection{Caso d'uso UC3.1.3: Visualizza errore mismatch hash}
 \begin{itemize}
@@ -385,36 +385,36 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	Gli \textit{hash} da confrontare sono: quello presente nell'\gls{ITF} (certificato) e quello calcolato a partire dalla chiave pubblica che il Service Provider ha ottenuto dall'Identity Wallet.\\
 	Se i due \textit{hash} non sono uguali significa che quello ottenuto dall'Identity Wallet non è corretto. Questo viene segnalato tramite un opportuno messaggio d'errore;
 	\item \textbf{Attori Principali} - Service Provider
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - L'attore è in attesa della verifica delle informazioni utente per erogare i suoi servizi;
 	\item \textbf{Post-Condizioni} - L'attore, non essendo riuscito a verificare l'identità dell'utente, non può erogare i suoi servizi;
 	\item \textbf{Scenario Principale} - 
 	\begin{enumerate}
 		\item Visualizza un opportuno errore di mismatch tra gli \textit{hash} delle chiavi pubbliche (UC 3.1.3).
 	\end{enumerate}
-	\item \textbf{Estensioni} -
+	\item \textbf{Estensioni} - non previste.
 \end{itemize}
 \subsection{Caso d'uso UC3.4: Visualizza errore verifica degli attributi}
 \begin{itemize}
 	\item \textbf{Descrizione} - Il Service Provider deve, per poter erogare i suoi servizi, verificare l'identità e gli attributi dell'utente.\\
 	L'identità viene spiegata in UC3.1, UC3.3 e in UC3.1.3.\\
 	In questo caso, si ha come precondizione che l'identità sia stata verificata.
-	Per poter erogare i servizi, il Service Provider, deve assicurarsi che l'utente sia in possesso degli attributi necessari che ne permettono l'autorizzazione all'utilizzo.\\
+	Per poter erogare i servizi, il Service Provider deve assicurarsi che l'utente sia in possesso degli attributi necessari che ne permettono l'autorizzazione all'utilizzo.\\
 	Questo viene fatto andando a confrontare una lista di attributi, richiesti dal Service Provider, con la lista di attributi associati all'utente presente nell'\gls{ITF}.\\
 	Essendo presente nell'\gls{ITF} vuol dire che la lista è composta solo da attributi certificati da una terza parte fidata.\\
 	Se gli attributi richiesti dal Service Provider non son presenti, del tutto o in parte, nella lista degli attributi certificati dell'utente, il Service Provider non eroga nessun servizio;
 	\item \textbf{Attori Principali} - Service Provider;
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - Il Service Provider ha verificato correttamente l'identità dell'utente ma non sa se è in possesso degli attributi necessari per poter accedere ai suoi servizi;
 	\item \textbf{Post-Condizioni} - Il Service Provider non è riuscito a verificare gli attributi dell'utente quindi non può erogare i suoi servizi in quanto non è autorizzato ad accedervi;
 	\item \textbf{Scenario Principale} -
 	\begin{enumerate}
 		\item Visualizza un opportuno messaggio d'errore per la verifica degli attributi (UC 3.4).
 	\end{enumerate}
-	\item \textbf{Estensioni} -
+	\item \textbf{Estensioni} - non previste.
 \end{itemize}
 \newpage
-\subsection{Caso d'uso UC4: Aggiornamento}
+\subsection{Caso d'uso UC4: Aggiornamento degli attributi}
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.50]{immagini/usecase/UC4_Aggiornamento}
@@ -427,7 +427,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	Quando un Service Provider vuole recuperare le informazioni riguardanti l'utente dovrà prendere il blocco con timestamp più recente. Questo tipo di aggiornamento fa sì che i nuovi blocchi "oscurino" quelli vecchi.\\
 	I vecchi blocchi son comunque recuperabili grazie al riferimento che i nuovi blocchi hanno verso di loro. Questo permette la realizzazione di uno storico delle certificazioni prese da un utente e dello stato di avanzamento del \textit{Trust} che un utente ha nei confronti della rete;
 	\item \textbf{Attori Principali} - Trusted Third Party;
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - La Trusted Third Party vuole o deve, su richiesta dell'utente, aggiornare lo stato di un attributo che ha già certificato;
 	\item \textbf{Post-Condizioni} - La Trusted Third Party è riuscita ad aggiornare lo stato di un attributo già certificato ;
 	\item \textbf{Scenario Principale} -
@@ -447,17 +447,17 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	Questo avviene inserendo l'ID della certificazione che si vuole aggiornare ed aggiornando il titolo e lo stato. In automatico verrà posto un timestamp più recente che andrà ad "oscurare" le certificazioni meno recenti.\\
 	L'errore viene scatenato quando si tenta di aggiornare un attributo che non esiste o non è presente nel sistema (ID errato);
 	\item \textbf{Attori Principali} - Trusted Third Party;
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - La Trusted Third Party vuole o deve, su richiesta dell'utente, aggiornare lo stato di un attributo che ha già certificato;
 	\item \textbf{Post-Condizioni} - La Trusted Third Party non è riuscita ad aggiornare lo stato dell'attributo richiesto;
 	\item \textbf{Scenario Principale} -
 	\begin{enumerate}
 		\item Visualizza errore inserimento ID (UC 4.4).
 	\end{enumerate}
-	\item \textbf{Estensioni} -
+	\item \textbf{Estensioni} - non previste.
 \end{itemize}
 \newpage
-\subsection{Caso d'uso UC5: Revoca}
+\subsection{Caso d'uso UC5: Revoca della certificazione}
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.50]{immagini/usecase/UC5_Revoca}
@@ -469,7 +469,7 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	Anche in questo caso il nuovo blocco inserito andrà ad "oscurare" tutti i blocchi con un timestamp più vecchio e sarà il Service Provider a dover recuperare i blocchi con timestamp più recente.\\
 	Come nell'aggiornamento del UC4, anche qui è possibile ottenere uno storico delle certificazioni così da poter visualizzare il loro stato di avanzamento fino alla loro revoca;
 	\item \textbf{Attori Principali} - Trusted Third Party;
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - La Trusted Third Party deve revocare una particolare certificazione di un utente specifico;
 	\item \textbf{Post-Condizioni} - La Trusted Third Party è riuscita a revocare la certificazione richiesta;
 	\item \textbf{Scenario Principale} -
@@ -489,14 +489,14 @@ Ogni caso d'uso viene descritto dalla seguente struttura:
 	Questo avviene inserendo l'ID della certificazione che si vuole revocare ed inserendo un codice prefissato nello stato. In automatico verrà posto un timestamp più recente che andrà ad "oscurare" le certificazioni meno recenti.\\
 	L'errore viene scatenato quando si tenta di revocare un attributo che non esiste o non è presente nel sistema (ID errato);	
 	\item \textbf{Attori Principali} - Trusted Third Party;
-	\item \textbf{Attori Secondari} -
+	\item \textbf{Attori Secondari} - nessuno;
 	\item \textbf{Pre-Condizioni} - La Trusted Third Party deve revocare una certificazione sepcifica dell'utente;
 	\item \textbf{Post-Condizioni} - La Trusted Third Party non è riuscita a revocare la certificazione dell'utente;
 	\item \textbf{Scenario Principale} -
 	\begin{enumerate}
 		\item Visualizza errore inserimento ID (UC 5.4).
 	\end{enumerate}
-	\item \textbf{Estensioni} -
+	\item \textbf{Estensioni} - non previste.
 \end{itemize}
 \section{Requisiti}
 In questa sezione verranno elencati e descritti tutti i requisiti rilevati durante la fase di analisi dei requisiti. Questi saranno inseriti all'interno di una tabella contenente:
@@ -512,10 +512,10 @@ Ogni requisito viene classificato secondo la seguente convenzione:\\
 \begin{itemize}
 	\item \textbf{Tipologia} - Indica la tipologia del requisito indicata con una lettera tra:
 	\begin{itemize}
-		\item \textbf{F}: \textit{Funzionale} ovvero le funzionalità che il sistema offre;
-		\item \textbf{P}: \textit{Prestazionale} ovvero i vincoli sulle prestazioni che il sistema deve soddisfare;
-		\item \textbf{Q}: \textit{Qualità} ovvero specifica i vincoli di qualità che il sistema deve soddisfare;
-		\item \textbf{V}: \textit{Vincolo} ovvero rappresenta tutti i vincoli non funzionali che dipendono da fattori esterni, legali e di dominio.
+		\item \textbf{F}: \textit{Funzionale}, ovvero le funzionalità che il sistema offre;
+		\item \textbf{P}: \textit{Prestazionale}, ovvero i vincoli sulle prestazioni che il sistema deve soddisfare;
+		\item \textbf{Q}: \textit{Qualità}, ovvero specifica i vincoli di qualità che il sistema deve soddisfare;
+		\item \textbf{V}: \textit{Vincolo}, ovvero rappresenta tutti i vincoli non funzionali che dipendono da fattori esterni, legali e di dominio.
 	\end{itemize}
 	\item \textbf{Importanza} - Indica l'importanza del requisito o la sua utilità strategica. Viene rappresentata da una lettera maiuscola tra:
 	\begin{itemize}
@@ -524,7 +524,7 @@ Ogni requisito viene classificato secondo la seguente convenzione:\\
 		\item \textbf{F}: Rappresenta un requisito \textit{Facoltativo} che, se soddisfatto, renderebbe il sistema ancora più completo a discapito di risorse e aumento dei potenziali costi.
 	\end{itemize}
 	\item \textbf{Padre} - Numero che rappresenta univocamente un requisito;
-	\item \textbf{Livello} - Per ogni "padre" il livello indica il numero del sotto requisito del caso preso in esame.
+	\item \textbf{Livello} - Per ogni "padre", il livello indica il numero del sotto requisito del caso preso in esame.
 \end{itemize}
 \subsection{Requisiti Funzionali}
 \begin{longtable}{|r l|p{10cm}|p{2cm}|}
@@ -584,17 +584,17 @@ Ogni requisito viene classificato secondo la seguente convenzione:\\
 \end{longtable}
 \subsection{Requisiti di Qualità}
 Tramite i requisiti di qualità si vogliono indicare quelle caratteristiche che un \gls{ITF} dovrebbe riuscire a raggiungere in modo da garantire un certo livello di \textit{Trust} del sistema.\\
-Per una migliore spiegazione si rimanda al documento "Blockchain: The Dawn of Decentralized Identity"\cite{ITF_gartner} dalla quale son stati presi tutti i requisiti di qualità che verranno elencati.
+Per una migliore spiegazione si rimanda al documento "Blockchain: The Dawn of Decentralized Identity" \cite{ITF_gartner} dalla quale son stati presi tutti i requisiti di qualità che verranno elencati.
 \begin{longtable}{|r l|p{10cm}|p{2.5cm}|}
 	\hline
 	\multicolumn{2}{|c|}{\textbf{ID Requisito}} & \textbf{Descrizione} & \textbf{Fonti}\tabularnewline
 	\hline
-	&\textbf{RQD1}&Il sistema deve garantire un certo livello di\textit{Trust} (Fiducia)& \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}, Doc.Gartner\cite{ITF_gartner}\\\hline
-	&\textbf{RQD2}&Il sistema deve garantire un certo livello di \textit{Assurance} (Garanzia)& \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}, Doc.Gartner\cite{ITF_gartner}\\\hline
-	&\textbf{RQD3}&Il sistema deve garantire un certo livello di \textit{Provenance} (Provenienza delle informazioni)& \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}, Doc.Gartner\cite{ITF_gartner}\\\hline
-	&\textbf{RQD4}&Il sistema deve garantire un certo livello di \textit{Security} (Sicurezza)& \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}, Doc.Gartner\cite{ITF_gartner}\\\hline
-	&\textbf{RQD5}&Il sistema deve garantire un certo livello di \textit{Scalability} (Scalabilità)& \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}, Doc.Gartner\cite{ITF_gartner}\\\hline
-	&\textbf{RQD6}&Il sistema deve garantire un certo livello di \textit{Efficency} (Efficenza)& \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}, Doc.Gartner\cite{ITF_gartner}\\\hline
+	&\textbf{RQD1}&Il sistema deve garantire un certo livello di\textit{Trust} (Fiducia)& \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}, Doc.Gartner \cite{ITF_gartner}\\\hline
+	&\textbf{RQD2}&Il sistema deve garantire un certo livello di \textit{Assurance} (Garanzia)& \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}, Doc.Gartner \cite{ITF_gartner}\\\hline
+	&\textbf{RQD3}&Il sistema deve garantire un certo livello di \textit{Provenance} (Provenienza delle informazioni)& \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}, Doc.Gartner \cite{ITF_gartner}\\\hline
+	&\textbf{RQD4}&Il sistema deve garantire un certo livello di \textit{Security} (Sicurezza)& \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}, Doc.Gartner \cite{ITF_gartner}\\\hline
+	&\textbf{RQD5}&Il sistema deve garantire un certo livello di \textit{Scalability} (Scalabilità)& \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}, Doc.Gartner \cite{ITF_gartner}\\\hline
+	&\textbf{RQD6}&Il sistema deve garantire un certo livello di \textit{Efficency} (Efficenza)& \hyperref[cap:tecnologie_e_strumenti]{Capitolo 2}, Doc.Gartner \cite{ITF_gartner}\\\hline
 	\caption{Tabella requisiti di qualità}
 \end{longtable}
 \subsection{Requisiti di Vincolo}

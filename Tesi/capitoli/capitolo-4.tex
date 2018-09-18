@@ -8,15 +8,10 @@
 %**************************************************************
 In questo capitolo viene esposta una panoramica dell'architettura adottata per la realizzazione del modulo \gls{ITF} comprensiva di analisi sulla scelta architetturale. Segue, poi, la trattazione della progettazione del modulo vero e proprio.\\
 \section{Descrizione Architetturale}
-Durante lo sviluppo del modulo \gls{ITF} mi è stata data piena libertà nella scelta dello stile architetturale da adottare. Per questo motivo, dopo un breve periodo di analisi e studio dei vari stili possibili, la scelta è ricaduta su un'architettura \textit{Layered 3-tier}.\\
-Di seguito verrà presentata una panoramica generale di come funziona lo stile architetturale scelto insieme all'analisi dei suoi punti di forza e debolezza. Per quanto riguarda questi ultimi vengono anche discusse possibili soluzioni.\\
+Durante lo sviluppo del modulo \gls{ITF} mi è stata data piena libertà nella scelta dello stile architetturale da adottare.Dopo un breve periodo di analisi e studio dei vari stili possibili, la scelta è ricaduta su un'architettura \textit{Layered 3-tier}.\\
+Di seguito verrà presentata una panoramica generale di come funziona lo stile architetturale scelto insieme all'analisi dei suoi punti di forza e debolezza \cite{3tierArch,3tierArch2}. Per quanto riguarda questi ultimi vengono anche discusse possibili soluzioni.\\
 \subsection{Stile architetturale}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=1]{immagini/layered_architecture}
-	\caption{Schema architettura Layered 3-tier}
-\end{figure}
-L'architettura \textit{Layered 3-tier} è una architettura software molto semplice in cui le varie funzionalità sono separate logicamente ovvero suddivise su livelli logici differenti in comunicazione tra di loro.\\
+L'architettura \textit{Layered 3-tier} (rappresentata in Figura \ref{img:layeredArch}) è una architettura software molto semplice in cui le varie funzionalità sono separate logicamente ovvero suddivise su livelli logici differenti in comunicazione tra di loro.\\
 I componenti all'interno di un'architettura di questo tipo sono organizzati in livelli orizzontali, ognuno dei quali si occupa di uno specifico ruolo all'interno del sistema completo.\\
 Il pattern di questa tipologia di architettura non specifica il numero di livelli ma, nella versione più comune, il numero di livelli è tre suddiviso in: \textit{Presentation Layer}, \textit{Business Logic Layer} e \textit{Data Access Layer} il quale, poi, si occuperà di accedere ai dati all'interno del \textit{Data Source}.\\
 Ogni livello, come abbiamo già visto, si occupa di uno specifico ruolo all'interno del sistema completo:
@@ -25,73 +20,80 @@ Ogni livello, come abbiamo già visto, si occupa di uno specifico ruolo all'inte
 	\item \textbf{Business Logic Layer} - include l'insieme delle regole di business che regolano il funzionamento dell'applicazione, intercetta le richieste provenienti dallo strato di presentazione e le gestisce opportunamente;
 	\item \textbf{Data Access Layer} - conosce le modalità per leggere e salvare le informazioni interne al sistema nell'ambito di una sorgente dati (non necessariamente un database centralizzato).
 \end{itemize}
-\subsection{Analisi e rating dell'architettura scelta}
-La seguente tabella contiene una valutazione delle principali caratteristiche dell'architettura scelta.\\
-Andremo ora a spiegarle e ad analizzarle.
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=1]{immagini/layered_architecture_analysis}
-	\caption{Analisi dell'architettura Layered 3-tier}
+	\includegraphics[scale=0.7]{immagini/layered_architecture}
+	\caption{Schema architettura Layered 3-tier}
+	\label{img:layeredArch}
 \end{figure}
+\subsection{Analisi e rating dell'architettura scelta}
+La Figura \ref{img:analisiArchitettura} contiene una valutazione delle principali caratteristiche dell'architettura scelta.\\
+Andremo ora a spiegarle e ad analizzarle.
 \begin{itemize}
 	\item \textbf{Overall agility}:
 	\begin{itemize}
 		\item \textbf{Rating}: Basso;
-		\item \textbf{Analisi}: è la capacità del sistema di reagire velocemente ad un ambiente in costante cambiamento. Nonostante le modifiche siano isolate attraverso i livelli è comunque difficile apportare dei cambiamenti a causa della sua struttura monolitica della maggior parte delle implementazioni che lo adottano e dello stretto accoppiamento che si ha tra i livelli\cite{3tierArch}\cite{3tierArch2}.
+		\item \textbf{Analisi}: è la capacità del sistema di reagire velocemente ad un ambiente in costante cambiamento. Nonostante le modifiche siano isolate attraverso i livelli è comunque difficile apportare dei cambiamenti a causa della sua struttura monolitica della maggior parte delle implementazioni che lo adottano e dello stretto accoppiamento che si ha tra i livelli \cite{3tierArch,3tierArch2}.
 		\item \textbf{Valutazione}: nonostante la non semplice gestione dei cambiamenti questo non è un problema per lo sviluppo del modulo \gls{ITF} in quanto, essendo il sistema sviluppato interamente appoggiandosi ad \textit{Ethereum}, le modifiche sono difficili di per sé a causa dell'immutabilità garantita ai contratti una volta che questi sono rilasciati nella rete.\\
 		Per andare a modificare un contratto, l'unico modo è riscriverlo con tutte le modifiche necessarie e sostituire gli indirizzi nei contratti che lo utilizzano.\\
 		Potrebbe risultare un procedimento complesso ma così non è se si adottano strategie che prevedono questo scenario (metodi di \textit{setting} degli indirizzi bloccati ai soli proprietari dei contratti).\\
 	\end{itemize}
-	Per questa motivazione nonostante il rating basso di questa caratteristica, il sistema non ne viene influenzato in modo negativo.
+	Per questa motivazione, nonostante il rating basso di questa caratteristica, il sistema non ne viene influenzato in modo negativo.
 	\item \textbf{Ease of deployment}:
 	\begin{itemize}
 		\item \textbf{Rating}: Basso;
-		\item \textbf{Analisi}: un piccolo cambiamento ad una componente può richiedere la ri-implementazione dell'intera applicazione o di una grossa porzione di essa, facendo sì che sia necessaria la pianificazione e l'implementazione durante ore non lavorative\cite{3tierArch}\cite{3tierArch2}.
+		\item \textbf{Analisi}: un piccolo cambiamento ad una componente può richiedere la ri-implementazione dell'intera applicazione o di una grossa porzione di essa, facendo sì che sia necessaria la pianificazione e l'implementazione durante ore non lavorative \cite{3tierArch,3tierArch2}.
 		\item \textbf{Valutazione}: come per l'\textit{Overall agility} questa caratteristica non è un problema per l'implementazione del modulo se viene pensato per essere esteso in quanto, come detto nel punto precedente, essendo tutto appoggiato sopra la rete \textit{Ethereum} l'implementazione di nuovi contratti o la loro modifica necessità la creazione del contratto e la sostituzione degli indirizzi all'interno dei contratti che lo utilizzano.
 	\end{itemize}
 	\item \textbf{Testability}:
 	\begin{itemize}
 		\item \textbf{Rating}: Alto;
-		\item \textbf{Analisi}: siccome i componenti sono suddivisi in livelli separati è possibile creare dei mockup o degli \emph{\gls{stub}}\glsfirstoccur per i livelli che dipendono direttamente da quello che si sta sviluppando. Questo fa sì che la testabilità del sistema sia molto facile\cite{3tierArch}\cite{3tierArch2}.\\
-		\item \textbf{Valutazione}: essendo, la maggior parte del modulo, appoggiato ad \textit{Ethereum} ed essendo i contratti immutabili, una volta rilasciati nella rete, si ha la necessità di operare un gran numero di test prima del rilascio in modo da evitare di dover creare un nuovo contratto che va a sostituire quello contenente errori.\\
+		\item \textbf{Analisi}: siccome i componenti sono suddivisi in livelli separati è possibile creare dei mockup o degli \emph{\gls{stub}}\glsfirstoccur per i livelli che dipendono direttamente da quello che si sta sviluppando. Questo fa sì che la testabilità del sistema sia molto facile\cite{3tierArch,3tierArch2}.\\
+		\item \textbf{Valutazione}: essendo la maggior parte del modulo appoggiato ad \textit{Ethereum} ed essendo i contratti immutabili, una volta rilasciati nella rete, si ha la necessità di operare un gran numero di test prima del rilascio, in modo da evitare di dover creare un nuovo contratto che va a sostituire quello contenente errori.\\
 		Per questo motivo questa caratteristica è di fondamentale importanza per il modulo \gls{ITF}.		
 	\end{itemize}
 	Questa caratteristica è fondamentale per l'\gls{ITF} \textit{Ethereum} e il suo rating alto è stato uno dei motivi di scelta dell'intera architettura.
 	\item \textbf{Performance}:
 	\begin{itemize}
 		\item \textbf{Rating}: Basso
-		\item \textbf{Analisi}: il pattern architetturale non si presta bene nell'avere alte performance questo è dato dal fatto che ogni volta che si vuole interagire con un livello bisogna necessariamente passare attraverso multipli livelli per andare a soddisfare la richiesta\cite{3tierArch}\cite{3tierArch2}.
+		\item \textbf{Analisi}: il pattern architetturale non si presta bene nell'avere alte performance questo è dato dal fatto che ogni volta che si vuole interagire con un livello bisogna necessariamente passare attraverso multipli livelli per andare a soddisfare la richiesta\cite{3tierArch, 3tierArch2}.
 		\item \textbf{Valutazione}: il fatto di dover passare attraverso molti livelli senza dare la possibilità di "scavalcarne" alcuni per determinate richieste è un concetto chiave dell'architettura detto T\textit{he layers of Isolation}. Questo fa sì che ogni cambiamento ad un livello non abbia effetto su altri componenti di altri livelli: il cambiamento è isolato ai componenti interni al livello.\\
 		Se si permettesse ad alcuni componenti di "scavalcare" i livelli direttamente sottostanti, i cambiamenti a questo livello influenzerebbero pesantemente tutti gli altri andando a creare un forte accoppiamento tra le parti.\\
-		La considerazione da fare è che, il sistema che vogliamo realizzare, è semplice e non prevede una profondità dei livelli così alta da andare a inficiare pesantemente sulle prestazioni del modulo in più c'è da dire che la \textit{Blockchain Ethereum} è il vero freno sulle prestazioni del sistema in quanto, una transazione, potrebbe richiedere anche svariati minuti.
+		La considerazione da fare è che, il sistema che vogliamo realizzare, è semplice e non prevede una profondità dei livelli così alta da andare a inficiare pesantemente sulle prestazioni del modulo in più c'è da dire che la \textit{Blockchain Ethereum} è il vero freno sulle prestazioni del sistema in quanto una transazione potrebbe richiedere anche svariati minuti.
 	\end{itemize}
 	\item \textbf{Scalability}:
 	\begin{itemize}
 		\item \textbf{Rating}: Basso
-		\item \textbf{Analisi}: la Scalabilità (capacità di un sistema di reagire a richieste di lavoro più pesanti) è un problema per i sistemi sviluppati tramite l'utilizzo di questa architettura. In un'architettura di questo tipo la scalabilità può essere ottenuta andando a dividere i vari livelli in implementazioni fisicamente separate o andando a replicare l'interna applicazione in nodi multipli\cite{3tierArch}\cite{3tierArch2}.
+		\item \textbf{Analisi}: la Scalabilità (capacità di un sistema di reagire a richieste di lavoro più pesanti) è un problema per i sistemi sviluppati tramite l'utilizzo di questa architettura. In un'architettura di questo tipo la scalabilità può essere ottenuta andando a dividere i vari livelli in implementazioni fisicamente separate o andando a replicare l'interna applicazione in nodi multipli\cite{3tierArch, 3tierArch2}.
 		\item \textbf{Valutazione}: questa caratteristica potrebbe essere l'unica in grado di andare ad intaccare il modulo \gls{ITF} se non pensato correttamente.\\
-		Secondo me, il problema principale all'interno della rete \textit{Ethereum} alla quale ci andiamo ad appoggiare, è principalmente dovuto alla scrittura dei dati e quindi durante la fase di registrazione di un nuovo utente o l'aggiornamento dei certificati conseguiti.\\
-		Queste essendo operazioni che avvengono con bassa frequenza (un utente si registra una sola volta in quanto l'identità digitale è unica ma condivisa per ogni servizio e l'inserimento di nuove certificazioni non è un'operazione che viene fatta di frequente) potrebbero non avere effetti negativi nel sistema in quanto, quello che viene fatto principalmente, sono letture di dati da parte dei vari Service Providers prima di permettere il rilascio di un servizio.
+		Il problema principale all'interno della rete \textit{Ethereum} alla quale ci andiamo ad appoggiare è principalmente dovuto alla scrittura dei dati e quindi durante la fase di registrazione di un nuovo utente o l'aggiornamento dei certificati conseguiti.\\
+		Queste essendo operazioni che avvengono con bassa frequenza (un utente si registra una sola volta in quanto l'identità digitale è unica ma condivisa per ogni servizio e l'inserimento di nuove certificazioni non è un'operazione che viene fatta di frequente) potrebbero non avere effetti negativi nel sistema, in quanto quello che viene fatto principalmente sono letture di dati da parte dei vari Service Providers prima di permettere il rilascio di un servizio.
 	\end{itemize}
 	\item \textbf{Ease of development}:
 	\begin{itemize}
 		\item \textbf{Rating}: Alto
 		\item \textbf{Analisi}: l'Ease of development (facilità di sviluppo) raggiunge livelli molto alti soprattutto data dal fatto che è un'architettura molto semplice e conosciuta.\\
-		Siccome molte compagnie ed aziende sviluppano applicazioni e sistemi andando a separare i livelli per competenze, questo pattern diventa una delle scelte migliori\cite{3tierArch}\cite{3tierArch2}.
+		Siccome molte compagnie ed aziende sviluppano applicazioni e sistemi andando a separare i livelli per competenze, questo pattern diventa una delle scelte migliori\cite{3tierArch, 3tierArch2}.
 		\item \textbf{Valutazione}: la facilità di sviluppo di un sistema basato su questa architettura è, sicuramente, una caratteristica importante.\\
 		Questo viene dal fatto che, grazie ad un'architettura del genere, è possibile andare a mettere le mani nel codice in tempi molto più brevi rispetto a quelli richiesti se venisse adotta un'altra tipologia di architettura.\\
 		In più, il fatto di poter dividere i vari livelli per competenze permette lo sviluppo separato e parallelo di componenti diverse senza la necessità che il sistema segua un filo logico inizio – fine.\\
 		Quest'ultimo accorgimento è di fondamentale importanza in quanto è stato necessario suddividere la parte fornt-end dal back-end e lo sviluppo è avvenuto in parallelo.
 	\end{itemize}
 \end{itemize}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=1]{immagini/layered_architecture_analysis}
+	\caption{Analisi dell'architettura Layered 3-tier \cite{slidesCardin}}
+	\label{img:analisiArchitettura}
+\end{figure}
 \section{Approccio alla progettazione}
 Per la progettazione del modulo si è deciso di utilizzare un approccio \emph{\gls{topDown}}\glsfirstoccur. Essa consiste nel descrivere il sistema partendo da una visione generale ad alto livello per poi scendere nel particolare delle parti individuate.\\
 Nella visione ad alto livello è possibile notare che il sistema è composto da diversi packages che interagiscono tra di loro. Entrando nel dettaglio si vanno ad individuare tutte le componenti più piccole e semplici tramite la strategia \textit{divide-et-impera}. L'approccio \gls{topDown} parte dall'obiettivo e da esso valorizza il "perché" e fa dipendere il "come", permettendo di suddividere il lavoro rendendolo più comprensibile e, quindi, di più facile manutenibilità.
 \section{Architettura generale}
 Il modulo \gls{ITF} è formato da due parti distinte:
 \begin{itemize}
-	\item \textbf{Front-end}:l'applicativo tramite la quale gli utenti e gli attori esterni possono interagire con l'intero sistema;
-	\item \textbf{Back-end}: tutte le componenti che contengono la \textit{Business Logic}, gestiscono la persistenza dei dati interni alla \textit{Blockchain Ethereum} e le componenti necessarie a far sì che il \textit{front-end} riesca ad interagire con la \textit{Business Logic}.
+	\item \textbf{Front-end}: l'applicativo tramite la quale gli utenti e gli attori esterni possono interagire con l'intero sistema;
+	\item \textbf{Back-end}: tutte le componenti che contengono la \textit{Business Logic} gestiscono la persistenza dei dati interni alla \textit{Blockchain Ethereum} e le componenti necessarie a far sì che il \textit{front-end} riesca ad interagire con la \textit{Business Logic}.
 \end{itemize}
 Il lato \textit{back-end} prevede l'utilizzo della \textit{Blockchain Ethereum} per la gestione e la certificazione delle informazioni personali dell'utente insieme alla verifica delle informazioni da parte di un Service Provider che ha ricevuto una richiesta di accesso da parte di un utente.\\
 Tutte queste operazioni vengono gestite tramite \textit{smart contracts Solidity} in modo da permettere l'interazione con l'\gls{evm}.\\
@@ -125,7 +127,7 @@ Separando la parte logica (metodi) dalla componente dati (con metodi fittizi) e 
 		\item Service Provider Handler.
 	\end{itemize}	
 \end{itemize}
-Come si può vedere dallo schema in figura \ref{fig:visioneAltoLivello} le varie componenti presentano dei colori diversi. Questo è stato fatto per rendere più chiara la suddivisione dei package in base al \textit{design pattern} ad essi associati.\\
+Come si può vedere dallo schema in Figura \ref{fig:visioneAltoLivello} le varie componenti presentano dei colori diversi. Questo è stato fatto per rendere più chiara la suddivisione dei package in base al \textit{design pattern} ad essi associati.\\
 \begin{itemize}
 	\item \textbf{Design pattern Observer} - formano questo design pattern: il package Identity Wallet Handler, la classe Trusted Third Party e le interfacce Subject e Observer (colore: azzurro);
 	\item \textbf{Design pattern Façade} - formano questo design pattern i due package Service Provider Handler e Identity Wallet Handler (colore: arancione);
@@ -142,7 +144,7 @@ Alcuni package non rispettano i colori sopracitati in quanto realizzano più di 
 	\item \textbf{Descrizione}
 	Package che modella l'interazione tra l'Identity Wallet ed il sistema esterno. Si occupa principalmente di tutte le attività che l'utente può fare all'interno della \textit{Blockchain Ethereum}.\\
 	Contiene, al suo interno, tutte le classi necessarie affinché si riesca a mantenere separati le informazioni dai metodi.\\
-	Il nome del package tra parentesi (only Identity Wallet Handler) è un modo per indicare la possibilità, che da \textit{Solidity}, di far eseguire le operazioni contenute in Data\_Identity\_Wallet solo dal Wallet stesso e non da altri contratti esterni.
+	Il nome del package tra parentesi (only Identity Wallet Handler) è un modo per indicare la possibilità che dà \textit{Solidity} di far eseguire le operazioni contenute in Data\_Identity\_Wallet solo dal Wallet stesso e non da altri contratti esterni.
 	\item \textbf{Interazione con altre componenti}
 	\begin{itemize}
 		\item Trusted Third Party;
@@ -161,15 +163,15 @@ Alcuni package non rispettano i colori sopracitati in quanto realizzano più di 
 \begin{itemize}
 	\item \textbf{Descrizione}
 	Componente che racchiude tutta l'essenza del package Identity Wallet Handler.
-	Questa classe contiene metodi, informazioni riguardanti l'identità dell'utente e informazioni necessarie per l'interazione con il sistema.\\
+	Questa classe contiene metodi informazioni riguardanti l'identità dell'utente e informazioni necessarie per l'interazione con il sistema.\\
 	Per realizzare il modulo in \textit{Ethereum} è consigliato separare la \textit{business logic} e la persistenza dei dati. Questa componente mantiene principalmente tutti i dati necessari e delega, tramite \textit{strategy} pattern, la realizzazione dei metodi ad altre componenti.\\
-	Il codice, se presenta dei bug o comportamenti anomali, non è possibile correggerlo. L'unico modo per risolvere è andare a rimpiazzare il vecchio contratto con uno nuovo e cambiare gli indirizzi dei client che utilizzavano il modulo precedente.\\
+	Il codice, se presenta bug o comportamenti anomali, è di difficile correzione. L'unico modo per risolvere il problema è andare a rimpiazzare il vecchio contratto con uno nuovo e cambiare gli indirizzi dei client che utilizzavano il modulo precedente.\\
 	Se la classe contenesse sia dati che metodi allora bisognerebbe rimpiazzare tutto il blocco perdendo così i dati degli utenti registrati.\\
 	Separando la componente logica dai dati e collegando il tutto tramite pattern \textit{strategy} è possibile, in caso di errore, creare un nuovo Identity\_Wallet\_Method e, senza alcuna perdita di dati utente, ripristinare il normale funzionamento del modulo.	
 	\item \textbf{Interazione con altre componenti}
 	\begin{itemize}
 		\item\textbf{ Identity\_Wallet\_Interface}: Questo contratto contiene la firma dei metodi che, le classi concrete che realizzano l'interfaccia, devono implementare per andare a soddisfare le richieste che vengono fatte dall'Identity Wallet tramite Data\_Identity\_Wallet.
-		\item\textbf{ Identity\_Wallet\_Method}:Contratto che realizza le specifiche dell'interfaccia Identity\_Wallet\_Interface tramite l'implementazione concreta di tutti i metodi dichiarati.
+		\item\textbf{ Identity\_Wallet\_Method}: Contratto che realizza le specifiche dell'interfaccia Identity\_Wallet\_Interface tramite l'implementazione concreta di tutti i metodi dichiarati.
 	\end{itemize}
 	\item \textbf{Design pattern presenti}\\
 	Partecipa alla realizzazione del pattern \textit{strategy} interno al package Identity Wallet Handler e realizza, insieme alla classe Trusted Third Party, il design pattern \textit{Observer} necessario per la certificazione delle informazioni personali.
@@ -186,7 +188,7 @@ Alcuni package non rispettano i colori sopracitati in quanto realizzano più di 
 	Al suo interno contiene tutte le informazioni e i metodi necessari per far comunicare tra di loro l'Identity Wallet Handler, Trusted Third Party e Service Provider Handler.\\
 	Come gli altri package, anche questo presenta il consueto \textit{strategy} pattern per separare la business logic e la persistenza dei dati.\\
 	Un altro design pattern che questa componente realizza è il \textit{singleton} in quanto è utilizzata da tutte le altre componenti per recuperare le informazioni delle identità utente che essa contiene.\\
-	Alcuni metodi di questo package sono segnati come onlyWallet ovvero con il permesso reso disponibile da \textit{Solidity} che fa sì che sia possibile specificare quale componente può invocare i metodi, rigettando le chiamate da tutti gli altri contratti non specificati.
+	Alcuni metodi di questo package sono segnati come onlyWallet, ovvero con il permesso reso disponibile da \textit{Solidity} che fa sì che sia possibile specificare quale componente può invocare i metodi, rigettando le chiamate da tutti gli altri contratti non specificati.
 	\item \textbf{Interazione con altre componenti}
 	\begin{itemize}
 		\item Identity Wallet Handler;
@@ -262,8 +264,8 @@ Alcuni package non rispettano i colori sopracitati in quanto realizzano più di 
 \begin{itemize}
 	\item \textbf{Descrizione}
 	Questa componente fa da tramite tra il Service Provider Handler e Trusted Third Party Handler.
-	Ogni qual volta un Service Provider desidera recuperare le informazioni di un utente e vuole verificare che, contenute nel suo oggetto Identity, siano certificate recupera, tramite TTP Key List, la chiave pubblica dell'ente certificatore che ha certificato le informazioni dell'utente e, tramite un confronto con la firma posta nelle informazioni personali dell'utente (firma = hash(dati utente + chiave privata \gls{TTP})), controlla che le informazioni siano effettivamente state firmate dall'ente che è stato segnato come certificatore per quelle informazioni.\\
-	Quindi, questa componente, è di fondamentale importanza per permettere il sistema di verifica e certificazione che il modulo \gls{ITF} deve implementare.\\
+	Ogni qual volta un Service Provider desidera recuperare le informazioni di un utente e vuole verificare che contenute nel suo oggetto Identity siano certificate, recupera tramite TTP Key List, la chiave pubblica dell'ente certificatore che ha certificato le informazioni dell'utente e, tramite un confronto con la firma posta nelle informazioni personali dell'utente (firma = hash(dati utente + chiave privata \gls{TTP})), controlla che le informazioni siano effettivamente state firmate dall'ente che è stato segnato come certificatore per quelle informazioni.\\
+	Quindi, questa componente è di fondamentale importanza per permettere il sistema di verifica e certificazione che il modulo \gls{ITF} deve implementare.\\
 	Anche questa componente, come tutte le altre, viene implementata tramite uno \textit{strategy} pattern in modo da mantenere separata la logica e i dati che rappresentano l'associazione \gls{TTP} - chiave pubblica.\\
 	Oltre a questo
 	\item \textbf{Interazione con altre componenti}
@@ -337,8 +339,8 @@ Alcuni package non rispettano i colori sopracitati in quanto realizzano più di 
 \end{figure}
 \begin{itemize}
 	\item \textbf{Descrizione}
-	Questo package è modella tutte le interazioni che avvengono tra il mondo esterno e la \textit{Blockchain Ethereum} che modella il sistema \gls{ITF}. In particolare modella tutte le operazioni che un Service Provider deve effettuare prima di erogare i suoi servizi ad un particolare utente.\\
-	Per questo motivo, oltre che il consueto \textit{strategy} pattern questo package implementa anche il design pattern \textit{façade} per permettere l'interazione tra il presentation layer lato Serivce Provider e il sistema interno alla \textit{Blockchain Ethereum}.\\
+	Questo package modella tutte le interazioni che avvengono tra il mondo esterno e la \textit{Blockchain Ethereum} che modella il sistema \gls{ITF}. In particolare modella tutte le operazioni che un Service Provider deve effettuare prima di erogare i suoi servizi ad un particolare utente.\\
+	Per questo motivo, oltre che il consueto \textit{strategy} pattern, questo package implementa anche il design pattern \textit{façade} per permettere l'interazione tra il presentation layer lato Service Provider e il sistema interno alla \textit{Blockchain Ethereum}.\\
 	L'operazione principale che viene effettuata da questi componenti è la verifica delle informazioni personali di un utente (\gls{PII}) per accertarsi che siano certificate (firmate da un ente certificatore fidato).
 	\item \textbf{Interazione con altre componenti}
 	\begin{itemize}
@@ -362,8 +364,8 @@ Alcuni package non rispettano i colori sopracitati in quanto realizzano più di 
 	terzo in modo da prevenire errori o comportamenti anomali del codice.
 	\item \textbf{Interazione con altre componenti}
 	\begin{itemize}
-		\item Service\_Provider\_Interface:Interfaccia che espone tutti i metodi necessari a Data\_Service\_Provider per poter implementare le funzionalità di verifica richieste dal Service Provider prima di erogare i servizi ad un utente.
-		\item Service\_Provider\_Method:Classe concreta che implementa tutti i metodi esposti da Data\_Service\_Interface e che sono necessari a Data\_Service\_Provider per poter implementare la business logic del package Service Provider Handler.
+		\item Service\_Provider\_Interface: interfaccia che espone tutti i metodi necessari a Data\_Service\_Provider per poter implementare le funzionalità di verifica richieste dal Service Provider prima di erogare i servizi ad un utente.
+		\item Service\_Provider\_Method: classe concreta che implementa tutti i metodi esposti da Data\_Service\_Interface e che sono necessari a Data\_Service\_Provider per poter implementare la business logic del package Service Provider Handler.
 	\end{itemize}
 	\item \textbf{Design Pattern presenti}\\
 	Componente necessaria per implementare il design pattern \textit{strategy}.
@@ -387,7 +389,7 @@ In questa sezione vengono descritti i design pattern utilizzati per la realizzaz
 	Per questo motivo si è deciso di strutturare tutto il sistema in package che, al loro interno, dividessero i dati dall'implementazione dei metodi.\\
 	Questo viene fatto perché se un metodo contiene errori o comportamenti anomali, sarebbe necessario sostituire tutto il contratto, perdendo anche tutti i dati utente fino ad ora accumulati.\\
 	Tramite pattern Strategy e alle funzionalità di \textit{Solidity} è possibile separare queste due componenti e, tramite indirizzi, far sì che sia una componente terza a implementare concretamente i metodi.
-	In caso di errori o comportamenti anomali è sufficiente creare un nuovo contratto da aggiungere alle componenti che ereditano dall'interfaccia che realizza lo Strategy e far sì che sia questa nuova componente ad eseguire i metodi che vengono chiamati	
+	In caso di errori o comportamenti anomali, è sufficiente creare un nuovo contratto da aggiungere alle componenti che ereditano dall'interfaccia che realizza lo Strategy e far sì che sia questa nuova componente ad eseguire i metodi che vengono chiamati.
 \end{itemize}
 \subsection{Observer}
 \begin{itemize}

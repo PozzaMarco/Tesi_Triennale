@@ -60,7 +60,7 @@ Gli \textit{Hash pointer} sono particolari strutture dati che contengono:
 \end{itemize}
 Questo fa sì che sia possibile, oltre che recuperare le informazioni, verificare, tramite l'\textit{hash}, che le informazioni recuperate siano corrette e non manomesse.\\
 Grazie a questa tipologia di struttura dati, la \textit{Blockchain} realizza un'altra struttura di fondamentale importanza per il funzionamento del sistema: il \textit{Markle Tree}.\\
-Questa tipologia di struttura non è altro che un albero binario che, tramite l'ausilio degli \textit{hash pointer}, mantiene al suo interno i dati e le transazioni di ogni blocco che fa parte della \textit{Blockchain} (vedi Figura 2.1).\\
+Questa tipologia di struttura non è altro che un albero binario che, tramite l'ausilio degli \textit{hash pointer}, mantiene al suo interno i dati e le transazioni di ogni blocco che fa parte della \textit{Blockchain} (vedi Figura \ref{img:markeTree}).\\
 I dati, contenuti nelle foglie dell'albero, vengono crittografati tramite \textit{hash} e posti su un nodo padre di livello superiore. Qui i nodi padre vengono raggruppati a coppie viene calcolato il loro \textit{hash} e vengono posti a loro volta in un livello superiore. 
 Continuando a raggruppare i nodi padre e facendo l'\textit{hash} si arriva fino alla radice dell'albero che va a formare il \textit{Markle tree root.}
 Se qualcuno prova a manomettere uno qualsiasi dei blocchi di dati sottostanti farà sì che l'\textit{hash pointer} ai livelli più alti non corrisponda più a quello calcolato.
@@ -68,6 +68,7 @@ Se qualcuno prova a manomettere uno qualsiasi dei blocchi di dati sottostanti fa
 	\centering
 	\includegraphics[scale=0.50]{immagini/markle_tree}
 	\caption{Rappresentazione di un Markle Tree}
+	\label{img:markeTree}
 \end{figure} 
 \subsubsection{Protocollo di consenso distribuito}
 Uno dei punti di forza della \textit{Blockchain} è la decentralizzazione del sistema che crea. Per questo motivo è di fondamentale importanza avere un \textit{protocollo di consenso distribuito} che fa sì che ogni nodo partecipante nella rete sia d'accordo su cosa deve essere scritto nella \textit{Blockchain}.
@@ -89,11 +90,12 @@ Per l'implementazione di un \gls{ITF} sono necessarie sei caratteristiche.
 Sia le \textit{permissioned Blockchain} che quelle \textit{permissionless} implementano queste caratteristiche ma con leggere differenze che possono determinare la scelta verso una o l'altra tecnologia.
 
 \subsection{Permissionless vs Permissioned}
-In Figura 2.2 viene riportata un'immagine che racchiude le sei caratteristiche necessarie per poter creare un \gls{ITF} sicuro ed efficiente insieme ad una valutazione, data da \emph{\gls{gartner}}\glsfirstoccur, che mostra come le varie tipologie di \textit{Blockchain} implementano tale caratteristica.
+In Figura \ref{img:permisionedVSpermissionless} viene riportata un'immagine che racchiude le sei caratteristiche necessarie per poter creare un \gls{ITF} sicuro ed efficiente insieme ad una valutazione, data da \emph{\gls{gartner}}\glsfirstoccur, che mostra come le varie tipologie di \textit{Blockchain} implementano tale caratteristica.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.50]{immagini/blockchain_ability_to_implement_ITF}
 	\caption{Schema comparativo Permissionless vs Permissioned}
+	\label{img:permisionedVSpermissionless}
 \end{figure} 
 \\
 Come si può vedere dallo schema la tecnologia migliore da adottare per implementare l'\gls{ITF} è una \textit{permissioned Blockchain}.
@@ -133,31 +135,26 @@ Passiamo ora a descrivere tutte le tecnologie e gli strumenti che sono stati uti
 
 \subsection{Strumenti per la gestione ed il versioning}
 \subsubsection{Node.js}
-Node.js (logo in Figura 2.3) è un runtime Javascript costruito sul JavaScript Engine \cite{nodeGuida}, che è il runtime di Google utilizzato anche da Chrome e disponibile sulle varie piattaforme.
+Node.js (logo in Figura \ref{img:nodejs}) è un runtime Javascript costruito sul JavaScript Engine \cite{nodeGuida}, che è il runtime di Google utilizzato anche da Chrome e disponibile sulle varie piattaforme.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.05]{immagini/nodejs}
 	\caption{Logo di Node.js}
+	\label{img:nodejs}
 \end{figure}
 \\
 La caratteristica principale di Node.js risiede nella possibilità che offre di accedere alle risorse del sistema operativo in modalità \emph{\gls{event-driven}}\glsfirstoccur\cite{nodeEvent} e non sfruttando il modello basato su processi o \textit{thread} concorrenti, utilizzato dai classici Web Server. L'ecosistema dei pacchetti di Node.js, \textbf{npm}, è il più grande ecosistema di librerie \gls{event-driven} al mondo.
 \subsubsection{Git}
-\gls{git} è un software di controllo di versione distribuito, creato nel 2005 da Linus Torvalds \cite{gitSite}. Viene utilizzato da Athesys S.r.l per il controllo di versione dei progetti (vedi Figura 2.4).
+\gls{git} è un software di controllo di versione distribuito, creato nel 2005 da Linus Torvalds \cite{gitSite}. Viene utilizzato da Athesys S.r.l per il controllo di versione dei progetti (vedi Figura \ref{img:git}).
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.05]{immagini/git}
 	\caption{Logo Git}
+	\label{img:git}
 \end{figure}
 
 È usabile principalmente da interfaccia a linea di comando, ed oggi è in assoluto uno dei software per il controllo di versione più utilizzati.\\
 Come tutti i software per il controllo di versione, si basa sul concetto di \emph{\gls{repository}}\glsfirstoccur\cite{gitSite}, ovvero un ambiente in cui vengono immagazzinati i \emph{\gls{metadati}}\glsfirstoccur\cite{gitGuida} che possono essere recuperati e aggiornati da chi può averne accesso.
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.5]{immagini/gitCommands}
-	\caption{Comandi di Git \cite{gitGuida}}
-\end{figure}
-\\
-I file in \gls{git} possono trovarsi in tre stati differenti rappresentati dalla Figura 2.5:
 \begin{enumerate}
 	\item \textbf{Committed} - significa che il file è al sicuro nel database locale;
 	\item \textbf{Modified} - significa che il file è stato modificato, ma non è ancora stato "committato" nel database quindi non è ancora salvato;
@@ -167,11 +164,12 @@ Quanto detto porta alle quattro sezioni principali di un progetto \gls{git}: la 
 
 \subsection{Strumenti per la modellazione concettuale}
 \subsubsection{Astah Professional}
-Per la progettazione è stato necessario modellare i casi d'uso tramite \emph{\gls{uml}}\glsfirstoccur e la scelta del software da utilizzare è ricaduta su Astah Professional (vedi Figura 2.6), disponibile in versione gratuita grazie alla licenza accademica.
+Per la progettazione è stato necessario modellare i casi d'uso tramite \emph{\gls{uml}}\glsfirstoccur e la scelta del software da utilizzare è ricaduta su Astah Professional (vedi Figura \ref{img:astah}), disponibile in versione gratuita grazie alla licenza accademica.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=1]{immagini/astah}
 	\caption{Logo Astah Professional}
+	\label{img:astah}
 \end{figure}
 \\
 Astah Professional supporta sia i costrutti di \gls{uml} 1 che di \gls{uml} 2 e permette di modellare casi d’uso, i diagrammi delle classi, degli oggetti, delle attività e di sequenza; inoltre, produce diagrammi che risultano adatti ad essere inseriti in relazioni formali.
@@ -180,22 +178,18 @@ Astah Professional supporta sia i costrutti di \gls{uml} 1 che di \gls{uml} 2 e 
 Durante tutta la durata dello stage si è fatto uso del sistema operativo \textbf{Windows 10} per pura preferenza personale in quanto, se ve ne fosse stata la necessità o la preferenza, sarebbe stato possibile lavorare in ambiente Linux.
 \subsubsection{IDE}
 Per quanto riguarda l'ambiente di sviluppo, la norma aziendale prevede che ogni persona venga lasciata libera di adottare ciò che ritiene più adatto nello svolgimento del proprio lavoro.\\
-La mia scelta è ricaduta sull'editor \textit{Visual Studio Code} (si può vedere la sua classica interfaccia in Figura 2.7) poiché è un software \gls{opensource} costantemente aggiornato e stabile. Inoltre il grande numero di estensioni disponibili è un punto di forza dell'editor, in quanto permettono di aggiungere funzionalità che lo rendono uno strumento comodo e veloce da utilizzare.
+La mia scelta è ricaduta sull'editor \textit{Visual Studio Code} (si può vedere la sua classica interfaccia in Figura \ref{img:visualstudiocode}) poiché è un software \gls{opensource} costantemente aggiornato e stabile. Inoltre il grande numero di estensioni disponibili è un punto di forza dell'editor, in quanto permettono di aggiungere funzionalità che lo rendono uno strumento comodo e veloce da utilizzare.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.5]{immagini/vsc_interface}
 	\caption{Interfaccia Visual Studio Code}
+	\label{img:visualstudiocode}
 \end{figure}
 \\
 Oltre a questo, \textit{Visual Studio Code}, ha un integrazione diretta con \gls{git}. Questo fa sì che ci sia una finestra dedicata per il controllo delle differenze tra i file modificate che permette di fare il \textit{commit} delle modifiche online sia su server \gls{git} privati che su \gls{repository} presenti su GitHub \cite{gitGuida, gitSite}.
 \subsection{Framework di sviluppo e testing}
 \subsubsection{Truffle Suite}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.3]{immagini/truffle}
-	\caption{Logo Truffle suite}
-\end{figure}
-Truffle (logo in Figura 2.8) è un \emph{\gls{framework}}\glsfirstoccur  di test \textit{Ethereum} nato allo scopo di supportare lo sviluppo di \emph{\gls{dapp}}\glsfirstoccur  Ethereum molto supportato ed utilizzato dalla community.
+Truffle (logo in Figura \ref{img:truffle}) è un \emph{\gls{framework}}\glsfirstoccur  di test \textit{Ethereum} nato allo scopo di supportare lo sviluppo di \emph{\gls{dapp}}\glsfirstoccur  Ethereum molto supportato ed utilizzato dalla community.
 Può essere utilizzato per creare, testare e rilasciare \gls{dapp} all'interno della rete \textit{Ethereum} o nelle reti di testing \cite{truffle}.
 Le sue principali caratteristiche sono:
 \begin{itemize}
@@ -206,9 +200,14 @@ Le sue principali caratteristiche sono:
 	\item Permette l'esecuzione di script JavaScript utilizzati principalmente per il testing;
 \end{itemize}
 La caratteristica più importante è il fatto che permette di creare ambienti di test in modo molto rapido e semplice il che è una caratteristica fondamentale quando si vuole progettare una \gls{dapp} in quanto, una volta rilasciata nella rete \textit{Blockchain}, non è più possibile modificare o aggiornare quanto fatto se non rilasciando una nuova \gls{dapp} che va a "sostituire" quella mal funzionante \cite{truffle}.
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.3]{immagini/truffle}
+	\caption{Logo Truffle suite}
+	\label{img:truffle}
+\end{figure}
 \subsubsection{Ganache}
-
-È una \textit{Blockchain Ethereum} installata direttamente in locale utilizzata per la fase di test e debug delle \gls{dapp} prima di rilasciarle nella rete \textit{Ethereum principale}(vedi Figura 2.9).
+È una \textit{Blockchain Ethereum} installata direttamente in locale utilizzata per la fase di test e debug delle \gls{dapp} prima di rilasciarle nella rete \textit{Ethereum principale}(vedi Figura \ref{img:ganache}).
 Le caratteristiche di questo tool sono \cite{ganache}:
 \begin{itemize}
 	\item Permette la creazione di una versione personale della \textit{Blockchain Ethereum} con tutte le sue caratteristiche e configurazioni;
@@ -217,20 +216,16 @@ Le caratteristiche di questo tool sono \cite{ganache}:
 	\item Dà la possibilità di configurare tutte le impostazioni del \emph{\gls{mining}}\glsfirstoccur dei blocchi a seconda delle esigenze;
 	\item Viene distribuito con un \textit{Block Explorer} che permette di esaminare tutti i blocchi e le transazioni in modo da avere una visione interna di quello che succede nella rete.
 \end{itemize}
+Questo strumento è stato molto utile per le fasi di testing e di debugging del modulo \gls{ITF} in quanto, essendo una delle prime \gls{dapp} che stavo per realizzare, avere chiaro come funzionasse una \textit{Blockchain} e come venissero modificate le informazioni al suo interno era di fondamentale importanza. Questo strumento ha permesso, in modo molto semplice grazie alla sua interfaccia grafica, di ottenere tutte le informazioni necessarie.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.5]{immagini/ganache}
 	\caption{Logo Ganache}
+	\label{img:ganache}
 \end{figure}
-Questo strumento è stato molto utile per le fasi di testing e di debugging del modulo \gls{ITF} in quanto, essendo una delle prime \gls{dapp} che stavo per realizzare, avere chiaro come funzionasse una \textit{Blockchain} e come venissero modificate le informazioni al suo interno era di fondamentale importanza. Questo strumento ha permesso, in modo molto semplice grazie alla sua interfaccia grafica, di ottenere tutte le informazioni necessarie semplicemente con uno sguardo.
 \subsection{Linguaggi di programmazione}
 \subsubsection{Solidity}
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.25]{immagini/solidity}
-	\caption{Logo Solidity}
-\end{figure}
-È un linguaggio di programmazione ad alto livello \emph{\gls{contract_oriented}}\glsfirstoccur  utilizzato per implementare gli \textit{smart contracts} nelle reti \textit{Blockchain} basate su \textit{Ethereum} (vedi Figura 2.10).
+È un linguaggio di programmazione ad alto livello \emph{\gls{contract_oriented}}\glsfirstoccur  utilizzato per implementare gli \textit{smart contracts} nelle reti \textit{Blockchain} basate su \textit{Ethereum} (vedi Figura \ref{img:solidity}).
 Questo linguaggio è "statically typed", supporta l'ereditarietà, l'implementazione di librerie, la creazione di tipi definiti dall'utente ed è stato creato per interagire direttamente con l'\emph{\gls{evm}}\glsfirstoccur. 
 Ha una sintassi simile a \textit{JavaScript} con forti richiami a \textit{C++} e \textit{Python}\cite{solidity}.
 Le sue caratteristiche principali sono \cite{solidity}:
@@ -242,6 +237,12 @@ Le sue caratteristiche principali sono \cite{solidity}:
 	\item è possibile integrare Solidity in ambienti di sviluppo come IntelliJ IDEA, Microsoft Visual Studio e Microsfot Visual Studio Code;
 	\item permette di interagire con \gls{evm}.
 \end{itemize}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.25]{immagini/solidity}
+	\caption{Logo Solidity}
+	\label{img:solidity}
+\end{figure}
 Questo linguaggio di programmazione è stato l'unico utilizzato per tutto il periodo di stage in quanto il lavoro che mi era stato affidato era quello di creare tutta la logica dell'\gls{ITF} e dell'interazione tra "mondo esterno" e \textit{Blockchain}.\\
-Nonostante la possibilità fornita dalla tecnologia \textit{Ethereum} di scrivere test in JavaScript è stato utilizzato anche per la codifica di questi.\\\\
-La versione utilizzata era quella disponibile ovvero la versione \textit{0.4.24}.
+Il linguaggio è stato utilizzato anche per la codifica dei relativi test.\\
+La versione utilizzata era l'ultima disponibile ovvero la versione \textit{0.4.24}.

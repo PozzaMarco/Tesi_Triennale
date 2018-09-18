@@ -24,18 +24,19 @@ I settori in cui l'azienda si muove sono diversi:
 		\item miglioramento delle performance delle procedure per la decisione delle strategie aziendali.
 	\end{itemize} 
 \end{itemize}
-Athesys S.r.l. (il cui logo è rappresentato in Figura 1.1) lavora presso importanti realtà aziendali, operanti nel settore bancario, pubblico e automotive.\\
+Athesys S.r.l. (il cui logo è rappresentato in Figura \ref{img:logoAthesys}) lavora presso importanti realtà aziendali, operanti nel settore bancario, pubblico e automotive.\\
 La sua missione è quella di garantire al proprio cliente un lavoro ad alto valore professionale con un costante e affidabile supporto; ed è per questo che l'azienda ha rinnovato il proprio certificato ISO9001 dimostrando un controllo maggiore sui propri processi interni.\\
 
 \begin{figure}[!h]
 	\centering
 	\includegraphics{immagini/logo_athesys}
 	\caption{Logo Athesys S.r.l}
+	\label{img:logoAthesys}
 \end{figure}
 
 \subsection{Metodologia di lavoro}
 
-Il team aziendale viene gestito secondo la metodologia \emph{\gls{Scrum}}\glsfirstoccur, framework \emph{\gls{agile}}\glsfirstoccur di sviluppo del software, introdotto nel 1995 da Ken Schwaber e Jeff Sutherland \cite{manifestoAgile}. Tale modello, riportato in Figura 1.2, si basa sulla teoria del controllo empirico del processo la quale afferma che la conoscenza deriva da decisioni di esperienza e che la preparazione si basa su ciò che è già noto. \textit{Scrum}, dunque, prevede un approccio iterativo e incrementale per cercare di ottimizzare la prevedibilità e il controllo dei rischi. Sono tre i principi che sostengono la teoria del controllo empirico del processo:
+Il team aziendale viene gestito secondo la metodologia \emph{\gls{Scrum}}\glsfirstoccur, framework \emph{\gls{agile}}\glsfirstoccur di sviluppo del software, introdotto nel 1995 da Ken Schwaber e Jeff Sutherland \cite{manifestoAgile}. Tale modello, riportato in Figura \ref{img:scrum}, si basa sulla teoria del controllo empirico del processo la quale afferma che la conoscenza deriva da decisioni di esperienza e che la preparazione si basa su ciò che è già noto. \textit{Scrum}, dunque, prevede un approccio iterativo e incrementale per cercare di ottimizzare la prevedibilità e il controllo dei rischi. Sono tre i principi che sostengono la teoria del controllo empirico del processo:
 \begin{enumerate}
 	\item \textbf{Trasparenza} - i responsabili devono avere una visione degli aspetti più significativi del processo per poter monitorare il risultato del lavoro che sia conforme alle attese;
 	\item \textbf{Ispezione} - il lavoro di uno \textit{sprint} (progetto con la durata massima di 4 settimane nelle quali deve essere portato a termine e che, alla sua conclusione, porterà ad un incremento del prodotto) deve poter essere ispezionato per rilevare variazioni indesiderate rispetto all'obiettivo;
@@ -49,6 +50,7 @@ Athesys adotta \textit{sprint} di durata quindicinale, preceduti da riunioni per
 	\centering
 	\includegraphics[scale=0.35]{immagini/scrum}
 	\caption{Schema Scrum}
+	\label{img:scrum}
 \end{figure}
 %**************************************************************
 \section{Il progetto proposto}
@@ -78,7 +80,7 @@ Questi passaggi sono la base di tre modelli di autenticazione:
 
 \subsubsection{Modello Centralizzato}
 
-In un modello centralizzato, le organizzazioni stabiliscono una relazione di fiducia \textit{punti a punto} con ogni utente che interagisce con il sistema (vedi Figura 1.3).
+In un modello centralizzato, le organizzazioni stabiliscono una relazione di fiducia \textit{punti a punto} con ogni utente che interagisce con il sistema (vedi Figura \ref{img:centralizzato}).
 Le organizzazioni devono, quindi, mantenere la fiducia verso i loro utenti andando a gestire le varie identità digitali. Questo fa sì che le organizzazioni investano sulla protezione delle identità e delle informazioni sensibili. Questo si ripercuote, inevitabilmente, su un aumento dei costi operativi.\\
 Dal lato utente questi non hanno alcun controllo sulla gestione delle proprie identità e attributi.\\
 Ogni organizzazione deve verificare l'identità di ogni utente prima di permettere la registrazione e l'accesso ai suoi servizi. Questo può ripetersi molte volte per singolo utente a seconda dell'organizzazione cui l'utente richiede un servizio e a seconda del tipo di servizio che è richiesto. 
@@ -87,10 +89,11 @@ Questo modello ha fatto sì che nascesse una proliferazione di identità digital
 	\centering
 	\includegraphics[scale=0.5]{immagini/ITF_Centralizzato}
 	\caption{Modello Centralizzato}
+	\label{img:centralizzato}
 \end{figure}
 \subsubsection{Modello Decentralizzato}
 
-In un modello decentralizzato abbiamo un'entità terza che attesta e certifica la validità di un'identità auto-generata (vedi Figura 1.4).
+In un modello decentralizzato abbiamo un'entità terza che attesta e certifica la validità di un'identità auto-generata (vedi Figura \ref{img:decentralizzato}).
 Questo tipo di modello non elimina il processo di identity proofing ma lo trasforma in un processo generalizzato che può essere utilizzato tra organizzazioni diverse.
 Una volta che un'identità decentralizzata è stata legalmente provata, può essere utilizzata da service providers multipli per garantire l'accesso ai loro servizi.
 Per far funzionare questo modello abbiamo bisogno di una "struttura" che immagazzini immutabilmente le informazioni e i certificati crittografati.  Per fare questo, la \textit{Blockchain} è la tecnologia adatta.
@@ -101,15 +104,17 @@ Tuttavia, la gestione completa delle informazioni personali, da parte dei singol
 	\centering
 	\includegraphics[scale=0.50]{immagini/ITF_Decentralizzato}
 	\caption{Modello Decentralizzato}
+	\label{img:decentralizzato}
 \end{figure}
 \subsubsection{Modello basato sugli Identity Custodians}
-Gli \textit{Identity Custodians} nascono con l'obiettivo di semplificare la gestione e accrescere la disponibilità e protezione delle identità decentralizzate mantenendo, al loro interno, tutti gli attributi di identità necessari (vedi Figura1.5).
+Gli \textit{Identity Custodians} nascono con l'obiettivo di semplificare la gestione e accrescere la disponibilità e protezione delle identità decentralizzate mantenendo, al loro interno, tutti gli attributi di identità necessari (vedi Figura \ref{img:identityCustodians}).
 Sorgono spontanee alcune preoccupazioni in quanto, un \textit{Identity Custodian}, rimane suscettibile ad attacchi esterni in quanto mantiene informazioni sensibili e di valore nonostante siano criptate. Questo è il motivo alla base della creazione di consorzi che adempiono al compito di \textit{Identity Custodians} sfruttando la \textit{BlockChian} come tecnologia di decentralizzazione delle informazioni.\\
 Utilizzando gli \textit{Identity Custodians} all'interno di un modello a consorzi si aumenta la privacy e la sicurezza delle informazioni. I dati utente ed i riferimenti ai loro hash nell'\gls{ITF} sono criptati e immagazzinati all'interno dell'ambiente decentralizzato. Questo permette all'\gls{identityWallet} di condividere solamente il riferimento alla locazione nell' \textit{Identity Custodian} facendo sì che i \textit{service provider} possano recuperare le informazioni e verificare l'identità utente prima dell'accesso\cite{ITF_gartner}.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.50]{immagini/ITF_IdentityCustodians}
 	\caption{Modello basato sugli Identity Custodians}
+	\label{img:identityCustodians}
 \end{figure}
 
 \subsection{Il progetto da realizzare}
@@ -121,7 +126,7 @@ Nell'ottica di estendere le funzionalità di \emph{\gls{monokee}}\glsfirstoccur,
 	\label{fig:moduloITF}
 \end{figure}
 \\
-La Figura 1.6 rappresenta un tipico scenario di accesso ai servizi di un \textit{service provider} da parte di un utente che possiede un proprio \gls{identityWallet}.
+La Figura \ref{fig:moduloITF} rappresenta un tipico scenario di accesso ai servizi di un \textit{service provider} da parte di un utente che possiede un proprio \gls{identityWallet}.
 Il modulo realizzato rappresenta il layer di sicurezza che si interpone tra l'utente e i servizi offerti dal \textit{service provider}.
 Le funzionalità principali realizzate durante lo stage, come si può vedere dalla figura, son essenzialmente cinque:
 \begin{enumerate}
@@ -152,7 +157,7 @@ L'importanza di un obiettivo viene assegnata come segue:
 	\item \textbf{Desiderabile} - rappresenta un requisito il cui non soddisfacimento non pregiudica le funzionalità base ma, la sua realizzazione, da un valore aggiunto importante al fine di realizzare un sistema più completo;
 	\item \textbf{Facoltativo} - rappresenta un requisito che, se soddisfatto, renderebbe il sistema ancora più completo a discapito di un uso di risorse.
 \end{itemize}
-La Tabella 1.1 specifica meglio gli obiettivi di stage concordati nel piano di lavoro.
+La Tabella \ref{tab:obiettiviDiStage} specifica meglio gli obiettivi di stage concordati nel piano di lavoro.
 \begin{longtable}{|r l|p{3cm}|p{10cm}|}
 	\hline
 	\multicolumn{2}{|c|}{\textbf{ID}} & \textbf{IMPORTANZA} & \textbf{DESCRIZIONE}\tabularnewline
@@ -180,6 +185,7 @@ La Tabella 1.1 specifica meglio gli obiettivi di stage concordati nel piano di l
 	& F1 & Facoltativo & Stesura del documento relativo ai test di unità ed integrazione \\\hline	
 	& F2 & Facoltativo & Stesura del documento relativo alla validazione del modulo (anomalie e bug) \\\hline
 	\caption{Tabella degli obiettivi di stage}
+	\label{tab:obiettiviDiStage}
 \end{longtable}
 \subsection{Pianificazione del lavoro}
 \label{sec:pianificazione_del_lavoro}
@@ -222,7 +228,7 @@ Al termine di questo periodo di stage il prodotto si trova in una fase di \emph{
 \end{itemize}
 
 \subsubsection{Riepilogo delle attività previste}
-In Tabella 1.2 si ha un riepilogo delle attività di stage previste.
+In Tabella \ref{tab:riepilogoOre} si ha un riepilogo delle attività di stage previste.
 \begin{longtable}{|r l|p{1cm}|p{3cm}|}
 	\hline
 	\multicolumn{2}{|c|}{\textbf{ATTIVITÀ}} & \textbf{ORE} & \textbf{PERIODO}\tabularnewline
@@ -234,6 +240,7 @@ In Tabella 1.2 si ha un riepilogo delle attività di stage previste.
 	& Fase 5 & \centerline{120} & 05/07 - 25/07 \\\hline
 	& Fase 6 & \centerline{20} & 26/07 - 30/07 \\\hline	
 	\caption{Riepilogo delle attività di stage previste}
+	\label{tab:riepilogoOre}
 \end{longtable}
 
 \section{Analisi preventiva dei rischi}
@@ -249,13 +256,13 @@ Si è quindi proceduto a elaborare delle possibili soluzioni per far fronte a ta
 
 \begin{risk}{Nuovo linguaggio: Solidity}
 	\riskdescription{Avendo a che fare con una tecnologia diversa dal solito, anche il linguaggio di programmazione che ne permette l'utilizzo è diverso. Il rischio è che le conoscenze acquisite in termini di \textit{Design Patterns} o scelte architetturali potrebbero non essere più valide nel nuovo contesto}
-	\risksolution{Bisogna adattare le conoscenze pregresse alla nuova tecnologia in modo da risolvere le problematiche riscontrate.}
+	\risksolution{Bisogna adattare le conoscenze pregresse alla nuova tecnologia in modo da risolvere le problematiche riscontrate}
 	\label{risk:different-way-of-thinking}
 \end{risk}
 
 \begin{risk}{Nuovi strumenti per la gestione della tecnologia}
 	\riskdescription{Anche gli strumenti a supporto della tecnologia \textit{Blockchain} possono dare problemi in quanto, molti di questi, sono ancora in versioni \textit{beta} o rilasciati in versioni stabili da poco. In più, essendo una tecnologia relativamente nuova, si può incorrere nel rischio di trovare anomalie e bug non ancora risolti}
-	\risksolution{La soluzione è lo studio approfondito della tematica e del dominio applicativo insieme ad un approfondimento di cosa questi strumenti permettono di fare e di come raggiungono il loro scopo.}
+	\risksolution{La soluzione è lo studio approfondito della tematica e del dominio applicativo insieme ad un approfondimento di cosa questi strumenti permettono di fare e di come raggiungono il loro scopo}
 	\label{risk:new-tools}
 \end{risk}
 %**************************************************************
